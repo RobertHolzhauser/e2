@@ -35,6 +35,7 @@ Base class of pieces is Piece. it will have properties of:  Player,
 
 ## Outside resources
 [PHP Manual Object Oriented Reference](https://www.php.net/manual/en/language.oop5.basic.php)
+
 [PHP Manual entry on arrays](https://www.php.net/manual/en/language.types.array.php)
 
 ## Notes for instructor
