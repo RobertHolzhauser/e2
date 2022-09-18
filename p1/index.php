@@ -7,17 +7,11 @@
 </head>
 
 <body>
-    <h1>Project 1</h1>
+    <h1>Simple Chess</h1>
 
-    <img src='hes-logo.png'>
+    <table id='chessboard-table'>
 
-    <div style="background-color:crimson; color: white; text-align: center; font-size:x-large">
-        <strong>Project 1</strong>
-    </div>
-
-    <?php
-		echo "Hello Project 1!";
-	?>
+    </table>
 </body>
 
 </html>
