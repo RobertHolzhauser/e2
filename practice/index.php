@@ -18,6 +18,8 @@
     <?php
 		echo "Hello PHP!";
 	?>
+    <p></p>
 </body>
 
 </html>
+<?php require 'bank.php'; ?>
