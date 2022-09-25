@@ -13,7 +13,12 @@ It will play until the last man standing.  First player to run out of pieces los
   Board display in the view will iterate through the nested board array to display what pieces are where.
      This will be firstly a table in HTML, with some CSS styling to make it look reasonably like a game board.
 
-+ Player class will track the player name, and array of pieces.  
+  The board array consists of position_square objects.    A position_square is an object representing a position on the game board.
+  # TODO is this needed?  can I just use an array?
+
++ Player class will track the player name, and array of pieces, and color.  Color defines "home" side of the board.
++  For color "white", home side of board is rows 0 & 1.  For color "black" home side of board is rows 6 & 7.
++  Color also defines the color of pieces on the board.   
 + When an individual piece "loses" it will be removed from that players pieces array.
 
 + Game class will also contain history array, which will be an array of gameboard after every turn.
@@ -36,7 +41,13 @@ Base class of pieces is Piece. it will have properties of:  Player,
 ## Outside resources
 [PHP Manual Object Oriented Reference](https://www.php.net/manual/en/language.oop5.basic.php)
 
+[PHP Manual entry on object constructors](https://www.php.net/manual/en/language.oop5.decon.php)
+
 [PHP Manual entry on arrays](https://www.php.net/manual/en/language.types.array.php)
+
+[PHP Manual entry on typed properties](https://www.php.net/manual/en/language.oop5.properties.php)
+
+[PHP Manual entry on class and method visibility](https://www.php.net/manual/en/language.oop5.visibility.php)
 
 ## Notes for instructor
 *any notes for me to refer to while grading; if none, omit this section*
