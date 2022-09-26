@@ -1,32 +1,36 @@
-<?php 
+<?php
 
-class Piece {
+class Piece
+{
     public int $row_position;
     public int $col_position;
-    public string $class;
-    public string $in_play = "In Play"; 
+    public string $in_play = "In Play";
 
-    public function __construct(int $row, int $col, string $my_class) {
-        $row_position = $row;
-        $col_position = $col;
-        $class = $my_class;
-    } 
+    #note:  we know which player owns this piece because it occurs in that players pieces array
 
-    public function set_position(int $row, int $col) {
+    public function set_position(int $row, int $col)
+    {
         $row_position = $row;
         $col_position = $col;
     }
 
-    public function get_position() {
-        return 
+    public function __construct(int $row, int $col)
+    {
+        this->set_position($row, $col);
     }
 
-    public function set_out_of_pay() {
-        $in_play = "Out of Play"; 
+    public function get_position()
+    {
+        return "row = " + this->row_position + " col = " + this->col_position;
     }
 
-    public function get_status() {
-        return this->in_play;   
+    public function set_out_of_pay()
+    {
+        $in_play = "Out of Play";
     }
 
+    public function get_status()
+    {
+        return this->in_play;
+    }
 }

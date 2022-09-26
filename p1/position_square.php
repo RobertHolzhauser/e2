@@ -4,7 +4,6 @@
  */
 class Position_Square {
     public Position $position;
-    public string $player;
     public Piece $curr_piece;
 
     public function __construct(int $row, int $col) {
@@ -12,11 +11,12 @@ class Position_Square {
         $this->position.setCol($col);
     }    
     
-    public function set_piece (string $player, Piece $piece) {
+    public function set_piece (Piece $piece) {
         $this->curr_piece = $piece;
     }
 
     public function get_occupant () {
-        return "Player " + $player + "'s " + $curr_piece;   
+        return  $curr_piece.;   
     }
+    
 }
