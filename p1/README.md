@@ -49,5 +49,7 @@ Base class of pieces is Piece. it will have properties of:  Player,
 
 [PHP Manual entry on class and method visibility](https://www.php.net/manual/en/language.oop5.visibility.php)
 
+[PHP Manual entry on random number generation](https://www.php.net/manual/en/function.rand)
+
 ## Notes for instructor
 *any notes for me to refer to while grading; if none, omit this section*

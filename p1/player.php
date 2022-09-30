@@ -15,5 +15,8 @@ class Player {
         $this->color = $color;
     }
 
-    
+    public function scan_is_occupied(int $target_col, int $target_row) 
+    {
+              
+    }
 } 
