@@ -4,15 +4,16 @@ tr {
 
 table {
     width: 80%;
-    background-color: cyan;
+    background-color: #606060FF;
     border-style: inset;
-    color: crimson;
+    color: #D6ED17FF;
 }
 
 td {
     margin: 1px;
     border-style: inset;
     width: 50px;
+    text-align: center;
 }
 
 h1 {

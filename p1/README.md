@@ -50,5 +50,9 @@ Base class of pieces is Piece. it will have properties of:  Player,
 
 [W3Schools example of multiple dimensional arrays](https://www.w3schools.com/php/phptryit.asp?filename=tryphp_array_multi2)
 
+[W3Schools reference on PHP Arithmetic Operators](https://www.w3schools.com/php/php_operators.asp)
+
+[Design Wizard Eye Catching Color Combinations for 2021](https://designwizard.com/blog/design-trends/colour-combination/)
+
 ## Notes for instructor
 *any notes for me to refer to while grading; if none, omit this section*
