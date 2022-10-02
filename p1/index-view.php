@@ -16,57 +16,57 @@
             <td id="row0_col0">
                 <?php echo $board[0][0] ?>
             </td>
-            <td id="row0_col1"><?php echo $board[0][0] ?>
+            <td id="row0_col1"><?php echo $board[0][1] ?>
             </td>
-            <td id="row0_col2"><?php echo $board[0][0] ?>
+            <td id="row0_col2"><?php echo $board[0][2] ?>
             </td>
-            <td id="row0_col3"><?php echo $board[0][0] ?>
+            <td id="row0_col3"><?php echo $board[0][3] ?>
             </td>
-            <td id="row0_col4"><?php echo $board[0][0] ?>
+            <td id="row0_col4"><?php echo $board[0][4] ?>
             </td>
-            <td id="row0_col5"><?php echo $board[0][0] ?>
+            <td id="row0_col5"><?php echo $board[0][5] ?>
             </td>
-            <td id="row0_col6"><?php echo $board[0][0] ?>
+            <td id="row0_col6"><?php echo $board[0][6] ?>
             </td>
-            <td id="row0_col7"><?php echo $board[0][0] ?>
+            <td id="row0_col7"><?php echo $board[0][7] ?>
             </td>
 
         </tr>
         <tr id="row1">
-            <td id="row1_col0"><?php echo $board[0][0] ?>
+            <td id="row1_col0"><?php echo $board[1][0] ?>
             </td>
-            <td id="row1_col1"><?php echo $board[0][0] ?>
+            <td id="row1_col1"><?php echo $board[1][1] ?>
             </td>
-            <td id="row1_col2"><?php echo $board[0][0] ?>
+            <td id="row1_col2"><?php echo $board[1][2] ?>
             </td>
-            <td id="row1_col3"><?php echo $board[0][0] ?>
+            <td id="row1_col3"><?php echo $board[1][3] ?>
             </td>
-            <td id="row1col4"><?php echo $board[0][0] ?>
+            <td id="row1col4"><?php echo $board[1][4] ?>
             </td>
-            <td id="row1_col5"><?php echo $board[0][0] ?>
+            <td id="row1_col5"><?php echo $board[1][5] ?>
             </td>
-            <td id="row1_col6"><?php echo $board[0][0] ?>
+            <td id="row1_col6"><?php echo $board[1][6] ?>
             </td>
-            <td id="row1_col7"><?php echo $board[0][0] ?>
+            <td id="row1_col7"><?php echo $board[1][7] ?>
             </td>
 
         </tr>
         <tr id="row2">
-            <td id="row2_col0"><?php echo $board[0][0] ?>
+            <td id="row2_col0"><?php echo $board[2][0] ?>
             </td>
-            <td id="row2_col1"><?php echo $board[0][0] ?>
+            <td id="row2_col1"><?php echo $board[2][1] ?>
             </td>
-            <td id="row2_col2"><?php echo $board[0][0] ?>
+            <td id="row2_col2"><?php echo $board[2][2] ?>
             </td>
-            <td id="row2_col3"><?php echo $board[0][0] ?>
+            <td id="row2_col3"><?php echo $board[2][3] ?>
             </td>
-            <td id="row2_col4"><?php echo $board[0][0] ?>
+            <td id="row2_col4"><?php echo $board[2][4] ?>
             </td>
-            <td id="row2_col5"><?php echo $board[0][0] ?>
+            <td id="row2_col5"><?php echo $board[2][5] ?>
             </td>
-            <td id="row2col6"><?php echo $board[0][0] ?>
+            <td id="row2col6"><?php echo $board[2][6] ?>
             </td>
-            <td id="row2_col7"><?php echo $board[0][0] ?>
+            <td id="row2_col7"><?php echo $board[2][7] ?>
             </td>
 
         </tr>
