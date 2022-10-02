@@ -1,0 +1,21 @@
+tr {
+    height: 75px;
+}
+
+table {
+    width: 80%;
+    background-color: cyan;
+    border-style: inset;
+    color: crimson;
+}
+
+td {
+    margin: 1px;
+    border-style: inset;
+    width: 50px;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 1px;
+}

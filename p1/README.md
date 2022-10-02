@@ -35,9 +35,6 @@ Base class of pieces is Piece. it will have properties of:  Player,
 
 
 
-
-
-
 ## Outside resources
 [PHP Manual Object Oriented Reference](https://www.php.net/manual/en/language.oop5.basic.php)
 
@@ -50,6 +47,8 @@ Base class of pieces is Piece. it will have properties of:  Player,
 [PHP Manual entry on class and method visibility](https://www.php.net/manual/en/language.oop5.visibility.php)
 
 [PHP Manual entry on random number generation](https://www.php.net/manual/en/function.rand)
+
+[W3Schools example of multiple dimensional arrays](https://www.w3schools.com/php/phptryit.asp?filename=tryphp_array_multi2)
 
 ## Notes for instructor
 *any notes for me to refer to while grading; if none, omit this section*
