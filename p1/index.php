@@ -1,5 +1,5 @@
 <?php
-
+echo "Start of Game";
 $history = [];  # for the history of the game play, represented by an array of what the board looked like after every turn
 $board = array(
     array("A_Rook1", "A_Knight1", "A_Bishop1", "A_King", "A_Queen", "A_Bishop2", "A_Knight2", "A_Rook2"),
@@ -28,10 +28,10 @@ while ($game_status == "playing") {
         $curr_player = "A";
     }
 
-    $player_pieces[0] = ""; # Associative array of piece names and location on board
+    $player_pieces = []; # Associative array of piece names and location on board
     $player_ref = $curr_player . "_";  #string to look for on board to identify current players pieces
 
-    echo "<br>HELLO Game Turn: " . $game_turn . " Player = " . $player_ref . "<br>";
+    echo "<br>Game Turn: " . $game_turn . " Player = " . $player_ref . "<br>";
 
     // iterate through board to get current arrays of each players pieces
     for ($r = 0; $r < 8; $r++) {            // rows
@@ -40,20 +40,26 @@ while ($game_status == "playing") {
             // if (gettype($a_piece) == "string") {             // not found creates data type of bool    
             //     $player_pieces[$r . $c] =  $a_piece;         // add piece to players pieces array
             // }
-            $ref = substr($board[$r][$c], 0, 2);
-            if ($ref == $player_ref) {
+            $ref = substr($board[$r][$c], 0, 1);
+            //echo "<br> ref = " . $ref;
+            if ($ref == $curr_player) {
+                //echo "<br>Player " . $ref . " added to player pieces";
                 $player_pieces[$r . $c] = $board[$r][$c];
             }
         }
     }
 
+    echo "<br>";
     var_dump($player_pieces);
 
-
-    $moved = false;
+    $moved = false;                               # set to true when move is successful and therefore ready to move to next turn 
 
     while ($moved == false) {                     # continue to implement move logic until a successful move is made 
         $my_key = array_rand($player_pieces, 1);  # randomly choose the key for a piece in player
+        if (strlen($my_key) != 2) {               # sometimes the outer array only is chosen, without a col - if this happens continue and try again  
+            continue;
+        }
+        echo "my_key = " . $my_key;
         $my_row = substr($my_key, 0, 1);          # get the row of the chosen piece 
         echo "<br>my row =" . $my_row;            # get the row  on the board
         $my_col = substr($my_key, 1, 1);          # get the column on the board
@@ -62,26 +68,117 @@ while ($game_status == "playing") {
         $my_piece =   $player_pieces[$my_key];
         echo "<br>Chosen piece is " . $my_piece . " at position " . $my_key;
         $moved = true;
+
+        # Get move direction
+        $direction = "up";
+        if ($player_ref == "A_") {
+            $direction = "down";
+        }
+
+        # Get Type of Piece
+        $type = substr($my_piece, 2, strlen($my_piece) - 3);
+        echo "<br> -- type = " . $type;
+
+        # Pawn Move Logic  --- prefer move over attack
+        if ($type == "Pawn") {
+            # get direction and how far to move -random 1 or 2 
+            if ($direction = "up" and $my_row == 1) {       # assume that row 1 or 6 are starting rows and thus that the piece has not moved yet
+                $distance_to_move = rand(1, 2);
+            } else if ($direction = "down" and $my_row == 6) {
+                $distance_to_move = rand(-1, -2);
+            } else if ($direction = "up") {       # assume that row 1 or 6 are starting rows and thus that the piece has not moved yet
+                $distance_to_move = 1;
+            } else {
+                $distance_to_move = -1;
+            }
+
+            echo "<br>distance to move = " . $distance_to_move;
+            # check if path and destination are clear
+            for ($j = 1; $j <= $distance_to_move; $j++) {
+                if ($board[$my_row + $j][$my_col] == "___________") {   # can only move where unoccupied
+                    $ok_to_move = "y";
+                } else {
+                    $ok_to_move = "n";
+
+                    // try to attack
+                    $spot = substr($board[$my_row + $j][$my_col - 1], 0, 1);
+                    if (substr($spot, 0, 1) !=  $curr_player  and substr($spot, 0, 1) != "_") {
+                        $board[$my_row + $j][$my_col - 1] = $my_piece;
+                        $moved = true;
+                        break;
+                    } else if (substr($board[$my_row + $j][$my_col + 1], 0, 1) !=  $curr_player and substr($board[$my_row + $j][$my_col + 1], 0, 1) != "_") {
+                        $board[$my_row + $j][$my_col + 1] = $my_piece;
+                        $moved = true;
+                        break;
+                    }
+
+                    break;  // try another piece
+                }
+            }
+
+            # actually move if ok
+            if ($ok_to_move == "y" and $moved == false) {
+                $board[$my_row + $distance_to_move][$my_col] =  $my_piece;
+                $moved = true;       // next players turn
+                break;
+            }
+        }  # end of Pawn move logic
+
+        # Rook Move Logic  --- prefer move over attack
+        if ($type == "Rook") {
+            # decide to move vertically or horizontally
+            $vh = rand(1, 2);   # 1 = vertical, 2 = horizontal
+
+            $range = 0;  # how far is it possible to move on given path
+            # vertical move attempt
+            if ($vh == 1) {
+                if ($direction = "up" and $my_row == 0 and ($my_col == 0 or $my_col == 7)) {  # assume that row 0 with col of 0 or 7 ece has not moved yet, and may be surrounded by friendly
+
+                    for ($rk = 1; $rk < 8; $rk++) {
+                        $spot = $board[$rk][$my_col];
+                        if (substr($spot, 0, 1) != "_") {  # empty so ok to move through
+                            $range++;
+                            continue;
+                        } else if (substr($spot, 0, 1) != $curr_player) {  # opponent is here - this is the max range to move to
+                            $range++;
+                            break;
+                        } else {
+                            break;      # occupied by friend
+                        }
+                    }
+
+                    # range > 0 means ok to move up to range value
+                    if ($range > 0) {
+                        $distance_to_move = rand(1, $range);  # decide how far to actually move
+                        $board[$my_row + $distance_to_move][$my_col] = $my_piece;
+                        $moved = true;
+                    } else {
+                        $moved = false;
+                    }
+                } else if ($direction = "down" and $my_row == 6 and ($my_col == 0 or $my_col == 7)) {
+                    $distance_to_move = rand(-1, -12);
+                } else if ($direction = "up") {       # assume that row 1 or 6 are starting rows and thus that the piece has not moved yet
+                    $distance_to_move = 1;
+                } else {
+                    $distance_to_move = -1;
+                }
+            }
+        }
     }
 
-    # Get move direction
-    $direction = "up";
-    if ($player_ref == "A_") {
-        $direction = "down";
-    }
 
-    # Get Type of Piece
-    $type = substr($my_piece, 2, strlen($my_piece) - 3);
-    echo "<br> -- type = " . $type;
 
-    # Move Logic
+
+
+
+
 
     # if ()
 
 
     $history[$game_turn] = $board;
     $game_turn++;
-    if ($game_turn > 10 /*500*/) {
+    if ($game_turn > 15 /*500*/) {
         $game_status = "Game Over";
         echo $game_status;
     }
