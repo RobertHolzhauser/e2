@@ -91,6 +91,7 @@ while ($game_status == "playing") {
 
         # Pawn Move Logic  --- prefer move over attack
         if ($type == "Pawn") {
+            $moved = false;
             # get direction and how far to move -random 1 or 2 
             if ($direction = "up" and $my_row == 1) {       # assume that row 1 or 6 are starting rows and thus that the piece has not moved yet
                 $distance_to_move = rand(1, 2);
