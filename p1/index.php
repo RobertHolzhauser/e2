@@ -76,7 +76,11 @@ while ($game_status == "playing") {
         }
 
         # Get Type of Piece
-        $type = substr($my_piece, 2, strlen($my_piece) - 3);
+        if (strlen($my_piece) > 6) {
+            $type = substr($my_piece, 2, strlen($my_piece) - 3);
+        } else {
+            $type = substr($my_piece, 2, strlen($my_piece) - 2);
+        }
         echo "<br> -- type = " . $type;
 
         # Pawn Move Logic  --- prefer move over attack

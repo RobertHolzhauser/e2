@@ -128,47 +128,63 @@
 
         </tr>
         <tr id="row6">
-            <td id="row0_col0"><?php echo $board[6][0] ?>
+            <td id="row6_col0"><?php echo $board[6][0] ?>
             </td>
-            <td id="row0_col1"><?php echo $board[6][1] ?>
+            <td id="row6_col1"><?php echo $board[6][1] ?>
             </td>
-            <td id="row0_col2"><?php echo $board[6][2] ?>
+            <td id="row6_col2"><?php echo $board[6][2] ?>
             </td>
-            <td id="row0_col3"><?php echo $board[6][3] ?>
+            <td id="row6_col3"><?php echo $board[6][3] ?>
             </td>
-            <td id="row0_col4"><?php echo $board[6][4] ?>
+            <td id="row6_col4"><?php echo $board[6][4] ?>
             </td>
-            <td id="row0_col5"><?php echo $board[6][5] ?>
+            <td id="row6_col5"><?php echo $board[6][5] ?>
             </td>
-            <td id="row0_col6"><?php echo $board[6][6] ?>
+            <td id="row6_col6"><?php echo $board[6][6] ?>
             </td>
-            <td id="row0_col7"><?php echo $board[6][7] ?>
+            <td id="row6_col7"><?php echo $board[6][7] ?>
             </td>
 
         </tr>
         <tr id="row7">
-            <td id="row0_col0"><?php echo $board[7][0] ?>
+            <td id="row7_col0"><?php echo $board[7][0] ?>
             </td>
-            <td id="row0_col1"><?php echo $board[7][1] ?>
+            <td id="row7_col1"><?php echo $board[7][1] ?>
             </td>
-            <td id="row0_col2"><?php echo $board[7][2] ?>
+            <td id="row7_col2"><?php echo $board[7][2] ?>
             </td>
-            <td id="row0_col3"><?php echo $board[7][3] ?>
+            <td id="row7_col3"><?php echo $board[7][3] ?>
             </td>
-            <td id="row0_col4"><?php echo $board[7][4] ?>
+            <td id="row7_col4"><?php echo $board[7][4] ?>
             </td>
-            <td id="row0_col5"><?php echo $board[7][5] ?>
+            <td id="row7_col5"><?php echo $board[7][5] ?>
             </td>
-            <td id="row0_col6"><?php echo $board[7][6] ?>
+            <td id="row7_col6"><?php echo $board[7][6] ?>
             </td>
-            <td id="row0_col7"><?php echo $board[7][7] ?>
+            <td id="row7_col7"><?php echo $board[7][7] ?>
             </td>
 
         </tr>
     </table>
 
-    <?php # var_dump($board); 
+
+
+    <?php # displays full history of the game
+    for ($z = 0; $z < count($history); $z++) {
+        echo '<br><br><strong>game turn ' . $z . '</strong><br>';
+        echo '<table id="chessboard-table">';
+        for ($i = 0; $i < 8; $i++) {
+            echo '<tr id="row' . $i . '">';
+            for ($j = 0; $j < 8; $j++) {
+                echo '<td id="row' . $i . '_col' . $j . '"> ' . $history[$z][$i][$j] . '</td>';
+            }
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
     ?>
+
+
 </body>
 
 </html>
