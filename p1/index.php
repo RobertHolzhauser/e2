@@ -97,10 +97,12 @@ while ($game_status == "playing") {
             }
 
             echo "<br>distance to move = " . $distance_to_move;
+            $ok_to_move = "n";
             # check if path and destination are clear
             for ($j = 1; $j <= $distance_to_move; $j++) {
                 if ($board[$my_row + $j][$my_col] == "___________") {   # can only move where unoccupied
                     $ok_to_move = "y";
+                    echo "<br>Pawn ok to move";
                 } else {
                     $ok_to_move = "n";
 
@@ -108,10 +110,12 @@ while ($game_status == "playing") {
                     $spot = substr($board[$my_row + $j][$my_col - 1], 0, 1);
                     if (substr($spot, 0, 1) !=  $curr_player  and substr($spot, 0, 1) != "_") {
                         $board[$my_row + $j][$my_col - 1] = $my_piece;
+                        $board[$my_row][$my_col] = "___________";
                         $moved = true;
                         break;
                     } else if (substr($board[$my_row + $j][$my_col + 1], 0, 1) !=  $curr_player and substr($board[$my_row + $j][$my_col + 1], 0, 1) != "_") {
                         $board[$my_row + $j][$my_col + 1] = $my_piece;
+                        $board[$my_row][$my_col] = "___________";
                         $moved = true;
                         break;
                     }
@@ -123,6 +127,7 @@ while ($game_status == "playing") {
             # actually move if ok
             if ($ok_to_move == "y" and $moved == false) {
                 $board[$my_row + $distance_to_move][$my_col] =  $my_piece;
+                $board[$my_row][$my_col] = "___________";
                 $moved = true;       // next players turn
                 break;
             }
@@ -169,15 +174,6 @@ while ($game_status == "playing") {
             }
         }
     }
-
-
-
-
-
-
-
-
-    # if ()
 
 
     $history[$game_turn] = $board;

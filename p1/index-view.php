@@ -171,7 +171,7 @@
 
     <?php # displays full history of the game
     for ($z = 0; $z < count($history); $z++) {
-        echo '<br><br><strong>game turn ' . $z . '</strong><br>';
+        echo '<br><br><h3><strong>Game Turn ' . $z . '</strong></h5><br>';
         echo '<table id="chessboard-table">';
         for ($i = 0; $i < 8; $i++) {
             echo '<tr id="row' . $i . '">';
