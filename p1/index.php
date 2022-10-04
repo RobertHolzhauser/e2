@@ -76,8 +76,14 @@ while ($game_status == "playing") {
         }
 
         # Get Type of Piece
-        if (strlen($my_piece) > 6) {
+        if (strlen($my_piece) > 7) {
             $type = substr($my_piece, 2, strlen($my_piece) - 3);
+        } else if (substr($my_piece, 2, 5) == "Queen") {
+            $type = "Queen";
+        } else if (substr($my_piece, 2, 4) == "Pawn") {
+            $type = "Pawn";
+        } else if (substr($my_piece, 2, 4) == "Rook") {
+            $type = "Rook";
         } else {
             $type = substr($my_piece, 2, strlen($my_piece) - 2);
         }
@@ -126,8 +132,15 @@ while ($game_status == "playing") {
 
             # actually move if ok
             if ($ok_to_move == "y" and $moved == false) {
-                $board[$my_row + $distance_to_move][$my_col] =  $my_piece;
-                $board[$my_row][$my_col] = "___________";
+                echo "<br> actually moving pawn";
+                $board[$my_row + $distance_to_move][$my_col] =  $my_piece;  // move
+                // move check
+                if ($board[$my_row + $distance_to_move][$my_col] ==  $my_piece) {
+                    echo "successfully placed pawn in new position";
+                }
+                if ($board[$my_row][$my_col] == "___________") {
+                    echo "successfully emptied old position";
+                }
                 $moved = true;       // next players turn
                 break;
             }
@@ -160,12 +173,37 @@ while ($game_status == "playing") {
                     if ($range > 0) {
                         $distance_to_move = rand(1, $range);  # decide how far to actually move
                         $board[$my_row + $distance_to_move][$my_col] = $my_piece;
+                        $board[$my_row][$my_col] =  "___________";
                         $moved = true;
+                        echo "Rook moved up";
                     } else {
                         $moved = false;
                     }
                 } else if ($direction = "down" and $my_row == 6 and ($my_col == 0 or $my_col == 7)) {
-                    $distance_to_move = rand(-1, -12);
+                    $range = 6;
+                    for ($rk = 6; $rk >= 0; $rk--) {
+                        $spot = $board[$rk][$my_col];
+                        if (substr($spot, 0, 1) != "_") {  # empty so ok to move through
+                            $range--;
+                            continue;
+                        } else if (substr($spot, 0, 1) != $curr_player) {  # opponent is here - this is the max range to move to
+                            $range--;
+                            break;
+                        } else {
+                            break;      # occupied by friend
+                        }
+                    }
+
+                    # range > 0 means ok to move up to range value
+                    if ($range < 6) {
+                        $distance_to_move = rand(1, $range)  * -1;  # decide how far to actually move
+                        $board[$my_row + $distance_to_move][$my_col] = $my_piece;
+                        $board[$my_row][$my_col] =  "___________";
+                        $moved = true;
+                        echo "Rook moved down";
+                    } else {
+                        $moved = false;
+                    }
                 } else if ($direction = "up") {       # assume that row 1 or 6 are starting rows and thus that the piece has not moved yet
                     $distance_to_move = 1;
                 } else {
