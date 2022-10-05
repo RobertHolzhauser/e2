@@ -15,6 +15,7 @@
     <p>In this version, we can discover what might happen if the only combatants were pawns and rooks.</p>
     <p>All pieces are given an equal opportunity to move, however, only pawns and rooks will take advantage of the
         opportunity. However, a space to move to or attack must be available.</p>
+    <p>Rules of movement and engagement are loosely interpretted to show in the game the chaos of battle.</p>
     <p>A game consists of 100 game turns which alternate between player A & B. </p>
     <p>The final state of the game board is displayed near the top.</p>
     <p>Beneath this the game history, turn by turn, is displayed</p>

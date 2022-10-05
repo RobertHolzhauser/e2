@@ -99,26 +99,56 @@ while ($game_status == "playing") {
                 echo "section 4";
                 $distance_to_move = -1;
             }
-            
+
             echo "<br>distance to move = " . $distance_to_move;
             $ok_to_move = "n";
             # check if path and destination are clear
-            for ($j = 1; $j <= $distance_to_move; $j++) {
-                if ($board[$my_row + $j][$my_col] == "___________") {   # can only move where unoccupied
+            if ($direction == "up") {
+                //for ($j = $my_row; $j <= $distance_to_move; $j++) {
+                if ($board[$my_row + $distance_to_move][$my_col] == "___________") {   # can only move where unoccupied
                     $ok_to_move = "y";
                     echo "<br>Pawn ok to move";
+                    $board[$my_row + $distance_to_move][$my_col] = $my_piece;
+                    $board[$my_row][$my_col] = "___________";
                 } else {
                     $ok_to_move = "n";
 
                     // try to attack
-                    $spot = substr($board[$my_row + $j][$my_col - 1], 0, 1);
+                    $spot = substr($board[$my_row + $distance_to_move][$my_col - 1], 0, 1);
                     if (substr($spot, 0, 1) !=  $curr_player  and substr($spot, 0, 1) != "_") {
-                        $board[$my_row + $j][$my_col - 1] = $my_piece;
+                        $board[$my_row + $distance_to_move][$my_col - 1] = $my_piece;
                         $board[$my_row][$my_col] = "___________";
                         $moved = true;
                         break;
-                    } else if (substr($board[$my_row + $j][$my_col + 1], 0, 1) !=  $curr_player and substr($board[$my_row + $j][$my_col + 1], 0, 1) != "_") {
-                        $board[$my_row + $j][$my_col + 1] = $my_piece;
+                    } else if (substr($board[$my_row + $distance_to_move][$my_col + 1], 0, 1) !=  $curr_player and substr($board[$my_row + $distance_to_move][$my_col + 1], 0, 1) != "_") {
+                        $board[$my_row + $distance_to_move][$my_col + 1] = $my_piece;
+                        $board[$my_row][$my_col] = "___________";
+                        $moved = true;
+                        break;
+                    }
+                    break;  // try another piece
+                }
+                //}
+            } else { # move down - by multiplying move distance x -1
+                //  for ($j = $my_row; $j >= ($distance_to_move + $my_row); $j--) {
+                //echo "move down j = $j";
+                if ($board[$my_row + $distance_to_move][$my_col] == "___________") {   # can only move where unoccupied
+                    $ok_to_move = "y";
+                    echo "<br>Pawn ok to move";
+                    $board[$my_row + $distance_to_move][$my_col] =  $my_piece;  // move
+                    $board[$my_row][$my_col] = "___________";
+                } else {
+                    $ok_to_move = "n";
+
+                    // try to attack
+                    $spot = substr($board[$my_row + $distance_to_move][$my_col - 1], 0, 1);
+                    if (substr($spot, 0, 1) !=  $curr_player  and substr($spot, 0, 1) != "_") {
+                        $board[$my_row + $distance_to_move][$my_col - 1] = $my_piece;
+                        $board[$my_row][$my_col] = "___________";
+                        $moved = true;
+                        break;
+                    } else if (substr($board[$my_row + $distance_to_move][$my_col + 1], 0, 1) !=  $curr_player and substr($board[$my_row + $distance_to_move][$my_col + 1], 0, 1) != "_") {
+                        $board[$my_row + $distance_to_move][$my_col + 1] = $my_piece;
                         $board[$my_row][$my_col] = "___________";
                         $moved = true;
                         break;
@@ -126,23 +156,11 @@ while ($game_status == "playing") {
 
                     break;  // try another piece
                 }
+                // }
             }
 
-            # actually move if ok
-            if ($ok_to_move == "y" and $moved == false) {
-                echo "<br> actually moving pawn";
-                $board[$my_row + $distance_to_move][$my_col] =  $my_piece;  // move
-                $board[$my_row][$my_col] = "___________";
-                // move check
-                if ($board[$my_row + $distance_to_move][$my_col] ==  $my_piece) {
-                    echo "successfully placed pawn in new position";
-                }
-                if ($board[$my_row][$my_col] == "___________") {
-                    echo "successfully emptied old position";
-                }
-                $moved = true;       // next players turn
-                break;
-            }
+            $moved = true;       // next players turn
+            break;
         }  # end of Pawn move logic
 
         # Rook Move Logic  --- prefer move over attack
