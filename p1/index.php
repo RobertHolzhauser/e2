@@ -99,7 +99,7 @@ while ($game_status == "playing") {
                 echo "section 4";
                 $distance_to_move = -1;
             }
-
+            
             echo "<br>distance to move = " . $distance_to_move;
             $ok_to_move = "n";
             # check if path and destination are clear
@@ -215,7 +215,7 @@ while ($game_status == "playing") {
 
     $history[$game_turn] = $board;
     $game_turn++;
-    if ($game_turn > 25 /*500*/) {
+    if ($game_turn > 100) {
         $game_status = "Game Over";
         echo $game_status;
     }
