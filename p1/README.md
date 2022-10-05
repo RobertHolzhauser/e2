@@ -14,7 +14,6 @@ It will play until the last man standing.  First player to run out of pieces los
      This will be firstly a table in HTML, with some CSS styling to make it look reasonably like a game board.
 
   The board array consists of position_square objects.    A position_square is an object representing a position on the game board.
-  # TODO is this needed?  can I just use an array?
 
 + Player class will track the player name, and array of pieces, and color.  Color defines "home" side of the board.
 +  For color "white", home side of board is rows 0 & 1.  For color "black" home side of board is rows 6 & 7.
@@ -54,5 +53,11 @@ Base class of pieces is Piece. it will have properties of:  Player,
 
 [Design Wizard Eye Catching Color Combinations for 2021](https://designwizard.com/blog/design-trends/colour-combination/)
 
+[PHP Manual entry on control structures](https://www.php.net/manual/en/language.control-structures.php)
+
+[PHP Manual entry on array functions](https://www.php.net/manual/en/ref.array.php)
+
+[PHP Manual entry on string functions](https://www.php.net/manual/en/ref.strings.php)
+
 ## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
+*Originally I started to go down an Object Oriented path, but ran into a few difficulties, so I changed to a purely procedural paradigm.*

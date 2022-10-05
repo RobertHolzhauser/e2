@@ -1,7 +1,7 @@
 <?php
 echo "Start of Game";
 $history = [];  # for the history of the game play, represented by an array of what the board looked like after every turn
-$board = array(
+$board = array(   # the current game board
     array("A_Rook1", "A_Knight1", "A_Bishop1", "A_King", "A_Queen", "A_Bishop2", "A_Knight2", "A_Rook2"),
     array("A_Pawn1", "A_Pawn2", "A_Pawn3", "A_Pawn4", "A_Pawn5", "A_Pawn6", "A_Pawn7", "A_Pawn8"),
     array("___________", "___________", "___________", "___________", "___________", "___________", "___________", "___________"),
@@ -16,7 +16,6 @@ $history[0] = $board;  # Capture initial board
 
 $game_status = "playing";   # if status <> playing the gave is over
 $game_turn = 1;             # used to limit the number of turns and to track who's turn it is by odd or even
-
 
 while ($game_status == "playing") {
     $curr_player = "A";
@@ -36,14 +35,8 @@ while ($game_status == "playing") {
     // iterate through board to get current arrays of each players pieces
     for ($r = 0; $r < 8; $r++) {            // rows
         for ($c = 0; $c < 8; $c++) {        // columns
-            // $a_piece = strchr($board[$r][$c], $player_ref);  // find where player_ref is in piece name
-            // if (gettype($a_piece) == "string") {             // not found creates data type of bool    
-            //     $player_pieces[$r . $c] =  $a_piece;         // add piece to players pieces array
-            // }
             $ref = substr($board[$r][$c], 0, 1);
-            //echo "<br> ref = " . $ref;
             if ($ref == $curr_player) {
-                //echo "<br>Player " . $ref . " added to player pieces";
                 $player_pieces[$r . $c] = $board[$r][$c];
             }
         }
@@ -64,7 +57,6 @@ while ($game_status == "playing") {
         echo "<br>my row =" . $my_row;            # get the row  on the board
         $my_col = substr($my_key, 1, 1);          # get the column on the board
         echo "<br>my col = " . $my_col;
-        //echo "<br>Chosen piece is " . $board[$my_row][$my_col] . " at position " . $my_key;
         $my_piece =   $player_pieces[$my_key];
         echo "<br>Chosen piece is " . $my_piece . " at position " . $my_key;
         $moved = true;
@@ -75,6 +67,7 @@ while ($game_status == "playing") {
             $direction = "down";
         }
 
+        echo "<br>direction = " . $direction;
         # Get Type of Piece
         if (strlen($my_piece) > 7) {
             $type = substr($my_piece, 2, strlen($my_piece) - 3);
@@ -135,6 +128,7 @@ while ($game_status == "playing") {
             if ($ok_to_move == "y" and $moved == false) {
                 echo "<br> actually moving pawn";
                 $board[$my_row + $distance_to_move][$my_col] =  $my_piece;  // move
+                $board[$my_row][$my_col] = "___________";
                 // move check
                 if ($board[$my_row + $distance_to_move][$my_col] ==  $my_piece) {
                     echo "successfully placed pawn in new position";
@@ -217,14 +211,10 @@ while ($game_status == "playing") {
 
     $history[$game_turn] = $board;
     $game_turn++;
-    if ($game_turn > 15 /*500*/) {
+    if ($game_turn > 25 /*500*/) {
         $game_status = "Game Over";
         echo $game_status;
     }
 }
 
-
-
-
-//require 'game.php';
 require 'index-view.php';
