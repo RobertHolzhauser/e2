@@ -87,12 +87,16 @@ while ($game_status == "playing") {
             $moved = false;
             # get direction and how far to move -random 1 or 2 
             if ($direction = "up" and $my_row == 1) {       # assume that row 1 or 6 are starting rows and thus that the piece has not moved yet
+                echo "section 1";
                 $distance_to_move = rand(1, 2);
             } else if ($direction = "down" and $my_row == 6) {
+                echo "section 2";
                 $distance_to_move = rand(-1, -2);
             } else if ($direction = "up") {       # assume that row 1 or 6 are starting rows and thus that the piece has not moved yet
+                echo "section 3";
                 $distance_to_move = 1;
             } else {
+                echo "section 4";
                 $distance_to_move = -1;
             }
 

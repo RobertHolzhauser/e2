@@ -10,8 +10,16 @@
 
 <body>
     <h1>Simple Chess</h1>
+    <h3> Game Mechanics </h3>
+    <p>In a modern day real conflict, would royalty actually engage in combat?</p>
+    <p>In this version, we can discover what might happen if the only combatants were pawns and rooks.</p>
+    <p>All pieces are given an equal opportunity to move, however, only pawns and rooks will take advantage of the
+        opportunity</p>
+    <p>A game consists of 100 game turns which alternate between player A & B. </p>
+    <p>The final state of the game board is displayed near the top.</p>
+    <p>Beneath this the game history, turn by turn, is displayed</p>
 
-    <table id='chessboard-table'>
+    < <table id='chessboard-table'>
         <tr id="row0">
             <td id="row0_col0">
                 <?php echo $board[0][0] ?>
@@ -165,26 +173,22 @@
             </td>
 
         </tr>
-    </table>
+        </table>
 
-
-
-    <?php # displays full history of the game
-    for ($z = 0; $z < count($history); $z++) {
-        echo '<br><br><h3><strong>Game Turn ' . $z . '</strong></h5><br>';
-        echo '<table id="chessboard-table">';
-        for ($i = 0; $i < 8; $i++) {
-            echo '<tr id="row' . $i . '">';
-            for ($j = 0; $j < 8; $j++) {
-                echo '<td id="row' . $i . '_col' . $j . '"> ' . $history[$z][$i][$j] . '</td>';
+        <?php # displays full history of the game
+        for ($z = 0; $z < count($history); $z++) {
+            echo '<br><br><h3><strong>Game Turn ' . $z . '</strong></h3><br>';
+            echo '<table id="chessboard-table">';
+            for ($i = 0; $i < 8; $i++) {
+                echo '<tr id="row' . $i . '">';
+                for ($j = 0; $j < 8; $j++) {
+                    echo '<td id="row' . $i . '_col' . $j . '"> ' . $history[$z][$i][$j] . '</td>';  # Triple Dimension array - Z dimension is game turn, $i = row, $j = column.
+                }
+                echo '</tr>';
             }
-            echo '</tr>';
+            echo '</table>';
         }
-        echo '</table>';
-    }
-    ?>
-
-
+        ?>
 </body>
 
 </html>
