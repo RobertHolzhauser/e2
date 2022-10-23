@@ -1,0 +1,27 @@
+h1 {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 45px;
+}
+
+h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#game-background {
+    background-color: darkgreen;
+    color: gold;
+}
+
+.bingo-table {
+    background-color: bisque;
+    color: brown;
+    border: 3px;
+    border-color: brown;
+}
+
+th {
+    font-weight: 700;
+    font-size: xx-large;
+
+}
