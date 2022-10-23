@@ -5,7 +5,7 @@ class Game  #holds overall information for the current game
     public string $title = "BINGO";    # Title of the Game
     public Player $winner;             # Player object that wins first
     public Instruction $instruction;   # instructions for game play
-    public int $difficulty;            # determines how long player has between calls, and computer likelihood to miss.    
+    public int $difficulty = 10;       # determines how long player has between calls, and computer likelihood to miss.  Inverse - the higher the easier  
     public $players = [];              # array of players
     public $queue = [];                # the queue of numbers that are yet to be called 
     public $called  = [];              # the numbers that have been called so far in the game

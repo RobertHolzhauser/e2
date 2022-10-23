@@ -1,12 +1,13 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 h1 {
     text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 45px;
 }
 
-h3 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+h3 {}
 
 #game-background {
     background-color: darkgreen;
@@ -16,12 +17,23 @@ h3 {
 .bingo-table {
     background-color: bisque;
     color: brown;
-    border: 3px;
+    border: 5px;
     border-color: brown;
+    margin: 5%;
+    max-width: 500px;
+    max-height: 500px;
 }
 
 th {
-    font-weight: 700;
-    font-size: xx-large;
+    font-weight: 900;
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
 
+td {
+    font-weight: 800;
+    font-size: xx-large;
+    border: 3px;
+    border-color: brown;
 }

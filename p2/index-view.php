@@ -5,11 +5,14 @@
 <head>
     <title><?php $game->getTitle(); ?> </title>
     <meta charset='utf-8'>
-    <link rel="stylesheet" href="site.css">
 </head>
 
 <body id="game-background">
-    <h1><?php $game->getTitle(); ?></h1>
+    <?php echo $game->players[1]->GetString();
+    ?>
+
+    <h1><?php $game->getTitle(); ?>
+    </h1>
     <h3><?php $game->instruction->getInstructionLabel(); ?></h3><br />
 
     <div id="game-instructions">
