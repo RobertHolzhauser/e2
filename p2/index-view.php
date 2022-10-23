@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="mystyle.css">
 
 <head>
-    <title>P1-Chess</title>
+    <title><?php echo $game->$title; ?> </title>
     <meta charset='utf-8'>
     <link rel="stylesheet" href="site.css">
 </head>
 
 <body>
-    <h1>Simple Chess</h1>
+    <h1><?php echo $game->$title; ?></h1>
     <h3> Game Mechanics </h3>
     <p>In a modern day real conflict, would royalty actually engage in combat?</p>
     <p>In this version, we can discover what might happen if the only combatants were pawns and rooks.</p>

@@ -1,4 +1,12 @@
 <?php
+
+$game = new Game();
+
+require 'game.php';
+require 'games.php';
+require 'index-view.php';
+
+/*
 $history = [];  # for the history of the game play, represented by an array of what the board looked like after every turn
 $board = array(   # the current game board
     array("A_Rook1", "A_Knight1", "A_Bishop1", "A_King", "A_Queen", "A_Bishop2", "A_Knight2", "A_Rook2"),
@@ -207,5 +215,4 @@ while ($game_status == "playing") {
         $game_status = "Game Over";
     }
 }
-
-require 'index-view.php';
+*/
