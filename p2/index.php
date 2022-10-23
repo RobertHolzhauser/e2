@@ -1,9 +1,10 @@
 <?php
+require 'game.php';
+require 'games.php';
 
 $game = new Game();
 
-require 'game.php';
-require 'games.php';
+
 require 'index-view.php';
 
 /*

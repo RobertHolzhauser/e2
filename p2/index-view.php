@@ -10,7 +10,7 @@
 
 <body>
     <h1><?php echo $game->$title; ?></h1>
-    <h3> Game Mechanics </h3>
+    <h3>Instructions</h3>
     <p>In a modern day real conflict, would royalty actually engage in combat?</p>
     <p>In this version, we can discover what might happen if the only combatants were pawns and rooks.</p>
     <p>All pieces are given an equal opportunity to move, however, only pawns and rooks will take advantage of the

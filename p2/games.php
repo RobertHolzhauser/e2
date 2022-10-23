@@ -2,6 +2,9 @@
 class Games
 {
     public $history = [];
-    
-    public function GetOverallWinner
+
+    public function GetOverallWinner()
+    {
+        return "Placeholder Winner";
+    }
 }
