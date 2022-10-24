@@ -18,7 +18,7 @@
         <?php $game->instruction->getGettingStarted(); ?><br><br>
     </div>
     <hr><br />
-    <div id="bingo-call"><?php $game->callNumber(); ?> </div>
+    <div id="bingo-call">The Bingo Call Out is <?php $game->callNumber(); ?> </div>
     <form action='process.php' method=" POST">
         <table class='bingo-table'>
             <tr>
