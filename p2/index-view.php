@@ -19,7 +19,7 @@
     </div>
     <hr><br />
     <div id="bingo-call">The Bingo Call Out is <?php $game->callNumber(); ?> </div>
-    <form action='process.php' method=" POST">
+    <form action='process.php' method="POST">
         <table class='bingo-table'>
             <tr>
                 <th>B</th>
