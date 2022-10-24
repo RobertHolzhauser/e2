@@ -1,4 +1,6 @@
 <?php
+
+//TODO make this an array
 # first row
 $row0_col0 = key_exists('row0_col0', $_POST) ? $_POST['row0_col0'] : -1;
 $row0_col1 = key_exists('row0_col1', $_POST) ? $_POST['row0_col1'] : -1;

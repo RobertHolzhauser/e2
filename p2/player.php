@@ -10,7 +10,7 @@ class Player
         $this->board = new Board();
     }
 
-    # for testing and debugging
+    # for testing and debugging  TODO remove this
     public function GetString()
     {
         echo "Player Name = " . $this->name . "<br/>";

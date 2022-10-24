@@ -12,13 +12,14 @@
     <h3><?php $game->instruction->getInstructionLabel(); ?></h3><br />
 
     <div id="game-instructions">
-        <?php $game->instruction->getObjectiveLabel(); ?><br />
-        <?php $game->instruction->getObjective(); ?><br /><br />
-        <?php $game->instruction->getGettingStartedLabel(); ?><br />
-        <?php $game->instruction->getGettingStarted(); ?><br /><br />
+        <?php $game->instruction->getObjectiveLabel(); ?><br>
+        <?php $game->instruction->getObjective(); ?><br /><br>
+        <?php $game->instruction->getGettingStartedLabel(); ?><br>
+        <?php $game->instruction->getGettingStarted(); ?><br><br>
     </div>
     <hr><br />
-    <form action='process.php' method="POST">
+    <div id="bingo-call"><?php $game->callNumber(); ?> </div>
+    <form action='process.php' method=" POST">
         <table class='bingo-table'>
             <tr>
                 <th>B</th>

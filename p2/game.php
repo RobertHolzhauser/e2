@@ -19,17 +19,32 @@ class Game  #holds overall information for the current game
         $this->instruction = new Instruction();     # populate text for instructions
         $this->players[] = new Player("Computer");  # create Computer  player
         $this->players[] = new Player("Guest");     # create Guest player
-        
-        for ($i = 1; $i < 100; $i++ ) {             # populate call queue
-            $this->queue[] = $i;
-        }
-        shuffle($this->queue);                       # randomize the order in which the numbers in queue will be called
-        
+
+        $this->populateCallQueue();
     }
 
-    public function  getTitle()
+    public function populateCallQueue()
+    {
+        for ($i = 1; $i < 100; $i++) {             # populate call queue with numbers from 1 to 99
+            $this->queue[] = $i;
+        }
+        shuffle($this->queue);                       # randomize the order in which the numbers in queue will be calledfor        
+    }
+
+    public function  getTitle()                     # can be used to print the game title on a view page
     {
         echo $this->title;
+    }
+
+    public function callNumber()                    # if numbers are left in the queue take the next one, make it the current call, and add to the list of calls
+    {
+        if (count($this->queue) > 0) {
+            $this->current_call = array_pop($this->queue);
+            $this->called[] = $this->current_call;
+        } else {
+            $this->game_status = "Game Over";       # if no further numbers, end the game
+        }
+        echo $this->current_call;
     }
 }
 require 'instruction.php';

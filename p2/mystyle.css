@@ -66,3 +66,12 @@ td {
     font-size: xx-large;
     border: 0px;
 }
+
+.hidden {
+    visibility: hidden;
+}
+
+#bingo-call {
+    font-weight: 900;
+    font-size: xx-large;
+}

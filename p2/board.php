@@ -1,17 +1,19 @@
 <?php
 class Board
 {
-    public $arr = array(1, 2, 3, 4, 5);
-    public $board = [];
+    public $arr = array(1, 2, 3, 4, 5);     # for use in prepopulating the board in the generateNumbers method
+    public $board = [];                     # array that tracks the players bingo board
+    public $tracked = [];                   # array that tracks which pieces the player has tracked as having been called
+
 
     public  function __construct()
     {
-        $this->generateNumbers();
+        $this->generateNumbers();           # when the game is instantiated, build out the board with numbers
     }
 
     public function generateNumbers()
     {
-        for ($i = 0; $i < 5; $i++) {       # pre-pop array with throw away values for ease of access
+        for ($i = 0; $i < 5; $i++) {       # pre-populate the board array with throw away values for ease of access
             $this->board[] = $this->arr;
         }
 
