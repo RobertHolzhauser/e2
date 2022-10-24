@@ -7,7 +7,7 @@ h1 {
     font-size: 45px;
 }
 
-h3 {}
+
 
 #game-background {
     background-color: darkgreen;
@@ -24,6 +24,7 @@ h3 {}
     max-width: 500px;
     max-height: 500px;
     min-height: 275px;
+    min-width: 400px;
 }
 
 th {
@@ -40,7 +41,6 @@ tr {
     border-collapse: collapse;
 }
 
-
 td {
     font-weight: 800;
     font-size: xx-large;
@@ -54,4 +54,15 @@ td {
     border-right: 10px;
     border-left: 10px;
     min-width: 60px;
+    min-height: 50px;
+}
+
+.cell-button {
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    color: brown;
+    font-weight: 550;
+    font-size: xx-large;
+    border: 0px;
 }

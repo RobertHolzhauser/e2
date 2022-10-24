@@ -28,8 +28,12 @@
                 <th>O</th>
             </tr>
             <tr id="row0">
-                <td id="row0_col0"><?php echo $game->players[1]->board->board[0][0] ?></td>
-                <td id="row0_col1"><?php echo $game->players[1]->board->board[0][1] ?></td>
+                <td id="row0_col0">
+                    <input type="submit" name="row0_col0" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[0][0] ?>"> </input>
+                </td>
+                <td id=" row0_col1"><?php echo $game->players[1]->board->board[0][1] ?>
+                </td>
                 <td id="row0_col2"><?php echo $game->players[1]->board->board[0][2] ?></td>
                 <td id="row0_col3"><?php echo $game->players[1]->board->board[0][3] ?></td>
                 <td id="row0_col4"><?php echo $game->players[1]->board->board[0][4] ?></td>
