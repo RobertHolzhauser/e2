@@ -32,44 +32,63 @@
                     <input type="submit" name="row0_col0" class="cell-button"
                         value="<?php echo $game->players[1]->board->board[0][0] ?>"> </input>
                 </td>
-                <td id=" row0_col1"><?php echo $game->players[1]->board->board[0][1] ?>
+                <td id="row0_col1"><input type="submit" name="row0_col1" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[0][1] ?>"> </input>
                 </td>
-                <td id="row0_col2"><?php echo $game->players[1]->board->board[0][2] ?></td>
-                <td id="row0_col3"><?php echo $game->players[1]->board->board[0][3] ?></td>
-                <td id="row0_col4"><?php echo $game->players[1]->board->board[0][4] ?></td>
+                <td id="row0_col2"><input type="submit" name="row0_col2" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[0][2] ?>"> </input></td>
+                <td id=" row0_col3"><input type="submit" name="row0_col3" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[0][3] ?>"> </input></td>
+                <td id=" row0_col4"><input type="submit" name="row0_col4" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[0][4] ?>"> </input></td>
             </tr>
             <tr id="row1">
-                <td id="row1_col0"><?php echo $game->players[1]->board->board[1][0] ?></td>
-                <td id="row1_col1"><?php echo $game->players[1]->board->board[1][1] ?></td>
-                <td id="row1_col2"><?php echo $game->players[1]->board->board[1][2] ?></td>
-                <td id="row1_col3"><?php echo $game->players[1]->board->board[1][3] ?></td>
-                <td id="row1_col4"><?php echo $game->players[1]->board->board[1][4] ?></td>
+                <td id="row1_col0"><input type="submit" name="row1_col0" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[1][0] ?>"> </input></td>
+                <td id=" row1_col1"><input type="submit" name="row1_col1" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[1][1] ?>"> </input></td>
+                <td id=" row1_col2"><input type="submit" name="row1_col2" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[1][2] ?>"> </input></td>
+                <td id=" row1_col3"><input type="submit" name="row0_col3" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[1][3] ?>"> </input></td>
+                <td id=" row1_col4"><input type="submit" name="row0_col4" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[1][4] ?>"> </input></td>
             </tr>
-            <tr id="row2">
-                <td id="row2_col0"><?php echo $game->players[1]->board->board[2][0] ?></td>
-                <td id="row2_col1"><?php echo $game->players[1]->board->board[2][1] ?></td>
-                <td id="row2_col2"><?php echo $game->players[1]->board->board[2][2] ?></td>
-                <td id="row2_col3"><?php echo $game->players[1]->board->board[2][3] ?></td>
-                <td id="row2_col4"><?php echo $game->players[1]->board->board[2][4] ?></td>
-
-
+            <tr id=" row2">
+                <td id="row2_col0"><input type="submit" name="row2_col0" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[2][0] ?>"> </input></td>
+                <td id=" row2_col1"><input type="submit" name="row2_col1" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[2][1] ?>"> </input></td>
+                <td id=" row2_col2"><input type="submit" name="row2_col2" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[2][2] ?>"> </input></td>
+                <td id="row2_col3"><input type="submit" name="row2_col3" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[2][3] ?>"> </input></td>
+                <td id="row2_col4"><input type="submit" name="row2_col4" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[2][4] ?>"> </input></td>
             </tr>
             <tr id="row3">
-                <td id="row3_col0"><?php echo $game->players[1]->board->board[3][0] ?></td>
-                <td id="row3_col1"><?php echo $game->players[1]->board->board[3][1] ?></td>
-                <td id="row3_col2"><?php echo $game->players[1]->board->board[3][2] ?></td>
-                <td id="row3_col3"><?php echo $game->players[1]->board->board[3][3] ?></td>
-                <td id="row3_col4"><?php echo $game->players[1]->board->board[3][4] ?></td>
-
-
+                <td id="row3_col0"><input type="submit" name="row3_col0" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[3][0] ?>"> </input></td>
+                <td id="row3_col1"><input type="submit" name="row3_col1" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[3][1] ?>"> </input></td>
+                <td id="row3_col2"><input type="submit" name="row3_col2" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[3][2] ?>"> </input></td>
+                <td id="row3_col3"><input type="submit" name="row3_col3" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[3][3] ?>"> </input></td>
+                <td id="row3_col4"><input type="submit" name="row3_col4" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[3][4] ?>"> </input></td>
             </tr>
             <tr id="row4">
-                <td id="row4_col0"><?php echo $game->players[1]->board->board[4][0] ?></td>
-                <td id="row4_col1"><?php echo $game->players[1]->board->board[4][1] ?></td>
-                <td id="row4_col2"><?php echo $game->players[1]->board->board[4][2] ?></td>
-                <td id="row4_col3"><?php echo $game->players[1]->board->board[4][3] ?></td>
-                <td id="row4_col4"><?php echo $game->players[1]->board->board[4][4] ?></td>
-
+                <td id="row4_col0"><input type="submit" name="row4_col0" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[4][0] ?>"> </input></td>
+                <td id="row4_col1"><input type="submit" name="row4_col1" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[4][1] ?>"> </input></td>
+                <td id="row4_col2"><input type="submit" name="row4_col2" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[4][2] ?>"> </input></td>
+                <td id="row4_col3"><input type="submit" name="row4_col3" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[4][3] ?>"> </input></td>
+                <td id="row4_col4"><input type="submit" name="row4_col4" class="cell-button"
+                        value="<?php echo $game->players[1]->board->board[4][4] ?>"> </input></td>
             </tr>
 
         </table>
