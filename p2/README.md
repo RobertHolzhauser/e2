@@ -11,3 +11,9 @@
 
 ## Notes for instructor
 *Javascript in game.js is used to provide a timer functionality to limit the amount of time the player can view the number that was called.*
+
+I used the design C pattern, along with Object Oriented Programming.  
+
+The classes are organized like so:
+Games -->  Game --> instructions
+                --> players   ---> board

@@ -72,7 +72,16 @@ td {
 }
 
 #bingo-call {
+    /* for the number called */
     font-weight: 900;
     font-size: xx-large;
     color: whitesmoke;
+}
+
+#btn_bingo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    font-size: xx-large;
+    align-self: stretch;
+    margin-left: 100px;
 }

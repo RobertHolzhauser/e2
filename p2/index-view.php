@@ -13,10 +13,10 @@
 
     <div id="game-instructions">
         <?php $game->instruction->getObjectiveLabel(); ?><br>
-        <?php $game->instruction->getObjective(); ?><br /><br>
+        <?php $game->instruction->getObjective(); ?><br><br>
         <?php $game->instruction->getGettingStartedLabel(); ?><br>
         <?php $game->instruction->getGettingStarted(); ?><br><br>
-        <?php $game->instruction->getWinningPatternLabel(); ?><br><br>
+        <?php $game->instruction->getWinningPatternLabel(); ?><br>
         <?php $game->instruction->getWinningPattern(); ?><br><br>
     </div>
     <hr><br />
@@ -30,7 +30,7 @@
                 <th>G</th>
                 <th>O</th>
             </tr>
-            <tr id="row0">
+            <tr id=" row0">
                 <td id="row0_col0">
                     <input type="submit" name="row0_col0" class="cell-button"
                         value="<?php echo $game->players[1]->board->board[0][0] ?>"> </input>
@@ -95,24 +95,8 @@
             </tr>
 
         </table>
+        <button id="btn_bingo" name="bingo" type="Submit" value="bingo"> BINGO !!</button>
     </form>
-
-    <?php # displays full history of the game
-    /*
-    for ($z = 0; $z < count($game->history); $z++) {
-        echo '<br><br>
-                <h3><strong>Game Turn ' . $z . '</strong></h3><br>';
-        echo '<table ="bingo-table">';
-        echo '<th><td>B</td><td>I</td><td>N</td><td>G</td><td>O</td></th>';
-        for ($i = 0; $i < 5; $i++) {
-            echo '<tr id="row' . $i . '">';
-            for ($j = 0; $j < 5; $j++) {
-                echo '<td id="row' . $i . '_col' . $j . '"> ' . $history[$z][$i][$j] . '</td>'; # Triple Dimension array - Z dimension is game turn, $i=row, $j=column. 
-            }
-            echo '</tr>';
-        }
-        echo '</table>';
-    } */ ?>
 </body>
 
 </html>

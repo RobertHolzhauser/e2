@@ -35,4 +35,6 @@ $row4_col2 = key_exists('row4_col2', $_POST) ? $_POST['row4_col2'] : -1;
 $row4_col3 = key_exists('row4_col3', $_POST) ? $_POST['row4_col3'] : -1;
 $row4_col4 = key_exists('row4_col4', $_POST) ? $_POST['row4_col4'] : -1;
 
-require 'temp-process-view.php';
+$bingo  = key_exists('bingo', $_POST) ? $_POST['bingo'] : "-1";
+
+require 'index.php';
