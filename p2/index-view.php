@@ -16,6 +16,8 @@
         <?php $game->instruction->getObjective(); ?><br /><br>
         <?php $game->instruction->getGettingStartedLabel(); ?><br>
         <?php $game->instruction->getGettingStarted(); ?><br><br>
+        <?php $game->instruction->getWinningPatternLabel(); ?><br><br>
+        <?php $game->instruction->getWinningPattern(); ?><br><br>
     </div>
     <hr><br />
     <div id="bingo-call">The Bingo Call Out is <?php $game->callNumber(); ?> </div>
