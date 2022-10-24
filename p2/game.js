@@ -6,7 +6,7 @@ let timeVisibleMS = 15000;   // 15 seconds
  */
 let el;
 document.addEventListener('DOMContentLoaded', function () {
-    el = document.getElementById(bingo - call);
+    el = document.getElementById("bingo-call");
     setTimeout(hideElement(el), 15000);
 }, false);
 
