@@ -17,11 +17,13 @@ h3 {}
 .bingo-table {
     background-color: bisque;
     color: brown;
-    border: 5px;
+    border: 5px solid brown;
     border-color: brown;
+    border-collapse: collapse;
     margin: 5%;
     max-width: 500px;
     max-height: 500px;
+    min-height: 275px;
 }
 
 th {
@@ -33,9 +35,23 @@ th {
     border-color: brown;
 }
 
+tr {
+    border: 5px solid brown;
+    border-collapse: collapse;
+}
+
+
 td {
     font-weight: 800;
     font-size: xx-large;
-    border: 3px;
+    text-align: center;
+    vertical-align: middle;
+    border: 5px solid brown;
+    border-collapse: collapse;
     border-color: brown;
+    border-bottom: 10px;
+    border-top: 10px;
+    border-right: 10px;
+    border-left: 10px;
+    min-width: 60px;
 }

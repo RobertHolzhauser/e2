@@ -16,9 +16,15 @@ class Game  #holds overall information for the current game
 
     public function __construct()
     {
-        $this->instruction = new Instruction();
-        $this->players[] = new Player("Computer");
-        $this->players[] = new Player("Guest");
+        $this->instruction = new Instruction();     # populate text for instructions
+        $this->players[] = new Player("Computer");  # create Computer  player
+        $this->players[] = new Player("Guest");     # create Guest player
+        
+        for ($i = 1; $i < 100; $i++ ) {             # populate call queue
+            $this->queue[] = $i;
+        }
+        shuffle($this->queue);                       # randomize the order in which the numbers in queue will be called
+        
     }
 
     public function  getTitle()

@@ -8,16 +8,7 @@
 </head>
 
 <body id="game-background">
-    <?php echo $game->players[1]->GetString() . "<br>";
-    for ($i = 0; $i < 20; $i++) {
-        for ($j = 0; $j < 5; $j++) {
-            echo $game->players[1]->board->board[$i][$j];
-        }
-    }
-    ?>
-
-    <h1><?php $game->getTitle(); ?>
-    </h1>
+    <h1><?php $game->getTitle(); ?></h1>
     <h3><?php $game->instruction->getInstructionLabel(); ?></h3><br />
 
     <div id="game-instructions">
