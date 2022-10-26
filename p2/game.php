@@ -44,7 +44,7 @@ class Game  #holds overall information for the current game
         } else {
             $this->game_status = "Game Over";       # if no further numbers, end the game
         }
-        echo $this->current_call;
+        return $this->current_call;
     }
 
     public function getSesssionValues()
@@ -62,6 +62,11 @@ class Game  #holds overall information for the current game
     public function incrementGameTurn()
     {
         $this->game_turn++;
+    }
+
+    public function getGameTurn()
+    {
+        return $this->game->game_turn;
     }
 }
 require 'instruction.php';

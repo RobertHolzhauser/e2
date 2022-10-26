@@ -20,7 +20,7 @@
         <?php $game->instruction->getWinningPattern(); ?><br><br>
     </div>
     <hr><br />
-    <div id="bingo-call">The Bingo Call Out is <?php $game->callNumber(); ?> </div>
+    <div id="bingo-call">The Bingo Call Out is <?php echo $_SESSION["current_call"]; ?> </div>
     <form action='process.php' method="POST">
         <table class='bingo-table'>
             <tr>
@@ -40,6 +40,8 @@
                     echo $str_a . $str_b . $str_c;
                 }
             }
+            $_SESSION['board1'] = $game->players[1]->board->board;
+
 
             /* <tr id="row0">
                 <td id="row0_col0">
@@ -107,9 +109,9 @@
             */ ?>
 
         </table>
-        <h6>
+        <h4>
             $$$ Press the Bingo button when you have a winning pattern!
-        </h6>
+        </h4>
         <button id="btn_bingo" name="bingo" type="Submit" value="bingo"> BINGO !!</button>
     </form>
 </body>

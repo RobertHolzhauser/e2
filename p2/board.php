@@ -3,7 +3,6 @@ class Board
 {
     public $arr = array(1, 2, 3, 4, 5);     # for use in prepopulating the board in the generateNumbers method
     public $board = [];                     # array that tracks the players bingo board
-    public $tracked = [];                   # array that tracks which pieces the player has tracked as having been called
 
     public  function __construct()
     {
