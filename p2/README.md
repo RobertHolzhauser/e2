@@ -10,10 +10,11 @@
 
 
 ## Notes for instructor
-*Javascript in game.js is used to provide a timer functionality to limit the amount of time the player can view the number that was called.*
-
 I used the design C pattern, along with Object Oriented Programming.  
 
 The classes are organized like so:
 Games -->  Game --> instructions
-                --> players   ---> board
+                --> players   ---> board  
+
+The bingo card is set up such that all places on the board are submit buttons.
+The bingo button is also 

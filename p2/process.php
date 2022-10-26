@@ -1,6 +1,7 @@
 <?php
 
-//TODO make this an array
+# Overall in process.php data is extracted from the index-view form contained in POST, that is then put into the session, and redirected to index.php
+
 # first row
 $curr_tracked = [];
 $curr_tracked[] = key_exists('row0_col0', $_POST) ? $_POST['row0_col0'] : -1;
@@ -39,10 +40,11 @@ $curr_tracked[] = key_exists('row4_col4', $_POST) ? $_POST['row4_col4'] : -1;
 
 $bingo  = key_exists('bingo', $_POST) ? $_POST['bingo'] : "-1";
 
+
 $_SESSION['game-play'] = [
-    'curr_tracked' => $curr_tracked,
-    'bingo'  => $bingo
+    'curr_tracked' => $curr_tracked,                  # above array
+    'bingo'  => $bingo                                # whether any player has called bingo
 ];
 
-#require 'index.php';  # compare to 
-header('Location: index.php');
+#require 'index.php';  # compare to    TODO remove this comment and next line or vice versa depending what works best
+header('Location: index.php');  // this re-routes to index - effectively hiding process.php  -- still blinks, etc.

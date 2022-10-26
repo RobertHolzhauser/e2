@@ -2,7 +2,7 @@
 
 class Game  #holds overall information for the current game
 {
-    public string $title = "BINGO";    # Title of the Game
+    public string $title = "Project 2 - BINGO";    # Title of the Game
     public Player $winner;             # Player object that wins first
     public Instruction $instruction;   # instructions for game play
     public int $difficulty = 10;       # determines how long player has between calls, and computer likelihood to miss.  Inverse - the higher the easier  
@@ -12,7 +12,7 @@ class Game  #holds overall information for the current game
     public int $current_call;          # current number in play
 
     public string $game_status = "playing";   # if status <> playing the gave is over
-    public int $game_turn = 1;         # used to limit the number of turns and to track who's turn it is by odd or even
+    public int $game_turn = 0;         # used to limit the number of turns and to track who's turn it is by odd or even
 
     public function __construct()
     {
@@ -45,6 +45,23 @@ class Game  #holds overall information for the current game
             $this->game_status = "Game Over";       # if no further numbers, end the game
         }
         echo $this->current_call;
+    }
+
+    public function getSesssionValues()
+    {
+        session_start();
+
+        $this->called = $_SESSION['called'];
+    }
+
+    public function getQueue()
+    {
+        return $this->queue;
+    }
+
+    public function incrementGameTurn()
+    {
+        $this->game_turn++;
     }
 }
 require 'instruction.php';

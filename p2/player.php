@@ -3,6 +3,7 @@ class Player
 {
     public ?string $name;
     public Board $board;
+    public $tracking = [];
 
     function __construct(string $nm)
     {
@@ -18,6 +19,10 @@ class Player
         //echo $cell . "<br/>";
         echo count($this->board->board, 1);
         // }
+    }
+
+    public function AddTracking()
+    {
     }
 }
 

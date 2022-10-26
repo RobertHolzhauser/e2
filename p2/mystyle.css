@@ -84,4 +84,8 @@ td {
     font-size: xx-large;
     align-self: stretch;
     margin-left: 100px;
+    border-color: ivory;
+    border-style: groove;
+    border-width: 7px;
+    border-radius: 15px;
 }

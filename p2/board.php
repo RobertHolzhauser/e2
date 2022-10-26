@@ -5,7 +5,6 @@ class Board
     public $board = [];                     # array that tracks the players bingo board
     public $tracked = [];                   # array that tracks which pieces the player has tracked as having been called
 
-
     public  function __construct()
     {
         $this->generateNumbers();           # when the game is instantiated, build out the board with numbers

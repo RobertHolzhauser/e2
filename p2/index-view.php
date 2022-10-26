@@ -96,6 +96,9 @@
 
         </table>
         <button id="btn_bingo" name="bingo" type="Submit" value="bingo"> BINGO !!</button>
+        <h6>
+            $$$ Press the Bingo button when you have a winning pattern!
+        </h6>
     </form>
 </body>
 
