@@ -30,20 +30,31 @@
                 <th>G</th>
                 <th>O</th>
             </tr>
-            <tr id=" row0">
+            <?php
+            # build the 5x5 bingo board
+            for ($i = 0; $i < 5; $i++) {                    # $i denotes the row
+                for ($j = 0; $j < 5; $j++) {                # $j deontes the column
+                    $str_a = ($j == 0 or $j % 5 == 0) ? '<tr id="row' . $i . '">' : '';
+                    $str_b = '<td id="row' . $i . '_col' . $j . '"><input type="submit" name="row' . $i . '_col' . $j . '" class="cell-button" value="' . $game->players[1]->board->board[$i][$j] . '"></input></td>';
+                    $str_c  = ($j % 5 == 0 and $j > 0) ? '</tr>' : '';
+                    echo $str_a . $str_b . $str_c;
+                }
+            }
+
+            /* <tr id="row0">
                 <td id="row0_col0">
                     <input type="submit" name="row0_col0" class="cell-button"
                         value="<?php echo $game->players[1]->board->board[0][0] ?>"> </input>
-                </td>
-                <td id="row0_col1"><input type="submit" name="row0_col1" class="cell-button"
-                        value="<?php echo $game->players[1]->board->board[0][1] ?>"> </input>
-                </td>
-                <td id="row0_col2"><input type="submit" name="row0_col2" class="cell-button"
-                        value="<?php echo $game->players[1]->board->board[0][2] ?>"> </input></td>
-                <td id=" row0_col3"><input type="submit" name="row0_col3" class="cell-button"
-                        value="<?php echo $game->players[1]->board->board[0][3] ?>"> </input></td>
-                <td id=" row0_col4"><input type="submit" name="row0_col4" class="cell-button"
-                        value="<?php echo $game->players[1]->board->board[0][4] ?>"> </input></td>
+            </td>
+            <td id="row0_col1"><input type="submit" name="row0_col1" class="cell-button"
+                    value="<?php echo $game->players[1]->board->board[0][1] ?>"> </input>
+            </td>
+            <td id="row0_col2"><input type="submit" name="row0_col2" class="cell-button"
+                    value="<?php echo $game->players[1]->board->board[0][2] ?>"> </input></td>
+            <td id=" row0_col3"><input type="submit" name="row0_col3" class="cell-button"
+                    value="<?php echo $game->players[1]->board->board[0][3] ?>"> </input></td>
+            <td id=" row0_col4"><input type="submit" name="row0_col4" class="cell-button"
+                    value="<?php echo $game->players[1]->board->board[0][4] ?>"> </input></td>
             </tr>
             <tr id="row1">
                 <td id="row1_col0"><input type="submit" name="row1_col0" class="cell-button"
@@ -93,12 +104,13 @@
                 <td id="row4_col4"><input type="submit" name="row4_col4" class="cell-button"
                         value="<?php echo $game->players[1]->board->board[4][4] ?>"> </input></td>
             </tr>
+            */ ?>
 
         </table>
-        <button id="btn_bingo" name="bingo" type="Submit" value="bingo"> BINGO !!</button>
         <h6>
             $$$ Press the Bingo button when you have a winning pattern!
         </h6>
+        <button id="btn_bingo" name="bingo" type="Submit" value="bingo"> BINGO !!</button>
     </form>
 </body>
 

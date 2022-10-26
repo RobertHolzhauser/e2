@@ -89,3 +89,12 @@ td {
     border-width: 7px;
     border-radius: 15px;
 }
+
+.bingo-marker {
+    height: 44px;
+    width: 44px;
+    background-color: crimson;
+    opacity: 85%;
+    border-radius: 50%;
+    display: inline-block;
+}

@@ -7,6 +7,7 @@
 [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 [W3 Schools entry on Javascript Timing](https://www.w3schools.com/js/js_timing.asp)
 [StackOverFlow entry on how to fire function after page load completes](https://stackoverflow.com/questions/11936816/execute-function-after-complete-page-load)
+[W3 Schools CSS How To Create A Circle](https://www.w3schools.com/howto/howto_css_circles.asp)
 
 
 ## Notes for instructor
