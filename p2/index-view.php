@@ -1,9 +1,11 @@
+<?php /* session_start(); */ ?>
 <!doctype html>
 <html lang='en'>
 <link rel="stylesheet" href="mystyle.css">
 
 <head>
-    <title><?php $game->getTitle(); ?> </title>
+    <title><?php $game->getTitle(); ?>
+    </title>
     <meta charset='utf-8'>
 </head>
 
@@ -112,7 +114,10 @@
         <h4>
             $$$ Press the Bingo button when you have a winning pattern!
         </h4>
-        <button id="btn_bingo" name="bingo" type="Submit" value="bingo"> BINGO !!</button>
+        <button id="btn_bingo" name="bingo" type="Submit" value="bingo" class="btn_bingo"> BINGO !!</button>
+        <button id=" btn_next_call" name="next_call" type="Submit" value="next-call" class="btn_bingo">
+            Next Call
+        </button>
     </form>
 </body>
 

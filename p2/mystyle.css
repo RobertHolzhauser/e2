@@ -78,7 +78,7 @@ td {
     color: whitesmoke;
 }
 
-#btn_bingo {
+.btn_bingo {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 900;
     font-size: xx-large;

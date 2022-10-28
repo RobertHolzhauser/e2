@@ -1,5 +1,8 @@
 <?php
-
+if (!isset($_Sesssion)) {
+    session_start();
+}
+//session_start();
 # Overall in process.php data is extracted from the index-view form contained in POST, that is then put into the session, and redirected to index.php
 
 # first row
@@ -40,11 +43,25 @@ $curr_tracked[] = key_exists('row4_col4', $_POST) ? $_POST['row4_col4'] : -1;
 
 $bingo  = key_exists('bingo', $_POST) ? $_POST['bingo'] : "-1";
 
+$track = -1;
+for ($i = 0; $i < 25; $i++) {
+    if ($curr_tracked[$i] > 0) {
+        $track = $curr_tracked[$i];
+        break;
+    }
+}
 
-$_SESSION['game-play'] = [
-    'curr_tracked' => $curr_tracked,                  # above array
-    'bingo'  => $bingo                                # whether any player has called bingo
-];
+echo "game var dump";
+var_dump($_SESSION['game']);
+echo "<br>";
+// add trac to session
+$_SESSION['game']->bingo = $bingo;
+$_SESSION['game']->players[1]->tracking[] = $track;
 
-#require 'index.php';  # compare to    TODO remove this comment and next line or vice versa depending what works best
-header('Location: index.php');  // this re-routes to index - effectively hiding process.php  -- still blinks, etc.
+// $_SESSION['game-play'] = [
+//     'curr_tracked' => $curr_tracked,                  # above array
+//     'bingo'  => $bingo                                # whether any player has called bingo
+// ];
+
+require 'index.php';  # compare to    TODO remove this comment and next line or vice versa depending what works best
+#header('Location: index.php');  // this re-routes to index - effectively hiding process.php  -- still blinks, etc.

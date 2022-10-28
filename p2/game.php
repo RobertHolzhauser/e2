@@ -3,9 +3,9 @@
 class Game  #holds overall information for the current game
 {
     public string $title = "Project 2 - BINGO";    # Title of the Game
-    public Player $winner;             # Player object that wins first
+    public Player $winner;             # TODO Player object that wins first
     public Instruction $instruction;   # instructions for game play
-    public int $difficulty = 10;       # determines how long player has between calls, and computer likelihood to miss.  Inverse - the higher the easier  
+    public int $difficulty = 10;       # TODO determines how long player has between calls, and computer likelihood to miss.  Inverse - the higher the easier  
     public $players = [];              # array of players
     public $queue = [];                # the queue of numbers that are yet to be called 
     public $called  = [];              # the numbers that have been called so far in the game
@@ -13,6 +13,7 @@ class Game  #holds overall information for the current game
 
     public string $game_status = "playing";   # if status <> playing the gave is over
     public int $game_turn = 0;         # used to limit the number of turns and to track who's turn it is by odd or even
+    public int $bingo = 0;             #  if one player game don't need to track which player has bingo TODO to evolve by moving $bingo to player class.
 
     public function __construct()
     {
