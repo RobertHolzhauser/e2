@@ -55,6 +55,7 @@ if (!isset($_SESSION['game'])) {
     $_SESSION["tracking0"] = $game->players[0]->tracking;       # save numbers player 0 has tracked to the session 
     $_SESSION["tracking1"] = $game->players[1]->tracking;       # save numbers player 1 has tracked to the session 
     $_SESSION["game"] = $game;
+    $_SESSION["bingo"] = $game->bingo;
 } else {
     echo 'index.php - 2000<br>';
     if (!isset($game)) {
@@ -84,6 +85,7 @@ if (!isset($_SESSION['game'])) {
     $game->players[1]->board->board = $_SESSION["board1"];  # Get player1's board from the session and save to the current game
     $game->players[0]->tracking = $_SESSION["tracking0"];       # retrieve numbers player 0 has tracked from the session 
     $game->players[1]->tracking = $_SESSION["tracking1"];       # retrieve numbers player 1 has tracked from the session 
+    $game->bingo  = $_SESSION["bingo"];
 
 
     /******************************************************
@@ -98,6 +100,7 @@ if (!isset($_SESSION['game'])) {
     $_SESSION["tracking0"] = $game->players[0]->tracking;       # save numbers player 0 has tracked to the session 
     $_SESSION["tracking1"] = $game->players[1]->tracking;       # save numbers player 1 has tracked to the session 
     $_SESSION["game"] = $game;
+    $_SESSION["bingo"] = $game->bingo;
 }
 
 

@@ -13,7 +13,7 @@ class Game  #holds overall information for the current game
 
     public string $game_status = "playing";   # if status <> playing the gave is over
     public int $game_turn = 0;         # used to limit the number of turns and to track who's turn it is by odd or even
-    public int $bingo = 0;             #  if one player game don't need to track which player has bingo TODO to evolve by moving $bingo to player class.
+    public string $bingo = "not yet";  #  if one player game don't need to track which player has bingo TODO to evolve by moving $bingo to player class.
 
     public function __construct()
     {

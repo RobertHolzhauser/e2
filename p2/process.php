@@ -52,7 +52,8 @@ $curr_tracked[] = key_exists('row4_col2', $_POST) ? $_POST['row4_col2'] : -1;
 $curr_tracked[] = key_exists('row4_col3', $_POST) ? $_POST['row4_col3'] : -1;
 $curr_tracked[] = key_exists('row4_col4', $_POST) ? $_POST['row4_col4'] : -1;
 
-$bingo  = key_exists('bingo', $_POST) ? $_POST['bingo'] : "-1";
+$bingo  = key_exists('bingo', $_POST) ? $_POST['bingo'] : "not yet";
+$_SESSION['bingo'] = $bingo;
 
 $track = -1;
 for ($i = 0; $i < 25; $i++) {
