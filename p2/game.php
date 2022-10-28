@@ -17,11 +17,13 @@ class Game  #holds overall information for the current game
 
     public function __construct()
     {
+        echo 'START game.php construct<br>';
         $this->instruction = new Instruction();     # populate text for instructions
         $this->players[] = new Player("Computer");  # create Computer  player
         $this->players[] = new Player("Guest");     # create Guest player
 
         $this->populateCallQueue();
+        echo 'EXIT game.php construct<br>';
     }
 
     public function populateCallQueue()
@@ -40,11 +42,20 @@ class Game  #holds overall information for the current game
     public function callNumber()                    # if numbers are left in the queue take the next one, make it the current call, and add to the list of calls
     {
         if (count($this->queue) > 0) {
-            $this->current_call = array_pop($this->queue);
+            $tmp_call = array_pop($this->queue);
+            echo '$tmp_call = ' . $tmp_call . '<br>';
+            $tmp_call = array_pop($this->queue);
+            echo '$tmp_call = ' . $tmp_call . '<br>';
+            $tmp_call = array_pop($this->queue);
+            echo '$tmp_call = ' . $tmp_call . '<br>';
+            $this->current_call = $tmp_call;
+            echo 'call_number VAR DUMP queue <br><br><br>';
+            var_dump($this->queue);
             $this->called[] = $this->current_call;
         } else {
             $this->game_status = "Game Over";       # if no further numbers, end the game
         }
+        echo 'game.php --> callNumber ==> ' . $this->current_call;
         return $this->current_call;
     }
 
@@ -62,6 +73,7 @@ class Game  #holds overall information for the current game
 
     public function incrementGameTurn()
     {
+        echo 'game.php increment turn<br>';
         $this->game_turn++;
     }
 

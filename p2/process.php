@@ -1,7 +1,18 @@
 <?php
+echo 'START - process.php<br>';
 if (!isset($_Sesssion)) {
-    session_start();
+    echo 'IN process.php session is not set<br>';
+    try {
+        session_start();
+    } catch (Exception) {
+        echo 'EXCEPTION in index.php 001';
+    }
+    echo 'started session in process.php<br>';
 }
+
+echo 'START - process.php<br>';
+
+//require 'player.php';
 //session_start();
 # Overall in process.php data is extracted from the index-view form contained in POST, that is then put into the session, and redirected to index.php
 
@@ -51,17 +62,19 @@ for ($i = 0; $i < 25; $i++) {
     }
 }
 
-echo "game var dump";
-var_dump($_SESSION['game']);
-echo "<br>";
+
+header('Location: index.php');  // this re-routes to index - effectively hiding process.php  -- still blinks, etc.
+// echo "game var dump";
+// var_dump($_SESSION['game']);
+// echo "<br>";
 // add trac to session
-$_SESSION['game']->bingo = $bingo;
-$_SESSION['game']->players[1]->tracking[] = $track;
+// TODO  $_SESSION['bingo'] = $bingo;
+// TODO $_SESSION['tracking1'] = $track;
 
 // $_SESSION['game-play'] = [
 //     'curr_tracked' => $curr_tracked,                  # above array
 //     'bingo'  => $bingo                                # whether any player has called bingo
 // ];
 
-require 'index.php';  # compare to    TODO remove this comment and next line or vice versa depending what works best
-#header('Location: index.php');  // this re-routes to index - effectively hiding process.php  -- still blinks, etc.
+//require 'index.php';  # compare to    TODO remove this comment and next line or vice versa depending what works best
+//header('Location: index.php');  // this re-routes to index - effectively hiding process.php  -- still blinks, etc.
