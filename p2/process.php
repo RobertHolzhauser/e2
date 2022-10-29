@@ -51,15 +51,27 @@ $curr_tracked[] = key_exists('row4_col1', $_POST) ? $_POST['row4_col1'] : -1;
 $curr_tracked[] = key_exists('row4_col2', $_POST) ? $_POST['row4_col2'] : -1;
 $curr_tracked[] = key_exists('row4_col3', $_POST) ? $_POST['row4_col3'] : -1;
 $curr_tracked[] = key_exists('row4_col4', $_POST) ? $_POST['row4_col4'] : -1;
-
+$new_game = key_exists('new-game', $_POST) ? $_POST['new-game'] : '';
 $bingo  = key_exists('bingo', $_POST) ? $_POST['bingo'] : "not yet";
 $_SESSION['bingo'] = $bingo;
 
 $track = -1;
-for ($i = 0; $i < 25; $i++) {
-    if ($curr_tracked[$i] > 0) {
-        $track = $curr_tracked[$i];
-        break;
+
+
+if ($new_game == "new-game") {
+    echo 'STARTING New Game';
+    $_SESSION['bingo'] = null;
+    $_SESSION['game'] = null;
+    $_SESSION['track'] = null;
+    $_SESSION['board1'] = null;
+}
+else {
+    for ($i = 0; $i < 25; $i++) {
+        if ($curr_tracked[$i] > 0) {
+            $track = $curr_tracked[$i];
+            $_SESSION['track'] = $track;
+            break;
+        }
     }
 }
 
@@ -71,11 +83,3 @@ header('Location: index.php');  // this re-routes to index - effectively hiding 
 // add trac to session
 // TODO  $_SESSION['bingo'] = $bingo;
 // TODO $_SESSION['tracking1'] = $track;
-
-// $_SESSION['game-play'] = [
-//     'curr_tracked' => $curr_tracked,                  # above array
-//     'bingo'  => $bingo                                # whether any player has called bingo
-// ];
-
-//require 'index.php';  # compare to    TODO remove this comment and next line or vice versa depending what works best
-//header('Location: index.php');  // this re-routes to index - effectively hiding process.php  -- still blinks, etc.

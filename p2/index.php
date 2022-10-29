@@ -152,8 +152,8 @@ if (!isset($_SESSION['game'])) {
 //     $_SESSION["game"] = $game;
 // }
 
-echo "var_dump<br>";
-var_dump($_SESSION);
+//echo "var_dump<br>";
+//var_dump($_SESSION);
 
 echo 'index.php COMPLETE 999999 <br>';
 require 'index-view.php';

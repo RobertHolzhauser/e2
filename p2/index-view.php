@@ -24,9 +24,14 @@
     <hr>
     <hr><br />
     <?php echo $game->bingo ?>
-    <div id="bingo-call" <?php ($game->bingo == 'bingo') ? " class='hidden'" : "" ?>>The Bingo Call Out is
-        <?php echo $_SESSION["current_call"]; ?>
-    </div>
+    <!--- Hide Bingo Call out if Bingo -->
+    <?php if ($game->bingo != 'bingo') {
+        echo '<div id="bingo-call"> The Bingo Call Out is ' . $game->current_call . '</div>';
+    } else {
+        echo '<div id="bingo"><h1> CONGRATULATIONS!  We have a WINNER!! B I N G O </h1></div>';
+    }
+    ?>
+
     <form action='process.php' method="POST">
         <table class='bingo-table'>
             <tr>
@@ -50,14 +55,14 @@
             ?>
 
         </table>
-        <h4>
+        <h2>
             $$$ Press the Bingo button when you have a winning pattern!
-        </h4>
+        </h2>
         <button id="btn_bingo" name="bingo" type="Submit" value="bingo" class="btn_bingo"> BINGO !!</button>
         <button id=" btn_next_call" name="next_call" type="Submit" value="next-call" class="btn_bingo">
             Next Call
         </button>
-        <button id=" btn_new_game" name="new_game" type="Submit" value="new-game" class="btn_bingo">
+        <button id=" btn_new_game" name="new-game" type="Submit" value="new-game" class="btn_bingo">
             New Game
         </button>
     </form>
