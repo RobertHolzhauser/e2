@@ -10,6 +10,22 @@ class Player
         $this->name = $nm;
         $this->board = new Board();
     }
+
+    public function TrackCall(string $call)
+    {
+        $this->tracking[] = $call;
+    }
+
+    public function GetTracking()
+    {
+        $str_tracking = "";
+        foreach ($this->tracking as $tr) {
+            echo "<br>now tracking " . $tr;
+            $str_tracking = $tr;
+            echo "<br>" . $str_tracking;
+        }
+        echo $str_tracking;
+    }
 }
 
 require 'board.php';

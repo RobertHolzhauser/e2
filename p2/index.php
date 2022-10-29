@@ -74,6 +74,7 @@ if (!isset($_SESSION['game'])) {
         }
     }
 
+
     //$game->game_turn = $_SESSION["game_turn"] + 1;
     echo 'index.php - 2500<br>';
     $game->queue = $_SESSION["queue"];                      # retrieve the queue of numbers available to be called from the session 
@@ -82,10 +83,15 @@ if (!isset($_SESSION['game'])) {
     $game->players[0]->board->board = $_SESSION["board0"];  # Get player0's board from the session and save to the current game
     $game->players[1]->board->board = $_SESSION["board1"];  # Get player1's board from the session and save to the current game
     $game->players[0]->tracking = $_SESSION["tracking0"];       # retrieve numbers player 0 has tracked from the session 
-    $game->players[1]->tracking = $_SESSION["tracking1"];       # retrieve numbers player 1 has tracked from the session 
+    $game->players[1]->TrackCall($_SESSION["track"]);       # retrieve numbers player 1 has tracked from the session 
+    echo "Get Tracking: <br>";
+    $game->players[1]->GetTracking();
     $game->bingo  = $_SESSION["bingo"];
 
-
+    echo '<br><hr>tracking var dump:<br>';
+    var_dump($game->players[1]->tracking);
+    echo "<br>SESSION [track] = ";
+    var_dump($_SESSION["track"]) . "<br>";
     /******************************************************
      * RESET variables in sesssion
      ******************************************************/

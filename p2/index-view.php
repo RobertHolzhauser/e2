@@ -45,8 +45,10 @@
             # build the 5x5 bingo board
             for ($i = 0; $i < 5; $i++) {                    # $i denotes the row
                 for ($j = 0; $j < 5; $j++) {                # $j deontes the column
+                    $ref = ($i + 1) + ($j + 1);
+                    $my_class = (in_array($game->players[1]->board->board[$i][$j] /*this value is the needle to look for*/, $game->players[1]->tracking)) ? '" class="cell-button bingo-marker"' : '" class="cell-button"';  # add bingo marker if this cell has a value that is tracked
                     $str_a = ($j == 0 or $j % 5 == 0) ? '<tr id="row' . $i . '">' : '';
-                    $str_b = '<td id="row' . $i . '_col' . $j . '"><input type="submit" name="row' . $i . '_col' . $j . '" class="cell-button" value="' . $game->players[1]->board->board[$i][$j] . '"></input></td>';
+                    $str_b = '<td id="row' . $i . '_col' . $j . '"><input type="submit" name="row' . $i . '_col' . $j . $my_class . ' value="' . $game->players[1]->board->board[$i][$j] . '"></input></td>';
                     $str_c  = ($j % 5 == 0 and $j > 0) ? '</tr>' : '';
                     echo $str_a . $str_b . $str_c;
                 }
