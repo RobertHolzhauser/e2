@@ -21,16 +21,14 @@ if (!isset($_Sesssion)) {
 
 echo 'index.php - 1100<br>';
 
-// try {
-//     session_start();
-//     $game = new Game();
-// } catch (Exception $e) {
-//     echo $e;
-// }
+
+if (!isset($game)) {
+    $game = new Game();
+}
 
 
 
-$game = new Game();
+//$game = new Game();
 echo 'index.php - 1200<br>';
 if (!isset($_SESSION['game'])) {
     echo "New Game<br>";

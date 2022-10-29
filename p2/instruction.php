@@ -8,8 +8,8 @@ class Instruction
     public string $objective_label = "OBJECTIVE";
     public string $objective = "To place chips on the corresponding spaces as they are chosen, and be the first to complete a winning pattern.";
     public string $getting_started_label = "HOW TO PLAY";
-    public string $getting_started = "The computer will initially create game boards for all players of 5 rows of 5 squares, with the middle square blank. " .
-        " Then it will randomly call numbers. When you notice that a number on your board has been selected, quickly click on that number to claim it.  Don't wait, your time is limited.";
+    public string $getting_started = "The game initially creates a board for you of 5 rows of 5 squares, with the middle square FREE. " .
+        "When you notice that a number on your board has been called, click to claim it.";
     public string $winning_patttern_label = "WINNING PATTERNS";
     public string $winning_pattern = 'Either a Horizontal or a Vertical line of 5 numbers. Diagonal does not count.  Click the "BINGO !!" button when you have a bingo';
 

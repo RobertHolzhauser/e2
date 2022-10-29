@@ -21,6 +21,7 @@
         <?php $game->instruction->getWinningPatternLabel(); ?><br>
         <?php $game->instruction->getWinningPattern(); ?><br><br>
     </div>
+    <hr>
     <hr><br />
     <?php echo $game->bingo ?>
     <div id="bingo-call" <?php ($game->bingo == 'bingo') ? " class='hidden'" : "" ?>>The Bingo Call Out is
@@ -36,17 +37,17 @@
                 <th>O</th>
             </tr>
             <?php
-                        # build the 5x5 bingo board
-                        for ($i = 0; $i < 5; $i++) {                    # $i denotes the row
-                                for ($j = 0; $j < 5; $j++) {                # $j deontes the column
-                                        $str_a = ($j == 0 or $j % 5 == 0) ? '<tr id="row' . $i . '">' : '';
-                                        $str_b = '<td id="row' . $i . '_col' . $j . '"><input type="submit" name="row' . $i . '_col' . $j . '" class="cell-button" value="' . $game->players[1]->board->board[$i][$j] . '"></input></td>';
-                                        $str_c  = ($j % 5 == 0 and $j > 0) ? '</tr>' : '';
-                                        echo $str_a . $str_b . $str_c;
-                                }
-                        }
-                        $_SESSION['board1'] = $game->players[1]->board->board;
-                        ?>
+            # build the 5x5 bingo board
+            for ($i = 0; $i < 5; $i++) {                    # $i denotes the row
+                for ($j = 0; $j < 5; $j++) {                # $j deontes the column
+                    $str_a = ($j == 0 or $j % 5 == 0) ? '<tr id="row' . $i . '">' : '';
+                    $str_b = '<td id="row' . $i . '_col' . $j . '"><input type="submit" name="row' . $i . '_col' . $j . '" class="cell-button" value="' . $game->players[1]->board->board[$i][$j] . '"></input></td>';
+                    $str_c  = ($j % 5 == 0 and $j > 0) ? '</tr>' : '';
+                    echo $str_a . $str_b . $str_c;
+                }
+            }
+            $_SESSION['board1'] = $game->players[1]->board->board;
+            ?>
 
         </table>
         <h4>
@@ -55,6 +56,9 @@
         <button id="btn_bingo" name="bingo" type="Submit" value="bingo" class="btn_bingo"> BINGO !!</button>
         <button id=" btn_next_call" name="next_call" type="Submit" value="next-call" class="btn_bingo">
             Next Call
+        </button>
+        <button id=" btn_new_game" name="new_game" type="Submit" value="new-game" class="btn_bingo">
+            New Game
         </button>
     </form>
 </body>
