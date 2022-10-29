@@ -11,22 +11,24 @@
 
 <body id="game-background">
     <h1><?php $game->getTitle(); ?></h1>
-    <h3><?php $game->instruction->getInstructionLabel(); ?></h3><br />
+    <h3><?php $game->instruction->getInstructionLabel(); ?></h3>
 
     <div id="game-instructions">
         <?php $game->instruction->getObjectiveLabel(); ?><br>
         <?php $game->instruction->getObjective(); ?><br><br>
         <?php $game->instruction->getGettingStartedLabel(); ?><br>
-        <?php $game->instruction->getGettingStarted(); ?><br><br>
+        <?php $game->instruction->getGettingStarted(); ?><br>
+        <?php $game->instruction->getGettingStarted1(); ?><br><br>
         <?php $game->instruction->getWinningPatternLabel(); ?><br>
         <?php $game->instruction->getWinningPattern(); ?><br><br>
     </div>
     <hr>
     <hr><br />
-    <?php echo $game->bingo ?>
     <!--- Hide Bingo Call out if Bingo -->
     <?php if ($game->bingo != 'bingo') {
         echo '<div id="bingo-call"> The Bingo Call Out is ' . $game->current_call . '</div>';
+    } else if ($game->game_staus == "Game Over") {
+        echo '<div id="bingo"><h1> Game Over - Better Luck Next Time. </h1></div>';
     } else {
         echo '<div id="bingo"><h1> CONGRATULATIONS!  We have a WINNER!! B I N G O </h1></div>';
     }

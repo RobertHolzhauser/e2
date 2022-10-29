@@ -6,10 +6,11 @@ class Instruction
     # These instructions are loosely adapted from the instructions included with the Traditions Bingo game from Cardinal Industries, LLc.  
     public string $instruction_label = "INSTRUCTIONS:";
     public string $objective_label = "OBJECTIVE";
-    public string $objective = "To place chips on the corresponding spaces as they are chosen, and be the first to complete a winning pattern.";
+    public string $objective = "To put a bingo marker on the corresponding spaces as they are called, and complete a winning pattern.";
     public string $getting_started_label = "HOW TO PLAY";
     public string $getting_started = "The game initially creates a board for you of 5 rows of 5 squares, with the middle square FREE. " .
-        "When you notice that a number on your board has been called, click to claim it.";
+        "When you notice that a number on your board has been called, click that number on your board to claim it.";
+    public string $getting_started1 = "To get the next number click Next Call.  To start a new game click New Game.";
     public string $winning_patttern_label = "WINNING PATTERNS";
     public string $winning_pattern = 'Either a Horizontal or a Vertical line of 5 numbers. Diagonal does not count.  Click the "BINGO !!" button when you have a bingo';
 
@@ -38,6 +39,10 @@ class Instruction
         echo $this->getting_started;
     }
 
+    public function getGettingStarted1()
+    {
+        echo $this->getting_started1;
+    }
     public function getWinningPatternLabel()
     {
         echo $this->winning_patttern_label;

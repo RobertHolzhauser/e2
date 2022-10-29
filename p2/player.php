@@ -11,7 +11,7 @@ class Player
         $this->board = new Board();
     }
 
-    public function TrackCall(string $call)
+    public function TrackCall(int $call)
     {
         $this->tracking[] = $call;
     }

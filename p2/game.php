@@ -5,7 +5,7 @@ class Game  #holds overall information for the current game
     public string $title = "Project 2 - BINGO";    # Title of the Game
     public Instruction $instruction;   # instructions for game play
     public $players = [];              # array of players
-    public $queue = [];                # the queue of numbers that are yet to be called 
+    public $queue   = [];                # the queue of numbers that are yet to be called 
     public $called  = [];              # the numbers that have been called so far in the game
     public int $current_call;          # current number in play
 
@@ -15,13 +15,13 @@ class Game  #holds overall information for the current game
 
     public function __construct()
     {
-        echo 'START game.php construct<br>';
+        // echo 'START game.php construct<br>';
         $this->instruction = new Instruction();     # populate text for instructions
         $this->players[] = new Player("Computer");  # create Computer  player
         $this->players[] = new Player("Guest");     # create Guest player
 
         $this->populateCallQueue();
-        echo 'EXIT game.php construct<br>';
+        // echo 'EXIT game.php construct<br>';
     }
 
     public function populateCallQueue()
@@ -41,26 +41,29 @@ class Game  #holds overall information for the current game
     {
         if (count($this->queue) > 0) {
             $tmp_call = array_pop($this->queue);
-            echo '$tmp_call = ' . $tmp_call . '<br>';
-            $tmp_call = array_pop($this->queue);
-            echo '$tmp_call = ' . $tmp_call . '<br>';
-            $tmp_call = array_pop($this->queue);
-            echo '$tmp_call = ' . $tmp_call . '<br>';
+            // echo '$tmp_call = ' . $tmp_call . '<br>';
+            if ($this->game_turn == 0) {
+                $tmp_call = array_pop($this->queue);
+            }
+
+            //echo '$tmp_call = ' . $tmp_call . '<br>';
+            //TODO EVAL $tmp_call = array_pop($this->queue);
+            // echo '$tmp_call = ' . $tmp_call . '<br>';
             $this->current_call = $tmp_call;
-            echo 'call_number VAR DUMP queue <br><br><br>';
-            var_dump($this->queue);
+            // echo 'call_number VAR DUMP queue <br><br><br>';
+            //var_dump($this->queue);
             $this->called[] = $this->current_call;
+            $this->game_turn++;
         } else {
             $this->game_status = "Game Over";       # if no further numbers, end the game
         }
-        echo 'game.php --> callNumber ==> ' . $this->current_call;
+        //echo 'game.php --> callNumber ==> ' . $this->current_call;
         return $this->current_call;
     }
 
     public function getSesssionValues()
     {
         session_start();
-
         $this->called = $_SESSION['called'];
     }
 
@@ -71,7 +74,7 @@ class Game  #holds overall information for the current game
 
     public function incrementGameTurn()
     {
-        echo 'game.php increment turn<br>';
+        //echo 'game.php increment turn<br>';
         $this->game_turn++;
     }
 
