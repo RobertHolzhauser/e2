@@ -15,7 +15,7 @@
 
 
 ## Notes for instructor
-I used the design C pattern, along with Object Oriented Programming.  
+I used the Design C Pattern, along with Object Oriented Programming.  
 
 The classes are organized like so:
 `
@@ -27,3 +27,9 @@ Game --> players ---> board
 
 The bingo card is set up such that all cells on the board are submit buttons.
 The Bingo, Next Call, and New Game buttons are also submit buttons. 
+
+The board is created dynamically with a nested loop.  The queue of calls is created ahead of time, and each call pops a number from the queue array.
+Each click is evaluated to determine which button triggered the POST, action taken respectively.
+
+CSS is used to generate the bingo marker, when the class "bingo-marker" is used.  When the board is generated, the array that tracks all of the 
+cell clicks is tracked to see if the current cell contains any of the tracked values.  If so, the bingo-marker class is added to the table cell.
