@@ -20,7 +20,7 @@ I used the design C pattern, along with Object Oriented Programming.
 The classes are organized like so:
 `
 Game --> instructions  
-      --> players   ---> board
+Game --> players ---> board
 `
 
 The bingo card is set up such that all cells on the board are submit buttons.
