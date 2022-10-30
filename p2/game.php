@@ -42,7 +42,7 @@ class Game  #holds overall information for the current game
         if (count($this->queue) > 0) {
             $tmp_call = array_pop($this->queue);
             // echo '$tmp_call = ' . $tmp_call . '<br>';
-            if ($this->game_turn == 0) {
+            if ($this->game_turn <= 1) {
                 $tmp_call = array_pop($this->queue);
             }
 

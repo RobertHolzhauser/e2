@@ -25,10 +25,11 @@
     <hr>
     <hr><br />
     <!--- Hide Bingo Call out if Bingo -->
-    <?php if ($game->bingo != 'bingo') {
-        echo '<div id="bingo-call"> The Bingo Call Out is ' . $game->current_call . '</div>';
-    } else if ($game->game_staus == "Game Over") {
+    <?php
+    if (count($game->queue) <= 1) {
         echo '<div id="bingo"><h1> Game Over - Better Luck Next Time. </h1></div>';
+    } else if ($game->bingo != 'bingo') {
+        echo '<div id="bingo-call"> The Bingo Call Out is ' . $game->current_call . '</div>';
     } else {
         echo '<div id="bingo"><h1> CONGRATULATIONS!  We have a WINNER!! B I N G O </h1></div>';
     }

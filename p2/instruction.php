@@ -9,10 +9,10 @@ class Instruction
     public string $objective = "To put a bingo marker on the corresponding spaces as they are called, and complete a winning pattern.";
     public string $getting_started_label = "HOW TO PLAY";
     public string $getting_started = "The game initially creates a board for you of 5 rows of 5 squares, with the middle square FREE. " .
-        "When you notice that a number on your board has been called, click that number on your board to claim it.";
+        "When you notice that a number on your board has been called, click that number on your board to claim it.  A new number is called immediately. ";
     public string $getting_started1 = "To get the next number click Next Call.  To start a new game click New Game.";
     public string $winning_patttern_label = "WINNING PATTERNS";
-    public string $winning_pattern = 'Either a Horizontal or a Vertical line of 5 numbers. Diagonal does not count.  Click the "BINGO !!" button when you have a bingo';
+    public string $winning_pattern = 'Either a Horizontal or a Vertical line of 5 numbers.  Diagonal does not count.  Click the "BINGO !!" button when you have a bingo';
 
     public function getInstructionLabel()
     {
