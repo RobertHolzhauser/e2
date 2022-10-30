@@ -19,7 +19,7 @@ I used the design C pattern, along with Object Oriented Programming.
 
 The classes are organized like so:
 `
-Game --> instructions
+Game --> instructions  
       --> players   ---> board
 `
 
