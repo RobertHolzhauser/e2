@@ -1,19 +1,12 @@
 <?php
-echo 'START - process.php<br>';
 if (!isset($_Sesssion)) {
-    echo 'IN process.php session is not set<br>';
     try {
         session_start();
     } catch (Exception) {
         echo 'EXCEPTION in index.php 001';
     }
-    echo 'started session in process.php<br>';
 }
 
-echo 'START - process.php<br>';
-
-//require 'player.php';
-//session_start();
 # Overall in process.php data is extracted from the index-view form contained in POST, that is then put into the session, and redirected to index.php
 
 # first row
@@ -57,15 +50,13 @@ $_SESSION['bingo'] = $bingo;
 
 $track = -1;
 
-
+# reset for new game
 if ($new_game == "new-game") {
-    echo 'STARTING New Game';
     $_SESSION['bingo'] = null;
     $_SESSION['game'] = null;
     $_SESSION['track'] = null;
     $_SESSION['board1'] = null;
-}
-else {
+} else {
     for ($i = 0; $i < 25; $i++) {
         if ($curr_tracked[$i] > 0) {
             $track = $curr_tracked[$i];
@@ -75,11 +66,4 @@ else {
     }
 }
 
-
-header('Location: index.php');  // this re-routes to index - effectively hiding process.php  -- still blinks, etc.
-// echo "game var dump";
-// var_dump($_SESSION['game']);
-// echo "<br>";
-// add trac to session
-// TODO  $_SESSION['bingo'] = $bingo;
-// TODO $_SESSION['tracking1'] = $track;
+header('Location: index.php');
