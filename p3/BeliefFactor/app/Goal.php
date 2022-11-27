@@ -2,8 +2,6 @@
 
 namespace BeliefFactor;
 
-use Ramsey\Uuid\Nonstandard\Uuid;
-
 class Goal
 {
     # properties

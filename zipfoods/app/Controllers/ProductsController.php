@@ -7,19 +7,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class ProductsController extends Controller
 {
-    private $productsObj;
-
-    # Create a construct method to set up a productsObj property that can be used across different methods
-    public function __construct($app)
-    {
-        parent::__construct($app);
-
-        $this->productsObj = new Products($this->app->path('/database/products.json'));
-    }
 
     public function index()
     {
-        $products = $this->productsObj->getAll();
+        $products = $this->app->db()->all('products');
 
         return $this->app->view('products/index', ['products' => $products]);
     }
@@ -32,10 +23,12 @@ class ProductsController extends Controller
             $this->app->redirect('/products');
         }
 
-        $product = $this->productsObj->getBySku($sku);
+        $productQuery = $this->app->db()->findByColumn('products', 'sku', '=', $sku);
 
-        if (is_null($product)) {
+        if (empty($productQuery)) {
             return $this->app->view('products');
+        } else {
+            $product = $productQuery[0];
         }
 
         $reviewSaved = $this->app->old('reviewSaved');
@@ -54,6 +47,11 @@ class ProductsController extends Controller
         $review = $this->app->input('review');
 
         # TODO persist review to db
+        $this->app->db()->insert('reviews', [
+            'sku' => $sku,
+            'name' => $name,
+            'review' => $review
+        ]);
 
         return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);
     }

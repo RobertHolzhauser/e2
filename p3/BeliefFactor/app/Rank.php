@@ -2,8 +2,6 @@
 
 namespace BeliefFactor;
 
-use Ramsey\Uuid\Nonstandard\Uuid;
-
 class Rank
 {
     # properties
@@ -15,7 +13,7 @@ class Rank
     # constructor
     public function __construct(string $rank_type)
     {
-        $this->rank_id = Uuid::uuid4()->toString();
+        //$this->rank_id 
         $this->rank_type = $rank_type;
     }
 }
