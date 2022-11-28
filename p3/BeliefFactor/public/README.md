@@ -13,8 +13,7 @@
 [NLP University Press, Belief Assessment](http://nlpuniversitypress.com/html/B28.html)  
 [Bootstrap version 5.2 Installation Documentation](https://getbootstrap.com/docs/5.2/getting-started/introduction/)  
 [Favicon.io Favicon Generator](https://favicon.io/favicon-generator/) 
-[Documentation for ramsey/uuid](https://uuid.ramsey.dev/en/stable/introduction.html)
-[Identify All the Things with UUIDs!; Ramsey, B., youtube video](https://www.youtube.com/watch?v=VavxBLYL9oI)
+[Bootstrap Icons](https://icons.getbootstrap.com/#install)
+[Bootstrap Bullseye Icon](https://icons.getbootstrap.com/icons/bullseye/)
 
 ## Notes for instructor
-+ I used the ramsey/uuid library for generating unique ids 

@@ -5,12 +5,12 @@ namespace BeliefFactor;
 class Audit
 {
     # properties  
-    public string $id;
-    public string $user_id;
-    public string $goal_id;
-    public string $action_id;
-    public string $ranking_id;
-    public int $rank_type;
+    public int $id;
+    public int $user_id;
+    public int $goal_id;
+    public int $action_id;
+    public int $ranking_id;
+    public string $rank_type;
     public string $perspective;
     public string $because;
     public string $therefore;

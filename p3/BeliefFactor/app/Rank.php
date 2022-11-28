@@ -2,6 +2,7 @@
 
 namespace BeliefFactor;
 
+# DO NOT USE -- -just use int instead 
 class Rank
 {
     # properties
