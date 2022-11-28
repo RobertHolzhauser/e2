@@ -31,6 +31,6 @@
         <li>Create a goal for yourself.</li>
         <li>Define an action plan to accomplish your goal.</li>
         <li>Assess your goal and each of the actions (aka sub - goals) according to the 11 Belief Factors.</li>
-        <li>Strengthen any belief factors that are less than optimum. </li>
+        <li>Discover your Reasons to strengthen any belief factors that are less than optimum. </li>
     </ol>
 @endsection

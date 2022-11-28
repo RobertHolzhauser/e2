@@ -49,7 +49,7 @@
                             <a class="nav-link" href="/rankings">Rankings</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/audits">Audits</a>
+                            <a class="nav-link" href="/reasons">Reasons</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

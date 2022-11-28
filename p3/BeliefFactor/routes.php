@@ -9,6 +9,6 @@ return [
     '/goals' => ['GoalsController', 'index'],
     '/actions' => ['ActionsController', 'index'],
     '/rankings' => ['RankingsController', 'index'],
-    '/audits' => ['AuditsController', 'index'],
+    '/reasons' => ['ReasonsController', 'index'],
     '/search' => ['SearchController', 'index']
 ];
