@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h2>All Goals</h2>
+    <h2 class="list-all-header text-center">All Goals</h2>
     <div id="goal-index">
         @foreach ($goals as $goal)
             <a class="goal-link" href='/goal?id={{ $goal['id'] }}'>

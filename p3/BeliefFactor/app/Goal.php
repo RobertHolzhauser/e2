@@ -11,7 +11,7 @@ class Goal
     public string $goal_description;
     public string $goal_purpose;
     public $actions = [];   // array of actions
-    public Rankings $rankings;
+    public Ranking $ranking;
 
     # constructor
     public function __construct(string $user_id)

@@ -1,15 +1,11 @@
-<!doctype html>
-<html lang='en'>
-<head>
+@extends('templates/master')
 
-	<title>404 Page Not Found</title>
-	<meta charset='utf-8'>
+@section('title')
+    {{ $app->config('app.name') }}
+@endsection
 
-</head>
-<body>
 
-<h2>404 Page Not Found</h2>
-<a href='{{ $app->config('app.url') }}'>{{ $app->config('app.url') }}</a>
-	
-</body>
-</html>
+@section('content')
+    <h2 class="text-center">404 Page Not Found</h2>
+    <a href='{{ $app->config('app.url') }}'>{{ $app->config('app.url') }}</a>
+@endsection

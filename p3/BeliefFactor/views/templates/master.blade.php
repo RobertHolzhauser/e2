@@ -66,6 +66,7 @@
 
     <footer>
         @yield('footer-content')
+        Copyright &copy <?php echo date('Y'); ?> Robert Holzhauser. All rights reserved.
     </footer>
 
     @yield('body')

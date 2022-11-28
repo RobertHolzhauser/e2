@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h2>All Rankings</h2>
+    <h2 class="list-all-header text-center">All Rankings</h2>
     <div id="ranking-index">
         @foreach ($rankings as $ranking)
             <a class="ranking-link" href='/ranking?id={{ $ranking['id'] }}'>

@@ -5,9 +5,10 @@
 @endsection
 
 @section('content')
-    <h2>Welcome to Belief Factor!</h2>
+    <h2 classs="list-all-header text-center">Welcome to Belief Factor!</h2>
 
-    <p>Psychologists have found that there are 11 specific factors of belief that empower us to be able to efficiently
+    <p class="lead">Psychologists have found that there are 11 specific factors of belief that empower us to be able to
+        efficiently
         achieve our
         goals.</p>
     <p>This simple yet powerful process allows you to assess and strengthen these belief factors to keep yourself in

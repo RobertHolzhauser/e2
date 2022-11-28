@@ -15,5 +15,6 @@
 [Favicon.io Favicon Generator](https://favicon.io/favicon-generator/) 
 [Bootstrap Icons](https://icons.getbootstrap.com/#install)
 [Bootstrap Bullseye Icon](https://icons.getbootstrap.com/icons/bullseye/)
+[The Footer Copyright Notice](https://designshack.net/articles/the-footer-copyright-notice/)
 
 ## Notes for instructor
