@@ -2,6 +2,8 @@
 
 namespace App\Commands;
 
+use Faker\Factory;
+
 class AppCommand extends Command
 {
     public function test()
@@ -74,5 +76,15 @@ class AppCommand extends Command
         ]);
 
         dump('Migration is complete. Check the database for your new tables.');
+    }
+
+    # seedData will populate all tables with data
+    public function seedData()
+    {
+        # Instantiate a new instance of the Faker/Factory class
+        $faker = Factory::create();
+
+        # Use a loop to create 5 users
+
     }
 }

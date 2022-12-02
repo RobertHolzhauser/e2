@@ -20,3 +20,5 @@
 
 ## Notes for instructor
 + The names of some of the reason type columns in the reasons table have a trailing underscore to avoid "collisions" with reserved words.
++ Invoke database migration with "php console App migrate" from a bash terminal.
++ Seed all tables with "php console App seedData" from a bash terminal.
