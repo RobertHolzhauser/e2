@@ -6,7 +6,7 @@ class Goal
 {
     # properties
     public int $user_id;
-    public int $goal_uuid;
+    public int $goal_id;
     public int $goal_name;
     public string $goal_description;
     public string $goal_purpose;
