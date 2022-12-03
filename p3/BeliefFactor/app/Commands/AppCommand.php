@@ -26,7 +26,7 @@ class AppCommand extends Command
             'name' => 'varchar(255)',
             'description' => 'text',
             'user_id' => 'int',
-            'target_date' => 'date',
+            'target_date' => 'datetime',
             'purpose' => 'text'
         ]);
 
@@ -56,6 +56,9 @@ class AppCommand extends Command
             'imagine' => 'int',
             'allow_self' => 'int',
         ]);
+
+        # Add default time stamp field.
+        $this->app->db()->run('alter table rankings add ranking_date datetime not null default CURRENT_TIMESTAMP');
 
         $this->app->db()->createTable('reasons', [
             'user_id' => 'int',
@@ -99,12 +102,111 @@ class AppCommand extends Command
 
             # Insert the user
             $this->app->db()->insert('users', $user);
-            $userid_sql = 'SELECT MAX(id) FROM users';
-            $userid_data = [];
-            $user_id = $this->app->db()->run($userid_sql, $userid_data);
 
-            # use loop to create 5 goals
-            for ($j = 0; $j < 5; $j++) {
+            # get the user id for this uers goals, etc.
+            $userid_sql = 'SELECT MAX(id) as MaxId FROM users';
+            $userid_data = [];
+            $user_id_executed = $this->app->db()->run($userid_sql, $userid_data);
+            $user_id = $user_id_executed->fetchColumn();
+
+
+            dump($user_id);
+
+            # Convert the user_id to a string for use in sql string
+            $user_id_str = strval($user_id);
+
+            # use loop to create a random number of goals
+            $goal_count = rand(0, 20);
+            for ($j = 0; $j < $goal_count; $j++) {
+
+                # Set up a goal for the current user
+                $goal = [
+                    'name' => $faker->words(rand(1, 10), true),
+                    'description' => $faker->sentences(rand(1, 5), true),
+                    'user_id' => $user_id,
+                    'target_date' => $faker->date,
+                    'purpose' => $faker->sentences(rand(1, 3), true)
+                ];
+
+                $this->app->db()->insert('goals', $goal);
+
+                # get the goal id for this goal, etc.
+                $goalid_sql = 'SELECT MAX(id) FROM goals';
+                $goalid_data = [];
+                $goal_id_executed = $this->app->db()->run($goalid_sql, $goalid_data);
+                $goal_id = $goal_id_executed->fetchColumn();
+
+                # randomly create a ranking for the goal - 2/3 probability 
+                if (rand(1, 3) <= 2) {
+
+                    # Set up a ranking
+                    $ranking = [
+                        'user_id' => $user_id,
+                        'goal_id' => $goal_id,
+                        'possible' => $faker->numberBetween(0, 10),
+                        'desirable' => $faker->numberBetween(0, 10),
+                        'worth_it' => $faker->numberBetween(0, 10),
+                        'appropriate_ecological' => $faker->numberBetween(0, 10),
+                        'capable' => $faker->numberBetween(0, 10),
+                        'responsible' => $faker->numberBetween(0, 10),
+                        'ok' => $faker->numberBetween(0, 10),
+                        'deserve' => $faker->numberBetween(0, 10),
+                        'willing' => $faker->numberBetween(0, 10),
+                        'ready' => $faker->numberBetween(0, 10),
+                        'imagine' => $faker->numberBetween(0, 10),
+                        'allow_self' => $faker->numberBetween(0, 10)
+                    ];
+
+                    # insert the ranking into the rankings table
+                    $this->app->db()->insert('rankings', $ranking);
+
+                    # randomly create one or more reasons for the ranking
+                    if (rand(1, 3) < 2) {
+
+                        # if we are creating a reason get the ranking_id for this ranking just created, etc.
+                        $rankingid_sql = 'SELECT MAX(id) FROM rankings';
+                        $rankingid_data = [];
+                        $ranking_id_executed = $this->app->db()->run($rankingid_sql, $rankingid_data);
+                        $ranking_id = $ranking_id_executed->fetchColumn();
+
+                        # randomly determine how many reasons to generate
+                        $reason_count = rand(1, 12);
+
+                        # use a loop to generate the reason
+                        for ($l = 0; $l < $reason_count; $l++) {
+                            
+                            # Set up the ranking
+
+                        }
+                    }
+                }
+
+
+
+                # use a loop to generate a random number of actions for each goal
+                $action_count = rand(0, 20);
+                for ($k = 0; $k < $action_count; $k++) {
+
+                    # Set up an action for the currrent goal
+                    $action = [
+                        'name' => $faker->words(rand(1, 10), true),
+                        'description' => $faker->sentences(rand(1, 5), true),
+                        'target_date' => $faker->date,
+                        'status' => $faker->word,
+                        'user_id' => $user_id,
+                        'goal_id' => $goal_id
+                    ];
+
+                    $this->app->db()->insert('actions', $action);
+
+                    # get the goal id for this goal, etc.
+                    $actionid_sql = 'SELECT MAX(id) FROM actions';
+                    $actionid_data = [];
+                    $action_id_executed = $this->app->db()->run($actionid_sql, $actionid_data);
+                    $action_id = $action_id_executed->fetchColumn();
+
+                    # Randomly create a ranking for the action
+                }
             }
         }
     }
