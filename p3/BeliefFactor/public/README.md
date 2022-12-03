@@ -17,8 +17,10 @@
 [Bootstrap Bullseye Icon](https://icons.getbootstrap.com/icons/bullseye/)
 [The Footer Copyright Notice](https://designshack.net/articles/the-footer-copyright-notice/)
 [RFC Errata](https://www.rfc-editor.org/errata/eid1690#:~:text=It%20should%20say%3A-,In%20addition%20to%20restrictions%20on%20syntax%2C%20there%20is%20a%20length,total%20length%20of%20320%20characters.)
+[Faker Documentation](https://fakerphp.github.io)
 
 ## Notes for instructor
 + The names of some of the reason type columns in the reasons table have a trailing underscore to avoid "collisions" with reserved words.
 + Invoke database migration with "php console App migrate" from a bash terminal.
 + Seed all tables with "php console App seedData" from a bash terminal.
++ 

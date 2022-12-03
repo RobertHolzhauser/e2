@@ -84,7 +84,28 @@ class AppCommand extends Command
         # Instantiate a new instance of the Faker/Factory class
         $faker = Factory::create();
 
-        # Use a loop to create 5 users
+        # Use a loop to create 5 users, with 5 goals each, each goal having some actions, some of the actions having rankings, and some of the rankings having reasons
+        for ($i = 0; $i < 5; $i++) {
 
+            # Set up a user
+            $user = [
+                'user_name' => $faker->lastName() . $faker->state(),
+                'first_name' => $faker->firstName(),
+                'last_name' => $faker->lastName(),
+                'email' => $faker->email,
+                'password' => $faker->word,
+                'added_on' => $faker->date
+            ];
+
+            # Insert the user
+            $this->app->db()->insert('users', $user);
+            $userid_sql = 'SELECT MAX(id) FROM users';
+            $userid_data = [];
+            $user_id = $this->app->db()->run($userid_sql, $userid_data);
+
+            # use loop to create 5 goals
+            for ($j = 0; $j < 5; $j++) {
+            }
+        }
     }
 }
