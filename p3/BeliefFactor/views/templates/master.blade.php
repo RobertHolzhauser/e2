@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">About</a>
+                            <a class="nav-link" aria-current="page" href="/">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/goals">Goals</a>
@@ -66,8 +66,10 @@
     </main>
 
     <footer>
-        @yield('footer-content')
-        Copyright &copy <?php echo date('Y'); ?> Robert Holzhauser. All rights reserved.
+        <div class="container">
+            @yield('footer-content')
+            Copyright &copy <?php echo date('Y'); ?> Robert Holzhauser. All rights reserved.
+        </div>
     </footer>
 
     @yield('body')

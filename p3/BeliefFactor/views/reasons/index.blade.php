@@ -6,13 +6,17 @@
 
 @section('content')
     <h2 class="list-all-header text-center">All Reasons</h2>
-    <div id="reason-index">
-        @foreach ($reasons as $reason)
-            <a class="reason-link list-all-header" href='/reason?id={{ $reason['id'] }}'>
-                <div>
-                    <div class='reason-name'>{{ $audit['name'] }}</div>
+    <div class="container">
+        <div id="reason-index">
+            @foreach ($reasons as $reason)
+                <div class='reason-name'>
+                    <a class="reason-link list-all-header link-secondary" href='/reason?id={{ $reason['id'] }}'>
+                        <div>
+                            <div>{{ $reason['because'] }}</div>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 @endsection

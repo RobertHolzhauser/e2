@@ -6,13 +6,15 @@
 
 @section('content')
     <h2 class="list-all-header text-center">All Actions</h2>
-    <div id="actions-index">
-        @foreach ($actions as $action)
-            <a class="action-link" href='/action?id={{ $action['id'] }}'>
-                <div>
-                    <div class='action-name'>{{ $action['name'] }}</div>
-                </div>
-            </a>
-        @endforeach
+    <div class="container">
+        <div id="actions-index">
+            @foreach ($actions as $action)
+                <a class="action-link link-secondary" href='/action?id={{ $action['id'] }}'>
+                    <div>
+                        <div class='action-name'>{{ $action['name'] }}</div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
     </div>
 @endsection

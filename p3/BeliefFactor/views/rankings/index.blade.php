@@ -10,7 +10,7 @@
         @foreach ($rankings as $ranking)
             <a class="ranking-link" href='/ranking?id={{ $ranking['id'] }}'>
                 <div>
-                    <div class='ranking-name'>{{ $ranking['name'] }}</div>
+                    <div class='ranking-name link-secondary'>{{ $ranking['possible-int'] }}</div>
                 </div>
             </a>
         @endforeach
