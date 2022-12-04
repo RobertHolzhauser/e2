@@ -109,9 +109,6 @@ class AppCommand extends Command
             $user_id_executed = $this->app->db()->run($userid_sql, $userid_data);
             $user_id = $user_id_executed->fetchColumn();
 
-
-            dump($user_id);
-
             # Convert the user_id to a string for use in sql string
             $user_id_str = strval($user_id);
 
@@ -169,14 +166,50 @@ class AppCommand extends Command
                         $ranking_id_executed = $this->app->db()->run($rankingid_sql, $rankingid_data);
                         $ranking_id = $ranking_id_executed->fetchColumn();
 
+                        # randomly get a rank type
+                        $rank_types = [
+                            'possible',
+                            'desirable',
+                            'worth_it',
+                            'appropriate_ecological',
+                            'capable',
+                            'responsible',
+                            'ok',
+                            'deserve',
+                            'willing',
+                            'ready',
+                            'imagine',
+                            'allow_self'
+                        ];
+                        $rank_type = $rank_types[rand(0, 11)];
+
+
                         # randomly determine how many reasons to generate
                         $reason_count = rand(1, 12);
 
                         # use a loop to generate the reason
                         for ($l = 0; $l < $reason_count; $l++) {
-                            
-                            # Set up the ranking
 
+                            # Set up the reason
+                            $reason = [
+                                'user_id' => $user_id,
+                                'goal_id' => $goal_id,
+                                'ranking_id' => $ranking_id,
+                                'rank_type' => $rank_type,
+                                'because' => $faker->sentences(rand(1, 5), true),
+                                'therefore' => $faker->sentences(rand(1, 5), true),
+                                'after_' => $faker->sentences(rand(1, 5), true),
+                                'while_' => $faker->sentences(rand(1, 5), true),
+                                'whenever' => $faker->sentences(rand(1, 5), true),
+                                'so_that' => $faker->sentences(rand(1, 5), true),
+                                'if_' => $faker->sentences(rand(1, 5), true),
+                                'although' => $faker->sentences(rand(1, 5), true),
+                                'in_the_same_way_that' => $faker->sentences(rand(1, 5), true),
+                                'perspective' => $faker->words(5, true)
+                            ];
+
+                            # insert the ranking into the rankings table
+                            $this->app->db()->insert('reasons', $reason);
                         }
                     }
                 }
@@ -205,7 +238,87 @@ class AppCommand extends Command
                     $action_id_executed = $this->app->db()->run($actionid_sql, $actionid_data);
                     $action_id = $action_id_executed->fetchColumn();
 
-                    # Randomly create a ranking for the action
+                    # Randomly create a ranking for the action 2/3 probability 
+                if (rand(1, 3) <= 2) {
+
+                    # Set up a ranking
+                    $ranking = [
+                        'user_id' => $user_id,
+                        'goal_id' => $goal_id,
+                        'action_id' =>$action_id,
+                        'possible' => $faker->numberBetween(0, 10),
+                        'desirable' => $faker->numberBetween(0, 10),
+                        'worth_it' => $faker->numberBetween(0, 10),
+                        'appropriate_ecological' => $faker->numberBetween(0, 10),
+                        'capable' => $faker->numberBetween(0, 10),
+                        'responsible' => $faker->numberBetween(0, 10),
+                        'ok' => $faker->numberBetween(0, 10),
+                        'deserve' => $faker->numberBetween(0, 10),
+                        'willing' => $faker->numberBetween(0, 10),
+                        'ready' => $faker->numberBetween(0, 10),
+                        'imagine' => $faker->numberBetween(0, 10),
+                        'allow_self' => $faker->numberBetween(0, 10)
+                    ];
+
+                    # insert the ranking into the rankings table
+                    $this->app->db()->insert('rankings', $ranking);
+
+                    # randomly create one or more reasons for the ranking
+                    if (rand(1, 3) < 2) {
+
+                        # if we are creating a reason get the ranking_id for this ranking just created, etc.
+                        $rankingid_sql = 'SELECT MAX(id) FROM rankings';
+                        $rankingid_data = [];
+                        $ranking_id_executed = $this->app->db()->run($rankingid_sql, $rankingid_data);
+                        $ranking_id = $ranking_id_executed->fetchColumn();
+
+                        # randomly get a rank type
+                        $rank_types = [
+                            'possible',
+                            'desirable',
+                            'worth_it',
+                            'appropriate_ecological',
+                            'capable',
+                            'responsible',
+                            'ok',
+                            'deserve',
+                            'willing',
+                            'ready',
+                            'imagine',
+                            'allow_self'
+                        ];
+                        $rank_type = $rank_types[rand(0, 11)];
+
+                        # randomly determine how many reasons to generate
+                        $reason_count = rand(1, 12);
+
+                        # use a loop to generate the reason
+                        for ($l = 0; $l < $reason_count; $l++) {
+
+                            # Set up the reason
+                            $reason = [
+                                'user_id' => $user_id,
+                                'goal_id' => $goal_id,
+                                'action_id' => $action_id,
+                                'ranking_id' => $ranking_id,
+                                'rank_type' => $rank_type,
+                                'because' => $faker->sentences(rand(1, 5), true),
+                                'therefore' => $faker->sentences(rand(1, 5), true),
+                                'after_' => $faker->sentences(rand(1, 5), true),
+                                'while_' => $faker->sentences(rand(1, 5), true),
+                                'whenever' => $faker->sentences(rand(1, 5), true),
+                                'so_that' => $faker->sentences(rand(1, 5), true),
+                                'if_' => $faker->sentences(rand(1, 5), true),
+                                'although' => $faker->sentences(rand(1, 5), true),
+                                'in_the_same_way_that' => $faker->sentences(rand(1, 5), true),
+                                'perspective' => $faker->words(5, true)
+                            ];
+
+                            # insert the ranking into the rankings table
+                            $this->app->db()->insert('reasons', $reason);
+                        }
+                    }
+                }
                 }
             }
         }
