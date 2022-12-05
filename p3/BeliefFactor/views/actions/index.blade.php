@@ -8,13 +8,33 @@
     <h2 class="list-all-header text-center">All Actions</h2>
     <div class="container">
         <div id="actions-index">
-            @foreach ($actions as $action)
-                <a class="action-link link-secondary" href='/action?id={{ $action['id'] }}'>
-                    <div>
-                        <div class='action-name'>{{ $action['name'] }}</div>
-                    </div>
-                </a>
-            @endforeach
+            <table class="table table-striped table-secondary">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Action</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Target Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Edit / Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($actions as $action)
+                        <tr>
+                            <th scope="row">{{ $action['id'] }}</th>
+                            <td>{{ $action['name'] }}</td>
+                            <td>{{ $action['description'] }}</td>
+                            <td>{{ $action['target_date'] }}</td>
+                            <td>{{ $action['status'] }}</td>
+                            <td>
+                                <a class="bi bi-clipboard" href="/actions/edit/"></a> 
+                                <a class="bi bi-trash" href="/acions/delete/"></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 @endsection

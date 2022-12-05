@@ -11,3 +11,27 @@
     position: relative;
     border-style: groove;
 }
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+.sidebar {
+    min-width: 260px;
+    max-width: 260px;
+    height: 100vh;
+    transition: all 0.4s;
+}
+
+/*.bcsidebar.sbhidden {
+    margin-left: -285px;
+} TODO Delete??
+*/
+.container {
+    margin: 10px;
+}
+
+.side-button {
+    margin: 10px;
+}

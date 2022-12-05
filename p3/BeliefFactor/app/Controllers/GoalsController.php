@@ -15,4 +15,20 @@ class GoalsController extends Controller
 
         return $this->app->view('goals/index', ['goals' => $goals]);
     }
+
+    /**
+     * This method is triggered by the route "/goals/new"
+     */
+    public function new()
+    {
+        return $this->app->view('goals/new', []);
+    }
+
+      /**
+     * This method is triggered by the route "/goals/save"
+     */
+    public function save()
+    {
+        return $this->app->view('goals/new', []);
+    }
 }

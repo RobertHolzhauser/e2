@@ -7,6 +7,8 @@ return [
     '/' => ['AppController', 'index'],
     '/about'  => ['AppController', 'index'],
     '/goals' => ['GoalsController', 'index'],
+    '/goals/new' => ['GoalsController', 'new'],
+    '/goals/save' => ['GoalsController', 'save'],
     '/actions' => ['ActionsController', 'index'],
     '/rankings' => ['RankingsController', 'index'],
     '/reasons' => ['ReasonsController', 'index'],
