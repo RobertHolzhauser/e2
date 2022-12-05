@@ -32,9 +32,9 @@
                             @foreach ($goals as $goal)
                                 <tr>
                                     <th scope="row">{{ $goal['id'] }}</th>
-                                    <td>{{ $goal['name'] }}</td>
-                                    <td>{{ $goal['description'] }}</td>
-                                    <td>{{ $goal['purpose'] }}</td>
+                                    <td >{{ $goal['name'] }}</td>
+                                    <td >{{ $goal['description'] }}</td>
+                                    <td >{{ $goal['purpose'] }}</td>
                                     <td>
                                         <a class="bi bi-clipboard" href="/goals/edit/"></a>
                                         <a class="bi bi-trash" href="/goals/delete/"></a>
