@@ -13,7 +13,6 @@
                     <th scope="col">Id</th>
                     <th scope="col">Date</th>
                     <th scope="col">Goal or Action</th>
-                    <!-- null coalesce in controller, use views to get joins like goal name -->
                     <th scope="col">Possible</th>
                     <th scope="col">Desirable</th>
                     <th scope="col">Worth It</th>

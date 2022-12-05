@@ -15,4 +15,15 @@ class ReasonsController extends Controller
 
         return $this->app->view('reasons/index', ['reasons' => $reasons]);
     }
+
+    /**
+     * This method is triggered by the route "/reason?id=123"
+     */
+    public function show()
+    {
+        $reasons = $this->app->db()->all('reasons');   /* TODO */
+
+        return $this->app->view('reasons/index', ['reasons' => $reasons]);
+    }
+
 }

@@ -15,4 +15,15 @@ class ActionsController extends Controller
 
         return $this->app->view('actions/index', ['actions' => $actions]);
     }
+
+    /**
+     * This method is triggered by the route "/action?id=123"
+     */
+    public function show()
+    {
+        $actions = $this->app->db()->all('actions');
+        /** TODO */
+
+        return $this->app->view('actions/index', ['actions' => $actions]);
+    }
 }
