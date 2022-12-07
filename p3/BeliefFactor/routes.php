@@ -18,5 +18,5 @@ return [
     '/reasons' => ['ReasonsController', 'index'],
     '/reason' => ['ReasonsController', 'show'],
     '/search' => ['SearchController', 'index'],
-    '/users' => ['UsersController', 'index'],
+    '/users' => ['UsersController', 'index']
 ];
