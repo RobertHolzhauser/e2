@@ -33,10 +33,13 @@ class ProductsController extends Controller
 
         $reviewSaved = $this->app->old('reviewSaved');
 
+        $reviews = $this->app->db()->findByColumn('reviews', 'product_id', '=', $product['id']);
+
 
         return $this->app->view('products/show', [
             'product' => $product,
-            'reviewSaved'  => $reviewSaved
+            'reviewSaved'  => $reviewSaved,
+            'reviews' => $reviews
         ]);
     }
 
@@ -45,14 +48,45 @@ class ProductsController extends Controller
         $sku = $this->app->input('sku');
         $name = $this->app->input('name');
         $review = $this->app->input('review');
+        $product_id = $this->app->input('product_id');
 
-        # TODO persist review to db
         $this->app->db()->insert('reviews', [
             'sku' => $sku,
             'name' => $name,
-            'review' => $review
+            'review' => $review,
+            'product_id' => $product_id
         ]);
 
         return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);
+    }
+
+    public function new()
+    {
+        $productSaved = $this->app->old('productSaved');
+        $sku = $this->app->old('sku');
+
+        return $this->app->view('products/new', [
+            'productSaved' => $productSaved,
+            'sku' => $sku,
+        ]);
+    }
+
+    public function save()
+    {
+        $this->app->validate([
+            'name' => 'required',
+            'sku' => 'required|alphaNumericDash',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'available' => 'required|numeric',
+            'weight' => 'required|numeric'
+        ]);
+
+        $this->app->db()->insert('products', $this->app->inputAll());
+
+        $this->app->redirect('/product/new', [
+            'productSaved' => true,
+            'sku' => $this->app->input('sku')
+        ]);
     }
 }

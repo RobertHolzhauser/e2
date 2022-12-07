@@ -41,7 +41,8 @@ class ProductPageCest
 
         $I->seeElement('[test=review-confirmation]');
 
-        $I->see($name);
-        $I->see($review);
+        // Confirm we see the review on the page.
+        $I->see($name, '[test=review-name]');
+        $I->see($review, '[test=review-content]');
     }
 }

@@ -9,18 +9,6 @@
         <div test='review-confirmation' class='alert alert-success'>Thank you, your review was submitted.</div>
     @endif
 
-    <div id='reviews'>
-        @if (!$reviews)
-            There are no reviews for this product yet.
-        @endif
-
-        @foreach ($reviews as $review)
-            <div classs='review'>
-                <div test='review-name' class='review-name'> {{ $review['name'] }} </div>
-                <div test='review-content' class='review-content'>{{ $review['review'] }} </div>
-            </div>
-        @endforeach
-    </div>
 
     <div id='product-show'>
         <h2>{{ $product['name'] }}</h2>
@@ -36,6 +24,7 @@
     <form method='POST' id='product-review' action='/products/save-review'>
         <h3>Review {{ $product['name'] }}</h3>
         <input type='hidden' name='sku' value='{{ $product['sku'] }}'>
+        <input type='hidden' name='product_id' value='{{ $product['id'] }}'>
         <div class='form-group'>
             <label for='name'>Name</label>
             <input test="reviewer-name-input" type='text' class='form-control' name='name' id='name'>
@@ -48,6 +37,19 @@
 
         <button test='review-submit-button' type='submit' class='btn btn-primary'>Submit Review</button>
     </form>
+
+    <div id='reviews'>
+        @if (!$reviews)
+            There are no reviews for this product yet.
+        @endif
+
+        @foreach ($reviews as $review)
+            <div classs='review'>
+                <div test='review-name' class='review-name'> {{ $review['name'] }} </div>
+                <div test='review-content' class='review-content'>{{ $review['review'] }} </div>
+            </div>
+        @endforeach
+    </div>
 
     <a href='/products'>&larr; Return to all products</a>
 @endsection
