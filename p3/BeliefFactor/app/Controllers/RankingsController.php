@@ -21,8 +21,25 @@ class RankingsController extends Controller
      */
     public function show()
     {
-        $rankings = $this->app->db()->all('rankings');  /*TODO  */
+        $rankings_id = $this->app->param('id');
 
-        return $this->app->view('rankings/index', ['rankings' => $rankings]);
+        if (is_null($rankings_id)) {
+            $this->app->redirect('/rankings');
+        }
+
+        $rankings = $this->app->db()->findById('rankings', $rankings_id);
+
+        if (empty($rankings)) {
+            return $this->app->redirect('/rankings/missing');
+        }
+
+        return $this->app->view('rankings/show', [
+            'rankings' => $rankings
+        ]);
+    }
+
+    public function missing()
+    {
+        return $this->app->view('rankings/missing', []);
     }
 }

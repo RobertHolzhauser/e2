@@ -31,7 +31,8 @@
             <tbody>
                 @foreach ($rankings as $ranking)
                     <tr>
-                        <th scope="row">{{ $ranking['id'] }}</th>
+                        <th scope="row"><a class="rankings-link"
+                                href="/ranking?id={{ $ranking['id'] }}">{{ $ranking['id'] }}</a></th>
                         <td>{{ $ranking['ranking_date'] }}</td>
                         <td>{{ $ranking['goal_id'] }}</td>
                         <td>{{ $ranking['possible'] }}</td>

@@ -10,9 +10,9 @@ class User
     public string $email;
     public string $password;
 
-    public function __construct(string $user_name, string $email, string $password)
+    public function __construct(int $user_id,  string $user_name, string $email, string $password)
     {
-        // $this->user_uuid = Uuid::uuid4()->toString();
+        $this->$user_id;
         $this->user_name = $user_name;
         $this->email = $email;
         $this->password = $password;

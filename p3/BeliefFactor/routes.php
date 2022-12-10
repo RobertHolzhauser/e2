@@ -14,11 +14,14 @@ return [
     '/goal' => ['GoalsController', 'show'],
     '/actions' => ['ActionsController', 'index'],
     '/action' => ['ActionsController', 'show'],
-    '/actions/missing' => ['ActionsController','missing'],
+    '/actions/missing' => ['ActionsController', 'missing'],
     '/rankings' => ['RankingsController', 'index'],
     '/ranking' => ['RankingsController', 'show'],
+    '/rankings/missing' => ['RankingsController', 'missing'],
     '/reasons' => ['ReasonsController', 'index'],
     '/reason' => ['ReasonsController', 'show'],
     '/search' => ['SearchController', 'index'],
-    '/users' => ['UsersController', 'index']
+    '/users' => ['UsersController', 'index'],
+    '/usersmissing' => ['UsersController', 'index'],
+    '/user' => ['UsersController', 'show']
 ];
