@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h2 class="list-all-header text-center">All Goals</h2>
+    <h2 test="all-goals-header" class="list-all-header text-center">All Goals</h2>
     <div class="wrapper">
         <div id="gsidebar" class="sidebar">
             <div class="row" id="divCalc">
@@ -33,7 +33,7 @@
                             @foreach ($goals as $goal)
                                 <tr>
                                     <th scope="row"><a class="goal-link"
-                                            href='/goal?id='{{ $goal['id'] }}>{{ $goal['id'] }}</a></th>
+                                            href='/goal?id={{ $goal['id'] }}'>{{ $goal['id'] }}</a></th>
                                     <td>{{ $goal['name'] }}</td>
                                     <td>{{ $goal['description'] }}</td>
                                     <td>{{ $goal['purpose'] }}</td>

@@ -51,31 +51,36 @@ class GoalsController extends Controller
      */
     public function show()
     {
-        $id = $this->app->param('id');
+        $goal_id = $this->app->param('id');
 
-        if (is_null($id)) {
+        if (is_null($goal_id)) {
             $this->app->redirect('/goals');
         }
 
-        $goalQuery = $this->app->db()->findById('goals', $id);
+        $goal = $this->app->db()->findById('goals', $goal_id);
 
-        if (empty($goalQuery)) {
-            return $this->app->redirect('/goals');
-        } else {
-            $goal = $goalQuery[0];
+        if (empty($goal)) {
+            return $this->app->redirect('/goals/missing');
         }
 
-        $actionsQuery = $this->app->db()->findByColumn('actions', 'goal_id', '=', $id);
+        $actions = $this->app->db()->findByColumn('actions', 'goal_id', '=', $goal_id);
+        // TODO del dump($actions);
+        $rankings = $this->app->db()->findByColumn('rankings', 'goal_id', '=', $goal_id);
+        // TODO del dump($rankings);
 
-        $rankingsQuery = $this->app->db()->findByColumn('rankings', 'goal_id', '=', $id);
-
-        $reasonsQuery = $this->app->db()->findByColumn('reasons', 'goal_id', '=', $id);
+        $reasons = $this->app->db()->findByColumn('reasons', 'goal_id', '=', $goal_id);
+        // TODO del dump($reasons);
 
         return $this->app->view('goals/show', [
             'goal' => $goal,
-            'actions' => $actionsQuery,
-            'rankings' => $rankingsQuery,
-            'reasons' => $reasonsQuery
+            'actions' => $actions,
+            'rankings' => $rankings,
+            'reasons' => $reasons
         ]);
+    }
+
+    public function missing()
+    {
+        return $this->app->view('goals/missing', []);
     }
 }

@@ -22,13 +22,15 @@
                 <tbody>
                     @foreach ($actions as $action)
                         <tr>
-                            <th scope="row">{{ $action['id'] }}</th>
+                            <th scope="row">
+                                <a class="action-link" href='/action?id={{ $action['id'] }}'>{{ $action['id'] }}</a>
+                            </th>
                             <td>{{ $action['name'] }}</td>
                             <td>{{ $action['description'] }}</td>
                             <td>{{ $action['target_date'] }}</td>
                             <td>{{ $action['status'] }}</td>
                             <td>
-                                <a class="bi bi-clipboard" href="/actions/edit/"></a> 
+                                <a class="bi bi-clipboard" href="/actions/edit/"></a>
                                 <a class="bi bi-trash" href="/acions/delete/"></a>
                             </td>
                         </tr>

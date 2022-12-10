@@ -55,6 +55,7 @@ class AppCommand extends Command
             'ready' => 'int',
             'imagine' => 'int',
             'allow_self' => 'int',
+            'ranking_date' => 'date'
         ]);
 
         # Add default time stamp field.
