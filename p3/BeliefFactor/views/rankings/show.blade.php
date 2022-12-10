@@ -8,7 +8,7 @@
     <div class='container'>
         <div id='rankings-show'>
             <h1><u>Ranking</u></h1>
-            <h2 display-6>{{ $rankings['id'] }}</h2>
+            <h2 display-6>Ranking = {{ $rankings['id'] }}</h2>
 
             <p class='rankings-possible'>
                 It's <strong>possible</strong> to achieve this goal:{{ $rankings['possible'] }}
