@@ -19,6 +19,7 @@
 [RFC Errata](https://www.rfc-editor.org/errata/eid1690#:~:text=It%20should%20say%3A-,In%20addition%20to%20restrictions%20on%20syntax%2C%20there%20is%20a%20length,total%20length%20of%20320%20characters.)
 [Faker Documentation](https://fakerphp.github.io)
 [Update Your Blade Templates to Use the Null Coalesce Operator](https://laravel-news.com/blade-templates-null-coalesce-operator)
+[How to check if a variable has data in Laravel Blade](https://stackoverflow.com/questions/43774129/how-to-check-if-a-variable-has-data-in-laravel-blade)
 
 ## Notes for instructor
 + The names of some of the reason type columns in the reasons table have a trailing underscore to avoid "collisions" with reserved words.

@@ -27,10 +27,12 @@ class RankingsController extends Controller
             $this->app->redirect('/rankings');
         }
 
-        $rankings = $this->app->db()->findById('rankings', $rankings_id);
+        $rankingsQuery = $this->app->db()->findByColumn('vgoal_action_rankings', 'rankings_id', '=', $rankings_id);
 
-        if (empty($rankings)) {
+        if (empty($rankingsQuery)) {
             return $this->app->redirect('/rankings/missing');
+        } else {
+            $rankings = $rankingsQuery[0];
         }
 
         return $this->app->view('rankings/show', [
