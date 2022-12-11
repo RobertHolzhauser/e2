@@ -79,6 +79,49 @@ class AppCommand extends Command
             'perspective' => 'varchar(255)'
         ]);
 
+        # Create View - vgoal_action_reasons 
+        $this->app->db()->run('CREATE VIEW belief_factor.vgoal_action_reasons AS 
+            SELECT G.id as goal_id,  G.name as goal_name, A.id as action_id, A.name as action_name, 
+            rr.rankings_id,
+            rr.overall_ranking,
+            rs.rank_type,
+            rs.id as reasons_id,
+            rs.because,
+            rs.therefore,
+            rs.after_ ,
+            rs.while_ ,
+            rs.whenever,
+            rs.so_that,
+            rs.if_,
+            rs.although,
+            rs.in_the_same_way_that,
+            rs.perspective
+            FROM goals as G 
+            LEFT JOIN actions as A on G.Id = A.Goal_Id
+            LEFT JOIN (SELECT R.goal_id, R.action_id,  R.id as rankings_id, ((R.possible + R.desirable + R.worth_it + R.appropriate_ecological + R.capable + R.responsible +
+            R.ok + R.deserve + R.willing + R.ready + R.imagine + R.allow_self) /12) AS overall_ranking FROM rankings as R) AS rr ON G.Id = rr.Goal_id AND A.Id = rr.Action_Id
+            LEFT JOIN reasons as rs ON G.id = rs.goal_id AND A.id = rs.action_id AND rr.rankings_id = rs.ranking_id');
+
+        # Create View - vgoal_action_rankings 
+        $this->app->db()->run('CREATE VIEW belief_factor.vgoal_action_rankings AS 
+            SELECT G.id as goal_id,  G.name as goal_name, A.id as action_id, A.name as action_name, 
+            R.id as rankings_id,
+            R.possible,
+            R.desirable,
+            R.worth_it,
+            R.appropriate_ecological,
+            R.capable,
+            R.responsible,
+            R.ok,
+            R.deserve,
+            R.willing,
+            R.ready,
+            R.imagine,
+            R.allow_self
+            FROM goals as G 
+            LEFT JOIN actions as A on G.Id = A.Goal_Id
+            LEFT JOIN rankings as R ON G.Id = R.Goal_id AND A.Id = R.Action_Id');
+
         dump('Migration is complete. Check the database for your new tables.');
     }
 
