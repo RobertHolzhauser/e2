@@ -54,11 +54,10 @@ class AppCommand extends Command
             'willing' => 'int',
             'ready' => 'int',
             'imagine' => 'int',
-            'allow_self' => 'int',
-            'ranking_date' => 'date'
+            'allow_self' => 'int'
         ]);
 
-        # Add default time stamp field.
+        # Add default time stamp field.  Adding this way to get default functionality
         $this->app->db()->run('alter table rankings add ranking_date datetime not null default CURRENT_TIMESTAMP');
 
         $this->app->db()->createTable('reasons', [
@@ -80,7 +79,7 @@ class AppCommand extends Command
         ]);
 
         # Create View - vgoal_action_reasons 
-        $this->app->db()->run('CREATE VIEW belief_factor.vgoal_action_reasons AS 
+        $this->app->db()->run('CREATE OR REPLACE VIEW belief_factor.vgoal_action_reasons AS 
             SELECT G.id as goal_id,  G.name as goal_name, A.id as action_id, A.name as action_name, 
             rr.rankings_id,
             rr.overall_ranking,
@@ -100,10 +99,11 @@ class AppCommand extends Command
             LEFT JOIN actions as A on G.Id = A.Goal_Id
             LEFT JOIN (SELECT R.goal_id, R.action_id,  R.id as rankings_id, ((R.possible + R.desirable + R.worth_it + R.appropriate_ecological + R.capable + R.responsible +
             R.ok + R.deserve + R.willing + R.ready + R.imagine + R.allow_self) /12) AS overall_ranking FROM rankings as R) AS rr ON G.Id = rr.Goal_id AND A.Id = rr.Action_Id
-            LEFT JOIN reasons as rs ON G.id = rs.goal_id AND A.id = rs.action_id AND rr.rankings_id = rs.ranking_id');
+            LEFT JOIN reasons as rs ON G.id = rs.goal_id AND A.id = rs.action_id AND rr.rankings_id = rs.ranking_id 
+            WHERE rs.id IS NOT NULL');
 
         # Create View - vgoal_action_rankings 
-        $this->app->db()->run('CREATE VIEW belief_factor.vgoal_action_rankings AS 
+        $this->app->db()->run('CREATE OR REPLACE VIEW belief_factor.vgoal_action_rankings AS 
             SELECT G.id as goal_id,  G.name as goal_name, A.id as action_id, A.name as action_name, 
             R.id as rankings_id,
             R.possible,
