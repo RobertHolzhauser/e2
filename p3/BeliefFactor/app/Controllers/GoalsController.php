@@ -32,11 +32,18 @@ class GoalsController extends Controller
      **/
     public function save()
     {
-        $this->app->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'purpose' => 'required'
-        ]);
+        dump('1 - Goals Save');
+
+        echo htmlspecialchars($_POST["name"]);
+        //dump($this->app->inputAll());
+
+        // $this->app->validate([
+        //     'name' => 'required'
+        //     // 'new-goal-description' => 'required',
+        //     // 'new-goal-purpose' => 'required'
+        // ]);
+
+        dump('2 - Goals Save');
 
         $this->app->db()->insert('goals', $this->app->inputAll());
 
