@@ -8,6 +8,13 @@
     <h2 class="list-all-header text-center">All Actions</h2>
     <div class="container">
         <div id="actions-index">
+            <div class="row">
+                <div class="mx-auto pt-5 pb-4">
+                    <a id="btnNewAction" type="button" role="button" class="btn btn-success btn-sm side-button"
+                        href="/actions/new">
+                        New Action</a>
+                </div>
+            </div>
             <table class="table table-striped table-secondary">
                 <thead>
                     <tr>

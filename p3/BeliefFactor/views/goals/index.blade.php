@@ -8,7 +8,7 @@
     <h2 test="all-goals-header" class="list-all-header text-center">All Goals</h2>
     <div class="wrapper">
         <div id="gsidebar" class="sidebar">
-            <div class="row" id="divCalc">
+            <div class="row">
                 <div class="mx-auto pt-5 pb-4">
                     <a id="btnNewGoal" type="button" role="button" class="btn btn-success btn-sm side-button"
                         href="/goals/new">

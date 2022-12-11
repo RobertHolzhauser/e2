@@ -13,17 +13,6 @@
                     href="/goals/save">
                     Save Goal
                 </a>
-                <!--
-                    <a id="btnAddAction" type="button" role="button" class="btn btn-success btn-sm side-button"
-                        href="/actions/new"> Add Action
-                    </a>
-                    <a id="btnAddGoalRanking" type="button" role="button" class="btn btn-success btn-sm side-button"
-                        href="/rankings/new"> Add Rankings
-                    </a>
-                    <a id="btnAddGoalReasons" type="button" role="button" class="btn btn-success btn-sm side-button"
-                        href="/reasons/new"> Add Reasons
-                    </a>
-                    -->
             </div>
         </div>
         <div style="padding-left:10px;">

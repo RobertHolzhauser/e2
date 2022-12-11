@@ -11,7 +11,7 @@ class RankingsController extends Controller
      */
     public function index()
     {
-        $rankings = $this->app->db()->all('rankings');
+        $rankings = $this->app->db()->run('SELECT * FROM vgoal_action_rankings ORDER BY rankings_id DESC');
 
         return $this->app->view('rankings/index', ['rankings' => $rankings]);
     }

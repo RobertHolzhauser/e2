@@ -11,7 +11,6 @@
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Date</th>
                     <th scope="col">Goal or Action</th>
                     <th scope="col">Possible</th>
                     <th scope="col">Desirable</th>
@@ -32,9 +31,16 @@
                 @foreach ($rankings as $ranking)
                     <tr>
                         <th scope="row"><a class="rankings-link"
-                                href="/ranking?id={{ $ranking['id'] }}">{{ $ranking['id'] }}</a></th>
-                        <td>{{ $ranking['ranking_date'] }}</td>
-                        <td>{{ $ranking['goal_id'] }}</td>
+                                href="/ranking?id={{ $ranking['rankings_id'] }}">{{ $ranking['rankings_id'] }}</a></th>
+                        <td>
+                            @if (empty($ranking['action_id']))
+                                <a test='goal-link' class="goal-link"
+                                    href="/goal?id={{ $ranking['goal_id'] }}">{{ $ranking['goal_name'] }} </a>
+                            @else
+                                <a class='action-link' test='action-link'
+                                    href="/action?id={{ $ranking['action_id'] }}">{{ $ranking['action_name'] }}</a>
+                            @endif
+                        </td>
                         <td>{{ $ranking['possible'] }}</td>
                         <td>{{ $ranking['desirable'] }}</td>
                         <td>{{ $ranking['worth_it'] }}</td>

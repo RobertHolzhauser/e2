@@ -30,9 +30,18 @@
                 <tbody>
                     @foreach ($reasons as $reason)
                         <tr>
-                            <th scope="row">{{ $reason['id'] }}</th>
-                            <td>{{ isset($reason['goal_id']) ? isset($reason['goal_id']) : $reason['action_id'] }}</td>
-                            <td>{{ $reason['rank_type'] }}</td>
+                            <th scope="row"><a class="reason-link"
+                                    href='/reason?id={{ $reason['reasons_id'] }}'>{{ $reason['reasons_id'] }}</a></th>
+                            <td>
+                                @if (empty($reason['action_id']))
+                                    <a test='goal-link' class="goal-link"
+                                        href="/goal?id={{ $reason['goal_id'] }}">{{ $reason['goal_name'] }} </a>
+                                @else
+                                    <a class='action-link' test='action-link'
+                                        href="/action?id={{ $reason['action_id'] }}">{{ $reason['action_name'] }}</a>
+                                @endif
+                            </td>
+                            <td>{{ ucfirst($reason['rank_type']) }}</td>
                             <td>{{ $reason['perspective'] }}</td>
                             <td>{{ $reason['because'] }}</td>
                             <td>{{ $reason['therefore'] }}</td>

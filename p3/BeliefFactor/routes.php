@@ -20,6 +20,7 @@ return [
     '/rankings/missing' => ['RankingsController', 'missing'],
     '/reasons' => ['ReasonsController', 'index'],
     '/reason' => ['ReasonsController', 'show'],
+    '/reasons/missing' => ['ReasonsController', 'missing'],
     '/search' => ['SearchController', 'index'],
     '/users' => ['UsersController', 'index'],
     '/usersmissing' => ['UsersController', 'index'],

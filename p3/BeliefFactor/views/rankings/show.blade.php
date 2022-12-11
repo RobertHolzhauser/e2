@@ -39,8 +39,9 @@
             <p class='ranking-appropriate_ecological'>
                 @if (!empty($rankings['action_name']))
                     <u> {{ $rankings['action_name'] }} </u> to achieve
-                @endif <u> {{ $rankings['goal_name'] }} </u>
-                the goal of is <strong>APPROPRIATE and
+                @endif
+                the goal of <u> {{ $rankings['goal_name'] }} </u>
+                is <strong>APPROPRIATE and
                     ECOLOGICAL:</strong><strong>&nbsp; {{ $rankings['appropriate_ecological'] }}</strong>
             <p class='rankings-capable'>
                 I am <strong>CAPABLE OF </strong>
