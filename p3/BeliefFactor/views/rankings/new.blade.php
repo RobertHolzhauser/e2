@@ -28,21 +28,34 @@
             <div class="container-fluid">
                 <div class="card" style="width: 53rem;">
                     <div class="card-body">
-                        {{-- <div class="form-group">
-                        <label for="goal" class="col-md-4 control-label">Select a Goal</label>
-                        <div class="col-md-6">
 
-                            <select class="form-control" id="goal" name="goal">
-                                <option value="">Select a Goal</option>
-                                @foreach ($goals as $goal)
-                                    <option value="{{ $goal->id }}">{{ $goal->goal }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div> --}}
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Choose a Goal</li> {{-- Drop Down List --}}
-                            <li class="list-group-item">Select an Action</li> {{-- Drop Down List --}}
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <label for="goal" class="col-md-4 control-label"><strong>Goal</strong></label>
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="goal" name="goal">
+                                            <option value="">Select a Goal</option>
+                                            @for ($i = 0; $i < $g_cnt; $i++)
+                                                <option value="{{ $goals[$i]['id'] }}">{{ $goals[$i]['name'] }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <label for="action" class="col-md-4 control-label"><strong>Action</strong></label>
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="action" name="action">
+                                            <option value="">Select an Action</option>
+                                            @for ($i = 0; $i < $a_cnt; $i++)
+                                                <option value="{{ $actions[$i]['id'] }}">{{ $actions[$i]['name'] }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="list-group-item"><strong>It's Possible&nbsp;&nbsp;</strong>
                                 <div class='btn-group'>
                                     <div class="form-check form-check-inline">
@@ -707,4 +720,11 @@
             </div>
         </div>
     </form>
+    @if ($app->errorsExist())
+        <ul class='error alert alert-danger'>
+            @foreach ($app->errors() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
 @endsection

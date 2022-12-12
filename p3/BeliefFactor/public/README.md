@@ -22,6 +22,7 @@
 [How to check if a variable has data in Laravel Blade](https://stackoverflow.com/questions/43774129/how-to-check-if-a-variable-has-data-in-laravel-blade)
 [Round Function in MySQL Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_round)
 [Laracasts.com Populating Dropdown in Form From Table](https://laracasts.com/discuss/channels/laravel/populating-dropdown-in-form-from-table)
+[Laravel.com Blade Loops](https://laravel.com/docs/9.x/blade#loops)
 
 ## Notes for instructor
 + The names of some of the reason type columns in the reasons table have a trailing underscore to avoid "collisions" with reserved words.

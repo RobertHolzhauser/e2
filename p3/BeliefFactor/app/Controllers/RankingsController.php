@@ -52,13 +52,21 @@ class RankingsController extends Controller
     {
         $goals_query = $this->app->db()->run('SELECT id, name FROM goals');   # retrieve a list of goals for use in drop down list
         $goals = $goals_query->fetchAll();
+        $g_cnt = count($goals);                                                 # find the count of goals
+
+        $actions_query = $this->app->db()->run('SELECT id, name FROM actions');   # retrieve a list of actions for use in drop down list
+        $actions = $actions_query->fetchAll();
+        $a_cnt = count($actions);
 
         $rankingsSaved = $this->app->old('rankingsSaved');
         return $this->app->view('rankings/new', [
             'rankingsSaved' => $rankingsSaved,
             'rankings_id' => $this->app->old('rankings_id'),
             'rankings' => $this->app->old('rankings'),
-            'goals' => $goals
+            'goals' => $goals,
+            'g_cnt' => $g_cnt,
+            'actions' => $actions,
+            'a_cnt' => $a_cnt
         ]);
     }
 }
