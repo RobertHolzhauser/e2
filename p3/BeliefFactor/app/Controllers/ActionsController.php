@@ -79,7 +79,7 @@ class ActionsController extends Controller
         $data = [
             'name' => $action['name'],
             'description' => $action['description'],
-            'purpose' => $action['status']
+            'status' => $action['status']
         ];
         $this->app->db()->run($sql_insert, $data);
 
