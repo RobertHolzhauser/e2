@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+    <div style="float: left; margin-left: 10px;">
+        <a id="btnNewReasons" type="button" role="button" class="btn btn-success btn-sm" href="/reasons/new">
+            New Reasons
+        </a>
+    </div>
     <h2 class="list-all-header text-center">All Reasons</h2>
     <div class="container">
         <div id="reason-index">

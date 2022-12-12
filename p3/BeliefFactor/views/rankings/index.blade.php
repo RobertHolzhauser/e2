@@ -5,9 +5,16 @@
 @endsection
 
 @section('content')
-    <h2 class="list-all-header text-center">All Rankings</h2>
+    <div style="float: left; margin-left: 10px;">
+        <a id="btnNewRankings" type="button" role="button" class="btn btn-success btn-sm" href="/rankings/new">
+            New Rankings
+        </a>
+    </div>
+    <h2 class="list-all-header text-center">All Rankings
+
+    </h2>
     <div id="ranking-index">
-        <table class="table table-striped table-secondary">
+        <table class="table table-striped table-secondary" style="margin-left: 8px;">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
