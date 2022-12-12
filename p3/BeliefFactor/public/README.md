@@ -23,6 +23,7 @@
 [Round Function in MySQL Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_round)
 [Laracasts.com Populating Dropdown in Form From Table](https://laracasts.com/discuss/channels/laravel/populating-dropdown-in-form-from-table)
 [Laravel.com Blade Loops](https://laravel.com/docs/9.x/blade#loops)
+[PHP Manual Entry for getdate](https://www.php.net/manual/en/function.getdate.php)
 
 ## Notes for instructor
 + The names of some of the reason type columns in the reasons table have a trailing underscore to avoid "collisions" with reserved words.

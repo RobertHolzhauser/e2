@@ -21,6 +21,7 @@ return [
     '/rankings/new' => ['RankingsController', 'new'],
     '/ranking' => ['RankingsController', 'show'],
     '/rankings/missing' => ['RankingsController', 'missing'],
+    '/rankings/save' => ['RankingsController', 'save'],
     '/reasons' => ['ReasonsController', 'index'],
     '/reasons/new' => ['ReasonsController', 'new'],
     '/reason' => ['ReasonsController', 'show'],

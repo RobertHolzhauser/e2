@@ -69,4 +69,58 @@ class RankingsController extends Controller
             'a_cnt' => $a_cnt
         ]);
     }
+
+    /***
+     * This method is triggered by the route "/rankings/save"
+     **/
+    public function save()
+    {
+        $this->app->validate([
+            'goal' => 'required',
+            "action" => 'required',
+            "possibleCheckbox" => 'required',
+            "desirableCheckbox" => 'required',
+            "worth-itCheckbox" => 'required',
+            "appropriate-ecologicalCheckbox" => 'required',
+            "capableCheckbox" => 'required',
+            "responsibleCheckbox" => 'required',
+            "okCheckbox" => 'required',
+            "deserveCheckbox" => 'required',
+            "willingCheckbox" => 'required',
+            "readyCheckbox" => 'required',
+            "imagineCheckbox" => 'required',
+            "allowCheckbox" => 'required',
+        ]);
+
+        $rankings = $this->app->inputAll();
+        $now = getdate();
+
+        $data = [
+            "user_id" => 0,
+            "goal_id" => $rankings['goal'],
+            "action_id" => $rankings['action'],
+            "possible" => $rankings["possibleCheckbox"],
+            "desirable" => $rankings["desirableCheckbox"],
+            "worth_it" => $rankings["worth-itCheckbox"],
+            "appropriate_ecological" => $rankings["appropriate-ecologicalCheckbox"],
+            "capable" => $rankings["capableCheckbox"],
+            "responsible" => $rankings["responsibleCheckbox"],
+            "ok" => $rankings["okCheckbox"],
+            "deserve" => $rankings["deserveCheckbox"],
+            "willing" => $rankings["willingCheckbox"],
+            "ready" => $rankings["readyCheckbox"],
+            "imagine" => $rankings["imagineCheckbox"],
+            "allow_self" => $rankings["allowCheckbox"],
+            "ranking_date" => $now['year'] . '-' . $now['mon'] .  '-' . $now['mday'] . ' ' . $now['hours'] . ':' . $now['minutes'] . ':' . $now['seconds']
+        ];
+
+        # insert the rankings
+        $rankings_id = $this->app->db()->insert('rankings', $data);
+
+        $this->app->redirect('/rankings/new', [
+            'rankingsSaved' => true,
+            'rankings_id' => $rankings_id,
+            'rankings' => $rankings
+        ]);
+    }
 }
