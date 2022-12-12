@@ -44,4 +44,21 @@ class RankingsController extends Controller
     {
         return $this->app->view('rankings/missing', []);
     }
+
+    /**
+     * This method is triggered by the route "/rankings/new => "
+     */
+    public function new()
+    {
+        $goals_query = $this->app->db()->run('SELECT id, name FROM goals');   # retrieve a list of goals for use in drop down list
+        $goals = $goals_query->fetchAll();
+
+        $rankingsSaved = $this->app->old('rankingsSaved');
+        return $this->app->view('rankings/new', [
+            'rankingsSaved' => $rankingsSaved,
+            'rankings_id' => $this->app->old('rankings_id'),
+            'rankings' => $this->app->old('rankings'),
+            'goals' => $goals
+        ]);
+    }
 }

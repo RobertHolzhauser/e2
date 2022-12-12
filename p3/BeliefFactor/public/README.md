@@ -21,9 +21,14 @@
 [Update Your Blade Templates to Use the Null Coalesce Operator](https://laravel-news.com/blade-templates-null-coalesce-operator)
 [How to check if a variable has data in Laravel Blade](https://stackoverflow.com/questions/43774129/how-to-check-if-a-variable-has-data-in-laravel-blade)
 [Round Function in MySQL Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_round)
+[Laracasts.com Populating Dropdown in Form From Table](https://laracasts.com/discuss/channels/laravel/populating-dropdown-in-form-from-table)
 
 ## Notes for instructor
 + The names of some of the reason type columns in the reasons table have a trailing underscore to avoid "collisions" with reserved words.
 + Invoke database migration with "php console App migrate" from a bash terminal.
 + Seed all tables with "php console App seedData" from a bash terminal.
-+ 
++ I chose to use the plural form of rankings and reasons for single objects, due to the fact that a rankings contains multiple individual rankings,
+    and a single reasons object contains multiple reasons.  I felt it was a simpler design rather than have a ranking object, and a rankings that pulled in
+    seperate ranking objects, and similar for reasons.  At the same time, doing this does create a bit of awkwardness around singular / plural usage.
+    In the routes I use the singular for an individual rankings or reasons.  In most other places I use the plural form "rankings" or "reasons" to refer to 
+    individual rankings or reasons objects.

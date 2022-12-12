@@ -47,4 +47,17 @@ class ReasonsController extends Controller
     {
         return $this->app->view('reasons/missing', []);
     }
+
+    /**
+     * This method is triggered by the route "/reasons/new => "
+     */
+    public function new()
+    {
+        $reasonsSaved = $this->app->old('reasonsSaved');
+        return $this->app->view('reasons/new', [
+            'reasonsSaved' => $reasonsSaved,
+            'reasons_id' => $this->app->old('reasons_id'),
+            'reasons' => $this->app->old('reasons')
+        ]);
+    }
 }
