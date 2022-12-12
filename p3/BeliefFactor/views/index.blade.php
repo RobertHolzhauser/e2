@@ -26,7 +26,15 @@
             <li> You're ready to achieve your goal. </li>
             <li> You allow yourself to fully and enduringly have the successful achievement. </li>
         </ol>
-        <h3>The Process </h3>
+        <div class=row>
+
+            <h3>The Process &nbsp;&nbsp;&nbsp;<a id="btnNewGoal" type="button" role="button" class="btn btn-success btn-sm"
+                    href="/goals/new">
+                    <strong>Get Started Now</strong></a>
+                </span>
+            </h3>
+
+        </div>
         <ol>
             <li>Create a goal for yourself.</li>
             <li>Define an action plan to accomplish your goal.</li>

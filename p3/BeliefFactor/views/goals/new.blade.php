@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-    {{-- @if ($goalSaved)
+    @if ($goalSaved)
         <div test='goal-added-confirmation' class='alert alert-success'>Thank you, your goal was added! <a
                 href='/goal?id={{ $goal_id }}'>You
                 can view it here...</a></div>
-    @endif --}}
+    @endif
 
     @if ($app->errorsExist())
         <div test='validation-errors-alert-goals' class='alert alert-danger'>Please correct the errors below.</div>
@@ -40,9 +40,9 @@
                 <div class="row g-3">
                     <div class="col">
                         <div class="mb-3">
-                            <label for="new-goal-description" class="form-label">Detailed Description</label>
-                            <textarea test='goal-description-input' class="form-control" id="new-goal-description" name='new-goal-description'
-                                rows="3" value='{{ $app->old('description') }}'
+                            <label for="description" class="form-label">Detailed Description</label>
+                            <textarea test='goal-description-input' class="form-control" id="description" name='description' rows="3"
+                                value='{{ $app->old('description') }}'
                                 placeholder="Provide a detailed description of your goal.  What will you see, hear, and feel when you're experiencing having this goal?  What will it be like?"></textarea>
                         </div>
                     </div>
@@ -50,9 +50,8 @@
                 <div class="row g-3">
                     <div class="col">
                         <div class="mb-3">
-                            <label for="new-goal-purpose" class="form-label">Purpose</label>
-                            <textarea class="form-control" id="new-goal-purpose" name="new-goal-purpose" rows="3"
-                                value='{{ $app->old('purpose') }}'
+                            <label for="purpose" class="form-label">Purpose</label>
+                            <textarea class="form-control" id="purpose" name="purpose" rows="3" value='{{ $app->old('purpose') }}'
                                 placeholder="What are your reasons for wanting to achieve this goal?  What are the beneficial long term effects this will create?  For what purpose do you want this?  What will this do for you, get for you, or allow you to do? Why do you want this?  What's important about this? What does this goal make possible?"></textarea>
                         </div>
                     </div>

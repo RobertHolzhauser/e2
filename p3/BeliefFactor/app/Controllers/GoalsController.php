@@ -23,7 +23,9 @@ class GoalsController extends Controller
     {
         $goalSaved = $this->app->old('goalSaved');
         return $this->app->view('goals/new', [
-            'goalSaved' => $goalSaved
+            'goalSaved' => $goalSaved,
+            'goal_id' => $this->app->old('goal_id'),
+            'goal' => $this->app->old('goal')
         ]);
     }
 
@@ -37,25 +39,25 @@ class GoalsController extends Controller
             'description' => 'required',
             'purpose' => 'required'
         ]);
-        dump('1');
         $goal = $this->app->inputAll();
-        dump($goal);
 
         # inserting partial data 
-        // $sql_insert = 'INSERT INTO goals (name, description, purpose) VALUES (:name, :description,:purpose)';
-        // $data = [
-        //     'name' => $goal['name'],
-        //     'description' => $goal['description'],
-        //     'purpose' => $goal['purpose']
-        // ];
-        // $this->app->db()->run($sql_insert, $data);
+        $sql_insert = 'INSERT INTO goals (name, description, purpose) VALUES (:name, :description,:purpose)';
+        $data = [
+            'name' => $goal['name'],
+            'description' => $goal['description'],
+            'purpose' => $goal['purpose']
+        ];
+        $this->app->db()->run($sql_insert, $data);
 
-        // $goal_id = $this->app->db()->run('SELECT MAX(id) as goal_id FROM goals');   # most likely this will be accurate
+        $goal_id_query = $this->app->db()->run('SELECT MAX(id) as goal_id FROM goals');   # most likely this will be accurate
+        $goal_id = $goal_id_query->fetchAll();
+        $g_id = $goal_id[0]['goal_id'];
 
-        $this->app->redirect('goals/new', [
-            'goalSaved' => true
-            // 'goal_id' => $goal_id,
-            // 'goal' => $goal
+        $this->app->redirect('/goals/new', [
+            'goalSaved' => true,
+            'goal_id' => $g_id,
+            'goal' => $goal
         ]);
     }
 
