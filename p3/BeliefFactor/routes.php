@@ -15,6 +15,8 @@ return [
     '/actions' => ['ActionsController', 'index'],
     '/action' => ['ActionsController', 'show'],
     '/actions/missing' => ['ActionsController', 'missing'],
+    '/actions/new' => ['ActionsController', 'new'],
+    '/actions/save' => ['ActionsController', 'save'],
     '/rankings' => ['RankingsController', 'index'],
     '/ranking' => ['RankingsController', 'show'],
     '/rankings/missing' => ['RankingsController', 'missing'],
