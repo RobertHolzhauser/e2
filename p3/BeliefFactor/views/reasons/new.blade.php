@@ -117,7 +117,7 @@
                             <li class="list-group-item">
                                 <div class="mb-3">
                                     <label for="whenever" class="form-label">Whenever</label>
-                                    <textarea class="form-control" id="whenever" name="after" rows="2" value='{{ $app->old('whenever') }}'
+                                    <textarea class="form-control" id="whenever" name="whenever" rows="2" value='{{ $app->old('whenever') }}'
                                         placeholder="Whenever ..."></textarea>
                                 </div>
                             </li>

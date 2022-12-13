@@ -11,7 +11,7 @@ class ReasonsController extends Controller
      */
     public function index()
     {
-        $reasons = $this->app->db()->run('SELECT * FROM vgoal_action_reasons ORDER BY goal_id DESC, action_id DESC, rankings_id DESC, reasons_id DESC');
+        $reasons = $this->app->db()->run('SELECT * FROM vgoal_action_reasons ORDER BY reasons_id DESC');
 
         return $this->app->view('reasons/index', ['reasons' => $reasons]);
     }
