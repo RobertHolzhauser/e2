@@ -24,6 +24,7 @@ return [
     '/rankings/save' => ['RankingsController', 'save'],
     '/reasons' => ['ReasonsController', 'index'],
     '/reasons/new' => ['ReasonsController', 'new'],
+    '/reasons/save' => ['ReasonsController', 'save'],
     '/reason' => ['ReasonsController', 'show'],
     '/reasons/missing' => ['ReasonsController', 'missing'],
     '/search' => ['SearchController', 'index'],
