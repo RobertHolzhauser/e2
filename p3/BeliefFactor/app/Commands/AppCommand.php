@@ -79,29 +79,27 @@ class AppCommand extends Command
         ]);
 
         # Create View - vgoal_action_reasons 
-        $this->app->db()->run('CREATE OR REPLACE VIEW belief_factor.vgoal_action_reasons AS 
-            SELECT G.id as goal_id,  G.name as goal_name, A.id as action_id, A.name as action_name, 
-            rr.rankings_id,
-            rr.overall_ranking,
-            rs.rank_type,
-            rs.id as reasons_id,
-            rs.because,
-            rs.therefore,
-            rs.after_ ,
-            rs.while_ ,
-            rs.whenever,
-            rs.so_that,
-            rs.if_,
-            rs.although,
-            rs.in_the_same_way_that,
-            rs.perspective
-            FROM goals as G 
-            LEFT JOIN actions as A on G.Id = A.Goal_Id
-            LEFT JOIN (SELECT R.goal_id, R.action_id,  R.id as rankings_id, ((R.possible + R.desirable + R.worth_it + R.appropriate_ecological + R.capable + R.responsible +
-            R.ok + R.deserve + R.willing + R.ready + R.imagine + R.allow_self) /12) AS overall_ranking FROM rankings as R) AS rr ON G.Id = rr.Goal_id AND A.Id = rr.Action_Id
-            LEFT JOIN reasons as rs ON G.id = rs.goal_id  
-            WHERE rs.id IS NOT NULL 
-            ORDER BY rs.id DESC');
+        $this->app->db()->run("CREATE OR REPLACE VIEW belief_factor.vgoal_action_reasons AS 
+                SELECT IFNULL(G.id,0) as goal_id,  IFNULL(G.name,'') as goal_name, IFNULL(A.id,0) as action_id, IFNULL(A.name,'') as action_name, 
+                rr.rankings_id,
+                rr.overall_ranking,
+                rs.rank_type,
+                rs.id as reasons_id,
+                rs.because,
+                rs.therefore,
+                rs.after_ ,
+                rs.while_ ,
+                rs.whenever,
+                rs.so_that,
+                rs.if_,
+                rs.although,
+                rs.in_the_same_way_that,
+                rs.perspective
+                FROM reasons as rs 
+                LEFT JOIN (SELECT R.goal_id, R.action_id,  R.id as rankings_id, ((R.possible + R.desirable + R.worth_it + R.appropriate_ecological + R.capable + R.responsible +
+                R.ok + R.deserve + R.willing + R.ready + R.imagine + R.allow_self) /12) AS overall_ranking FROM rankings as R) AS rr ON rs.goal_Id = rr.goal_id AND rs.Action_id = rr.action_Id
+                INNER JOIN goals as G ON rs.goal_id = G.id 
+                INNER JOIN actions as A ON rs.action_id = A.id");
 
         # Create View - vgoal_action_rankings 
         $this->app->db()->run('CREATE OR REPLACE VIEW belief_factor.vgoal_action_rankings AS 
