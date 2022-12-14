@@ -26,5 +26,7 @@ class GoalsPageCest
 
         # Assert the existence of text within a specific element on the page
         $I->see('New Goal', '#btnNewGoal');
+
+        
     }
 }
