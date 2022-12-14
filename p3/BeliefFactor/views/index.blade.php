@@ -26,7 +26,7 @@
             <li> You're ready to achieve your goal. </li>
             <li> You allow yourself to fully and enduringly have the successful achievement. </li>
         </ol>
-        <div class=row>
+        <div class="row">
 
             <h3>The Process &nbsp;&nbsp;&nbsp;<a id="btnNewGoal" type="button" role="button" class="btn btn-success btn-sm"
                     href="/goals/new">
@@ -41,5 +41,31 @@
             <li>Assess your goal and each of the actions (aka sub - goals) according to the 11 Belief Factors.</li>
             <li>Discover your Reasons to strengthen any belief factors that are less than optimum. </li>
         </ol>
+        <hr>
+        <div class="row">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Click Here to Create a Goal --> <a id="btnNewGoal" type="button" role="button"
+                        class="btn btn-success btn-sm" href="/goals/new">
+                        <strong>Get Started Now</strong></a>
+                </li>
+                <li style="margin-top:.5rem;">Click Here to Create an An Action --><a id="btnNewAction" type="button"
+                        role="button" class="btn btn-success btn-sm" href="/actions/new">
+                        <strong>New Action</strong></a>
+                </li>
+                <li style="margin-top:.5rem;">Click Here to Rank your Goal and Action according to the 11 Belief Factors -->
+                    <a id="btnNewRankings" type="button" role="button" class="btn btn-success btn-sm"
+                        href="/rankings/new">
+                        <strong>New Rankings</strong>
+                    </a>
+                </li>
+                <li style="margin-top:.5rem;">
+                    Click Here to Discover Empowering Reasons to Strengthen Your Belief Factors -->
+                    <a id="btnNewReasons" type="button" role="button" class="btn btn-success btn-sm" href="/reasons/new">
+                        <strong>New Reasons</strong>
+                    </a>
+                </li>
+            </ol>
+        </div>
     </div>
 @endsection

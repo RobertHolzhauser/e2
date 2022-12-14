@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <h2 class="list-all-header text-center">All Actions</h2>
-            <div {{-- class="mx-auto pt-5 pb-4" --}}>
+            <div>
                 <a id="btnNewAction" type="button" role="button" class="btn btn-success btn-sm" href="/actions/new">
                     New Action</a>
             </div>

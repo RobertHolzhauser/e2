@@ -50,11 +50,11 @@ class RankingsController extends Controller
      */
     public function new()
     {
-        $goals_query = $this->app->db()->run('SELECT id, name FROM goals');   # retrieve a list of goals for use in drop down list
+        $goals_query = $this->app->db()->run('SELECT id, name FROM goals ORDER BY id DESC');   # retrieve a list of goals for use in drop down list
         $goals = $goals_query->fetchAll();
         $g_cnt = count($goals);                                                 # find the count of goals
 
-        $actions_query = $this->app->db()->run('SELECT id, name FROM actions');   # retrieve a list of actions for use in drop down list
+        $actions_query = $this->app->db()->run('SELECT id, name FROM actions ORDER BY id DESC');   # retrieve a list of actions for use in drop down list
         $actions = $actions_query->fetchAll();
         $a_cnt = count($actions);
 

@@ -106,5 +106,8 @@
 
         </div>
         <hr>
+        <a id="btnNewReasons" type="button" role="button" class="btn btn-success btn-sm" href="/reasons/new">
+            <strong>Strengthen Your Belief Factors</strong>
+        </a>
     </div>
 @endsection

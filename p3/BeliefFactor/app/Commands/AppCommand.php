@@ -99,8 +99,9 @@ class AppCommand extends Command
             LEFT JOIN actions as A on G.Id = A.Goal_Id
             LEFT JOIN (SELECT R.goal_id, R.action_id,  R.id as rankings_id, ((R.possible + R.desirable + R.worth_it + R.appropriate_ecological + R.capable + R.responsible +
             R.ok + R.deserve + R.willing + R.ready + R.imagine + R.allow_self) /12) AS overall_ranking FROM rankings as R) AS rr ON G.Id = rr.Goal_id AND A.Id = rr.Action_Id
-            LEFT JOIN reasons as rs ON G.id = rs.goal_id AND A.id = rs.action_id AND rr.rankings_id = rs.ranking_id 
-            WHERE rs.id IS NOT NULL');
+            LEFT JOIN reasons as rs ON G.id = rs.goal_id  
+            WHERE rs.id IS NOT NULL 
+            ORDER BY rs.id DESC');
 
         # Create View - vgoal_action_rankings 
         $this->app->db()->run('CREATE OR REPLACE VIEW belief_factor.vgoal_action_rankings AS 
@@ -120,7 +121,8 @@ class AppCommand extends Command
             R.allow_self
             FROM goals as G 
             LEFT JOIN actions as A on G.Id = A.Goal_Id
-            LEFT JOIN rankings as R ON G.Id = R.Goal_id AND A.Id = R.Action_Id');
+            LEFT JOIN rankings as R ON G.Id = R.Goal_id 
+            ORDER BY R.id DESC');
 
         dump('Migration is complete. Check the database for your new tables.');
     }

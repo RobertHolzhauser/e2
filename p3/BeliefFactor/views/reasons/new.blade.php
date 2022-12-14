@@ -6,13 +6,13 @@
 
 @section('content')
     @if ($reasonsSaved)
-        <div test='action-added-confirmation' class='alert alert-success'>Thank you, your reasons were added! <a
+        <div test='reasons-added-confirmation' class='alert alert-success'>Thank you, your reasons were added! <a
                 href='/reasons?id={{ $reasons_id }}'>You
                 can view it here...</a></div>
     @endif
 
     @if ($app->errorsExist())
-        <div test='validation-errors-alert-actions' class='alert alert-danger'>Please correct the errors below.</div>
+        <div test='validation-errors-alert-reasons' class='alert alert-danger'>Please correct the errors below.</div>
     @endif
 
     <h2 class="list-all-header text-center">New Empowering Reasons</h2>

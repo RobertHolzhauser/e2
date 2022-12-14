@@ -53,11 +53,11 @@ class ReasonsController extends Controller
      */
     public function new()
     {
-        $goals_query = $this->app->db()->run('SELECT id, name FROM goals');   # retrieve a list of goals for use in drop down list
+        $goals_query = $this->app->db()->run('SELECT id, name FROM goals ORDER BY id DESC');   # retrieve a list of goals for use in drop down list
         $goals = $goals_query->fetchAll();
         $g_cnt = count($goals);                                                 # find the count of goals
 
-        $actions_query = $this->app->db()->run('SELECT id, name FROM actions');   # retrieve a list of actions for use in drop down list
+        $actions_query = $this->app->db()->run('SELECT id, name FROM actions ORDER BY id DESC');   # retrieve a list of actions for use in drop down list
         $actions = $actions_query->fetchAll();
         $a_cnt = count($actions);
 
@@ -80,6 +80,7 @@ class ReasonsController extends Controller
     {
         $this->app->validate([
             'goal' => 'required',
+            'rank-type' => 'required',
             "because" => 'required',
             "therefore" => 'required',
             "after_" => 'required',
@@ -92,14 +93,12 @@ class ReasonsController extends Controller
         ]);
 
         $reasons = $this->app->inputAll();
-        $now = getdate();
-
         $data = [
             "user_id" => 0,
             "goal_id" => $reasons['goal'],
             "action_id" => $reasons['action'],
             "ranking_id" => 0,
-            "rank_type" => $reasons["rank_type"],
+            "rank_type" => $reasons["rank-type"],
             "perspective" => $reasons["perspective"],
             "because" => $reasons["because"],
             "therefore" => $reasons["therefore"],

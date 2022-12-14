@@ -19,5 +19,8 @@
             </p>
         </div>
         <hr>
+        <a id="btnNewRankings" type="button" role="button" class="btn btn-success btn-sm" href="/rankings/new">
+            Rank Your Belief Factors
+        </a>
     </div>
 @endsection

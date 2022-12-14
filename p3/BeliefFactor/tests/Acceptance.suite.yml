@@ -10,5 +10,4 @@ modules:
         - Asserts
         - PhpBrowser:
             url: http://e2p3.robertholzhauser.me
-        - \Helper\Acceptance
 step_decorators: ~ 
