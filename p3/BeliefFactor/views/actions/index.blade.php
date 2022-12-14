@@ -17,7 +17,7 @@
         <div id="actions-index">
             <div class="row">
             </div>
-            <table class="table table-striped table-secondary">
+            <table class="table table-striped table-secondary" id="actions-table">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>

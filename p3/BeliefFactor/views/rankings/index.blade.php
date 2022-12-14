@@ -14,7 +14,7 @@
 
     </h2>
     <div id="ranking-index">
-        <table class="table table-striped table-secondary" style="margin-left: 8px;">
+        <table class="table table-striped table-secondary" id="rankings-table"  style="margin-left: 8px;">
             <thead>
                 <tr>
                     <th scope="col">Id</th>

@@ -13,7 +13,7 @@
     <h2 class="list-all-header text-center">All Reasons</h2>
     <div class="container">
         <div id="reason-index">
-            <table class="table table-striped table-secondary">
+            <table class="table table-striped table-secondary" id="reasons-table">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>

@@ -18,15 +18,27 @@ class GoalsPageCest
         # Assert the correct title is set on the page
         $I->seeInTitle('All Goals');
 
-        # Assert the existence of certain text on the page
+        # Assert the existence of All Goals  on the page
         $I->see('All Goals');
 
-        # Assert the existence of a certain element on the page
+        # Assert the existence of the new Goal button on the page
         $I->seeElement('#btnNewGoal');
 
-        # Assert the existence of text within a specific element on the page
+        # Assert new Goal button has the text "New Goal"
         $I->see('New Goal', '#btnNewGoal');
 
-        
+        # Check the existence of the goal table
+        $I->seeElement('#goal-table');
+    }
+
+    public function clickNewGoalButton(AcceptanceTester $I)
+    {
+        # Act
+        $I->amOnPage('/goals');
+        $I->click('#btnNewGoal');
+
+        # Assert
+        $I->amOnPage('/goals/new');
+        $I->see('New Goal');
     }
 }

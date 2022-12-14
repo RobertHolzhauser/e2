@@ -19,7 +19,7 @@
         <div style="padding-left:10px;">
             <div class="container-fluid">
                 <div id="goal-index">
-                    <table class="table table-striped table-secondary">
+                    <table class="table table-striped table-secondary" id="goal-table">
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>

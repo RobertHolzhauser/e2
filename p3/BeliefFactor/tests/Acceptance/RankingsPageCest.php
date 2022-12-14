@@ -18,13 +18,27 @@ class RankingsPageCest
         # Assert the correct title is set on the page
         $I->seeInTitle('All Rankings');
 
-        # Assert the existence of certain text on the page
+        # Assert the existence of "All Rankings" on the page
         $I->see('All Rankings');
 
-        # Assert the existence of a certain element on the page
+        # Assert the existence of the New Rankings button
         $I->seeElement('#btnNewRankings');
 
-        # Assert the existence of text within a specific element on the page
+        # Assert the existence of text "New Rankings" within the New Rankings button
         $I->see('New Rankings', '#btnNewRankings');
+
+        # check the existence of the Rankings Table on the page
+        $I->seeElement('#rankings-table');
+    }
+
+    public function clickNewRankingsButton(AcceptanceTester $I)
+    {
+        # Act
+        $I->amOnPage('/rankings');
+        $I->click('#btnNewRankings');
+
+        # Assert
+        $I->amOnPage('/rankings/new');
+        $I->see('New Rankings');
     }
 }
