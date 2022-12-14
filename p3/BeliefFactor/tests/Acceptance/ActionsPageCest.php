@@ -5,29 +5,26 @@ namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class AboutPageCest
+class ActionsPageCest
 {
     /**
-     * Test that we can load the home / about page and see the expected content
+     * Test that we can load the actions page and see the expected content
      */
     public function pageLoads(AcceptanceTester $I)
     {
         # Act
-        $I->amOnPage('/about');
+        $I->amOnPage('/actions');
 
         # Assert the correct title is set on the page
-        $I->seeInTitle('Belief Factor');
+        $I->seeInTitle('All Actions');
 
         # Assert the existence of certain text on the page
-        $I->see('Welcome to Belief Factor!');
+        $I->see('All Actions');
 
         # Assert the existence of a certain element on the page
-        $I->seeElement('#btnNewGoal');
+        $I->seeElement('#btnNewAction');
 
         # Assert the existence of text within a specific element on the page
-        $I->see('The Process', 'h3');
-
-        # Assert the existence of text within a specific element on the page
-        $I->see('Get Started Now', '#btnNewGoal');
+        $I->see('New Action', '#btnNewAction');
     }
 }
