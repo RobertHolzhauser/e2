@@ -49,9 +49,10 @@
                 <div class="row g-3">
                     <div class="col">
                         <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
+                            <label for="status" class="form-label">Status (25 characters or less)</label>
                             <textarea class="form-control" id="status" name="status" rows="1" value='{{ $app->old('status') }}'
                                 placeholder="What's the status of this action?"></textarea>
+
                         </div>
                     </div>
                 </div>
