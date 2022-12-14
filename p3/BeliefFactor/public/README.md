@@ -33,7 +33,7 @@
     In the routes I use the singular for an individual rankings or reasons.  In most other places I use the plural form "rankings" or "reasons" to refer to 
     individual rankings or reasons objects.
 + I left the unfinished work on users, and the columns and icons for edit and delete in place, even though I ran out of time to finish setting these up.
-+ The navigation through the app is clumsier than I would like, but also ran out of time for furhter polishing this.  
++ The navigation through the app is clumsier than I would like, but also ran out of time for further polishing this.  
 + The majority of stylings are out of the box Bootstrap 5, with a few minor exceptions.
 + I initially had goals-actions-rankings-reasons tightly coupled, but decided to let them be somewhat uncoupled for greater flexibility for the user.
 
