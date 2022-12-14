@@ -1,9 +1,9 @@
 <?php
 
-
 namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
+use Faker\Factory;
 
 class NewGoalsPageCest
 {
@@ -38,5 +38,40 @@ class NewGoalsPageCest
 
         # Assert that the purpose input textarea exists on the form
         $I->seeElement('#purpose');
+    }
+
+    # test adding a new goal
+    public function addNewGoal(AcceptanceTester $I)
+    {
+        # get an instance the Faker library to generate dummy test data
+        $faker = Factory::create();
+        $goalName = $faker->words(7, true);
+        $goalDescription = $faker->words(50, true);
+        $goalPurpose = $faker->words(25, true);
+
+        # Act
+        $I->amOnPage('/goals/new');
+        $I->fillField('[test=goal-name-input]', $goalName);
+        $I->fillField('[test=goal-description-input]', $goalDescription);
+        $I->fillField('#purpose', $goalPurpose);
+        $I->click('#btnSaveGoal');
+        $I->seeElement('[test=goal-added-confirmation]');  # indicates successful validation
+
+        $I->comment('Successful Validation');
+
+        #Assert
+        $I->amOnPage('/goals');
+        $I->see($goalName);          # this also tests history and database operations.
+    }
+
+    # test adding a new goal with failed validation
+    public function goalValidationFail(AcceptanceTester $I)
+    {
+        # Act
+        $I->amOnPage('/goals/new');
+        $I->click('#btnSaveGoal');
+
+        #Assert
+        $I->seeElement('[test=validation-errors-alert-goals]');
     }
 }

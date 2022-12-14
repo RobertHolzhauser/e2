@@ -46,4 +46,15 @@ class NewRankingsPageCest
         $I->see("I Can Vividly Imagine it");
         $I->see("I Allow Myself To");
     }
+
+    # test adding a new rankings with failed validation
+    public function rankingsValidationFail(AcceptanceTester $I)
+    {
+        # Act
+        $I->amOnPage('/rankings/new');
+        $I->click('#btnSaveRankings');
+
+        #Assert
+        $I->seeElement('[test=validation-errors-alert-rankings]');
+    }
 }

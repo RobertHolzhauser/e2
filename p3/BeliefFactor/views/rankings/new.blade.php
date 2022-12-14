@@ -12,7 +12,7 @@
     @endif
 
     @if ($app->errorsExist())
-        <div test='validation-errors-alert-actions' class='alert alert-danger'>Please correct the errors below.</div>
+        <div test='validation-errors-alert-rankings' class='alert alert-danger'>Please correct the errors below.</div>
     @endif
 
     <h2 class="list-all-header text-center">New Rankings</h2>

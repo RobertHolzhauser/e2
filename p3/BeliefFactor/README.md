@@ -42,7 +42,7 @@
 root@hes-lemp:/var/www/e2/p3/BeliefFactor# php vendor/bin/codecept run Acceptance --steps
 Codeception PHP Testing Framework v5.0.5 https://helpukrainewin.org
 
-Tests.Acceptance Tests (9) ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tests.Acceptance Tests (19) -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AboutPageCest: Page loads
 Signature: Tests\Acceptance\AboutPageCest:pageLoads
 Test: tests/Acceptance/AboutPageCest.php:pageLoads
@@ -64,6 +64,17 @@ Scenario --
  I see "All Actions"
  I see element "#btnNewAction"
  I see "New Action","#btnNewAction"
+ I see element "#actions-table"
+ PASSED 
+
+ActionsPageCest: Click new action button
+Signature: Tests\Acceptance\ActionsPageCest:clickNewActionButton
+Test: tests/Acceptance/ActionsPageCest.php:clickNewActionButton
+Scenario --
+ I am on page "/actions"
+ I click "#btnNewAction"
+ I am on page "/actions/new"
+ I see "New Action"
  PASSED 
 
 GoalsPageCest: Page loads
@@ -75,6 +86,17 @@ Scenario --
  I see "All Goals"
  I see element "#btnNewGoal"
  I see "New Goal","#btnNewGoal"
+ I see element "#goal-table"
+ PASSED 
+
+GoalsPageCest: Click new goal button
+Signature: Tests\Acceptance\GoalsPageCest:clickNewGoalButton
+Test: tests/Acceptance/GoalsPageCest.php:clickNewGoalButton
+Scenario --
+ I am on page "/goals"
+ I click "#btnNewGoal"
+ I am on page "/goals/new"
+ I see "New Goal"
  PASSED 
 
 NewActionsPageCest: Page loads
@@ -92,6 +114,30 @@ Scenario --
  I see element "#status"
  PASSED 
 
+NewActionsPageCest: Add new action
+Signature: Tests\Acceptance\NewActionsPageCest:addNewAction
+Test: tests/Acceptance/NewActionsPageCest.php:addNewAction
+Scenario --
+ I am on page "/actions/new"
+ I fill field "[test=action-name-input]","aperiam aut rem necessitatibus qui perspiciatis voluptas"
+ I fill field "[test=action-description-input]","ipsa vero rerum cum qui quo voluptatem quisquam asperiores in aliquid in atque rem consectetur"
+ I fill field "#status","blanditiis"
+ I click "#btnSaveaction"
+ I see element "[test=action-added-confirmation]"
+ Successful Validation
+ I am on page "/actions"
+ I see "aperiam aut rem necessitatibus qui perspiciatis voluptas"
+ PASSED 
+
+NewActionsPageCest: Action validation fail
+Signature: Tests\Acceptance\NewActionsPageCest:actionValidationFail
+Test: tests/Acceptance/NewActionsPageCest.php:actionValidationFail
+Scenario --
+ I am on page "/actions/new"
+ I click "#btnSaveaction"
+ I see element "[test=validation-errors-alert-actions]"
+ PASSED 
+
 NewGoalsPageCest: Page loads
 Signature: Tests\Acceptance\NewGoalsPageCest:pageLoads
 Test: tests/Acceptance/NewGoalsPageCest.php:pageLoads
@@ -105,6 +151,30 @@ Scenario --
  I see element "[test=goal-name-input]"
  I see element "[test=goal-description-input]"
  I see element "#purpose"
+ PASSED 
+
+NewGoalsPageCest: Add new goal
+Signature: Tests\Acceptance\NewGoalsPageCest:addNewGoal
+Test: tests/Acceptance/NewGoalsPageCest.php:addNewGoal
+Scenario --
+ I am on page "/goals/new"
+ I fill field "[test=goal-name-input]","neque eos occaecati excepturi voluptate iure nostrum"
+ I fill field "[test=goal-description-input]","sit id et soluta quasi minus neque ea cupiditate mollitia et id omnis iste quia asperiores aspernatur ab harum magnam doloribus adipisci qui eaque labore ea..."
+ I fill field "#purpose","ea aliquam est cumque fugiat aut voluptatibus facere quasi in excepturi ipsum incidunt fugiat magni enim qui voluptatem tenetur expedita eaque tenetur suscipit eum aut"
+ I click "#btnSaveGoal"
+ I see element "[test=goal-added-confirmation]"
+ Successful Validation
+ I am on page "/goals"
+ I see "neque eos occaecati excepturi voluptate iure nostrum"
+ PASSED 
+
+NewGoalsPageCest: Goal validation fail
+Signature: Tests\Acceptance\NewGoalsPageCest:goalValidationFail
+Test: tests/Acceptance/NewGoalsPageCest.php:goalValidationFail
+Scenario --
+ I am on page "/goals/new"
+ I click "#btnSaveGoal"
+ I see element "[test=validation-errors-alert-goals]"
  PASSED 
 
 NewRankingsPageCest: Page loads
@@ -132,6 +202,15 @@ Scenario --
  I see "I Allow Myself To"
  PASSED 
 
+NewRankingsPageCest: Rankings validation fail
+Signature: Tests\Acceptance\NewRankingsPageCest:rankingsValidationFail
+Test: tests/Acceptance/NewRankingsPageCest.php:rankingsValidationFail
+Scenario --
+ I am on page "/rankings/new"
+ I click "#btnSaveRankings"
+ I see element "[test=validation-errors-alert-rankings]"
+ PASSED 
+
 NewReasonsPageCest: Page loads
 Signature: Tests\Acceptance\NewReasonsPageCest:pageLoads
 Test: tests/Acceptance/NewReasonsPageCest.php:pageLoads
@@ -157,6 +236,15 @@ Scenario --
  I see "In The Same Way That"
  PASSED 
 
+NewReasonsPageCest: Reasons validation fail
+Signature: Tests\Acceptance\NewReasonsPageCest:reasonsValidationFail
+Test: tests/Acceptance/NewReasonsPageCest.php:reasonsValidationFail
+Scenario --
+ I am on page "/reasons/new"
+ I click "#btnSaveReasons"
+ I see element "[test=validation-errors-alert-reasons]"
+ PASSED 
+
 RankingsPageCest: Page loads
 Signature: Tests\Acceptance\RankingsPageCest:pageLoads
 Test: tests/Acceptance/RankingsPageCest.php:pageLoads
@@ -166,6 +254,17 @@ Scenario --
  I see "All Rankings"
  I see element "#btnNewRankings"
  I see "New Rankings","#btnNewRankings"
+ I see element "#rankings-table"
+ PASSED 
+
+RankingsPageCest: Click new rankings button
+Signature: Tests\Acceptance\RankingsPageCest:clickNewRankingsButton
+Test: tests/Acceptance/RankingsPageCest.php:clickNewRankingsButton
+Scenario --
+ I am on page "/rankings"
+ I click "#btnNewRankings"
+ I am on page "/rankings/new"
+ I see "New Rankings"
  PASSED 
 
 ReasonsPageCest: Page loads
@@ -177,10 +276,22 @@ Scenario --
  I see "All Reasons"
  I see element "#btnNewReasons"
  I see "New Reasons","#btnNewReasons"
+ I see element "#reasons-table"
+ PASSED 
+
+ReasonsPageCest: Click new reasons button
+Signature: Tests\Acceptance\ReasonsPageCest:clickNewReasonsButton
+Test: tests/Acceptance/ReasonsPageCest.php:clickNewReasonsButton
+Scenario --
+ I am on page "/reasons"
+ I click "#btnNewReasons"
+ I am on page "/reasons/new"
+ I see "New Empowering Reasons"
  PASSED 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Time: 00:02.383, Memory: 40.42 MB
+Time: 00:02.671, Memory: 26.62 MB
 
-OK (9 tests, 73 assertions)
+OK (19 tests, 89 assertions)
+root@hes-lemp:/var/www/e2/p3/BeliefFactor# 
 ```

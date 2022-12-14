@@ -4,6 +4,7 @@
 namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
+use Faker\Factory;
 
 class NewActionsPageCest
 {
@@ -38,5 +39,40 @@ class NewActionsPageCest
 
         # Assert that the purpose input textarea exists on the form
         $I->seeElement('#status');
+    }
+
+    # test adding a new action
+    public function addNewAction(AcceptanceTester $I)
+    {
+        # get an instance the Faker library to generate dummy test data
+        $faker = Factory::create();
+        $actionName = $faker->words(7, true);
+        $ActionDescription = $faker->words(15, true);
+        $status = $faker->words(1, true);
+
+        # Act
+        $I->amOnPage('/actions/new');
+        $I->fillField('[test=action-name-input]', $actionName);
+        $I->fillField('[test=action-description-input]', $ActionDescription);
+        $I->fillField('#status', $status);
+        $I->click('#btnSaveaction');
+        $I->seeElement('[test=action-added-confirmation]');  # indicates successful validation
+
+        $I->comment('Successful Validation');
+
+        #Assert
+        $I->amOnPage('/actions');
+        $I->see($actionName);         # this also tests history and database operations.
+    }
+
+    # test adding a new action with failed validation
+    public function actionValidationFail(AcceptanceTester $I)
+    {
+        # Act
+        $I->amOnPage('/actions/new');
+        $I->click('#btnSaveaction');
+
+        #Assert
+        $I->seeElement('[test=validation-errors-alert-actions]');
     }
 }

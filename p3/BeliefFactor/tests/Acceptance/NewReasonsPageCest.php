@@ -49,4 +49,15 @@ class NewReasonsPageCest
         $I->see("Although");
         $I->see("In The Same Way That");
     }
+
+    # test adding a new reasons with failed validation
+    public function reasonsValidationFail(AcceptanceTester $I)
+    {
+        # Act
+        $I->amOnPage('/reasons/new');
+        $I->click('#btnSaveReasons');
+
+        #Assert
+        $I->seeElement('[test=validation-errors-alert-reasons]');
+    }
 }
