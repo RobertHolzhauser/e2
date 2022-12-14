@@ -19,7 +19,7 @@
     <form id="new-rankings-form" method='POST' action='/rankings/save'>
         <div class="row" id="rankingsButtonsRow">
             <div class="mx-auto pt-5 pb-4">
-                <button id="btnSaveaction" type="submit" role="button" class="btn btn-success btn-sm side-button">
+                <button id="btnSaveRankings" type="submit" role="button" class="btn btn-success btn-sm side-button">
                     <strong>Save Rankings</strong>
                 </button>
             </div>

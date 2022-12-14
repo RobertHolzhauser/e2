@@ -39,4 +39,148 @@
 
 ## Codeception testing output
 ```
+root@hes-lemp:/var/www/e2/p3/BeliefFactor# php vendor/bin/codecept run Acceptance --steps
+Codeception PHP Testing Framework v5.0.5 https://helpukrainewin.org
+
+Tests.Acceptance Tests (9) ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AboutPageCest: Page loads
+Signature: Tests\Acceptance\AboutPageCest:pageLoads
+Test: tests/Acceptance/AboutPageCest.php:pageLoads
+Scenario --
+ I am on page "/about"
+ I see in title "Belief Factor"
+ I see "Welcome to Belief Factor!"
+ I see element "#btnNewGoal"
+ I see "The Process","h3"
+ I see "Get Started Now","#btnNewGoal"
+ PASSED 
+
+ActionsPageCest: Page loads
+Signature: Tests\Acceptance\ActionsPageCest:pageLoads
+Test: tests/Acceptance/ActionsPageCest.php:pageLoads
+Scenario --
+ I am on page "/actions"
+ I see in title "All Actions"
+ I see "All Actions"
+ I see element "#btnNewAction"
+ I see "New Action","#btnNewAction"
+ PASSED 
+
+GoalsPageCest: Page loads
+Signature: Tests\Acceptance\GoalsPageCest:pageLoads
+Test: tests/Acceptance/GoalsPageCest.php:pageLoads
+Scenario --
+ I am on page "/goals"
+ I see in title "All Goals"
+ I see "All Goals"
+ I see element "#btnNewGoal"
+ I see "New Goal","#btnNewGoal"
+ PASSED 
+
+NewActionsPageCest: Page loads
+Signature: Tests\Acceptance\NewActionsPageCest:pageLoads
+Test: tests/Acceptance/NewActionsPageCest.php:pageLoads
+Scenario --
+ I am on page "/actions/new"
+ I see in title "New Action"
+ I see "New Action"
+ I see element "#btnSaveaction"
+ I see "Save Action","#btnSaveaction"
+ I see "Action","[test=action-name-label]"
+ I see element "[test=action-name-input]"
+ I see element "[test=action-description-input]"
+ I see element "#status"
+ PASSED 
+
+NewGoalsPageCest: Page loads
+Signature: Tests\Acceptance\NewGoalsPageCest:pageLoads
+Test: tests/Acceptance/NewGoalsPageCest.php:pageLoads
+Scenario --
+ I am on page "/goals/new"
+ I see in title "New Goal"
+ I see "New Goal"
+ I see element "#btnSaveGoal"
+ I see "Save Goal","#btnSaveGoal"
+ I see "Goal","[test=goal-name-label]"
+ I see element "[test=goal-name-input]"
+ I see element "[test=goal-description-input]"
+ I see element "#purpose"
+ PASSED 
+
+NewRankingsPageCest: Page loads
+Signature: Tests\Acceptance\NewRankingsPageCest:pageLoads
+Test: tests/Acceptance/NewRankingsPageCest.php:pageLoads
+Scenario --
+ I am on page "/rankings/new"
+ I see in title "New Rankings"
+ I see "New Rankings"
+ I see element "#btnSaveRankings"
+ I see "Save Rankings","#btnSaveRankings"
+ I see element "#goal"
+ I see element "#action"
+ I see "It's Possible"
+ I see "It's Desirable"
+ I see "It's Worth It"
+ I see "It's Appropriate and Ecological"
+ I see "I'm Capable of it"
+ I see "I'm Responsible For it"
+ I see "It's OK"
+ I see "I Deserve it"
+ I see "I'm Willing"
+ I see "I'm Ready"
+ I see "I Can Vividly Imagine it"
+ I see "I Allow Myself To"
+ PASSED 
+
+NewReasonsPageCest: Page loads
+Signature: Tests\Acceptance\NewReasonsPageCest:pageLoads
+Test: tests/Acceptance/NewReasonsPageCest.php:pageLoads
+Scenario --
+ I am on page "/reasons/new"
+ I see in title "New Reasons"
+ I see "New Empowering Reasons"
+ I see element "#btnSaveReasons"
+ I see "Save Reasons","#btnSaveReasons"
+ I see element "#goal"
+ I see element "#action"
+ I see element "#rank-type"
+ I see "Belief Factor"
+ I see "Perspective"
+ I see "Because"
+ I see "Therefore"
+ I see "After"
+ I see "While"
+ I see "Whenever"
+ I see "So That"
+ I see "If"
+ I see "Although"
+ I see "In The Same Way That"
+ PASSED 
+
+RankingsPageCest: Page loads
+Signature: Tests\Acceptance\RankingsPageCest:pageLoads
+Test: tests/Acceptance/RankingsPageCest.php:pageLoads
+Scenario --
+ I am on page "/rankings"
+ I see in title "All Rankings"
+ I see "All Rankings"
+ I see element "#btnNewRankings"
+ I see "New Rankings","#btnNewRankings"
+ PASSED 
+
+ReasonsPageCest: Page loads
+Signature: Tests\Acceptance\ReasonsPageCest:pageLoads
+Test: tests/Acceptance/ReasonsPageCest.php:pageLoads
+Scenario --
+ I am on page "/reasons"
+ I see in title "All Reasons"
+ I see "All Reasons"
+ I see element "#btnNewReasons"
+ I see "New Reasons","#btnNewReasons"
+ PASSED 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Time: 00:02.383, Memory: 40.42 MB
+
+OK (9 tests, 73 assertions)
 ```
